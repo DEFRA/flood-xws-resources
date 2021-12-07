@@ -1,0 +1,651 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: XWS
+
+Parameters:
+  env:
+    Default: dev
+    Description: The environment
+    Type: String
+    MinLength: 1
+    MaxLength: 16
+
+Resources:
+
+  # Security Roles & Users
+  Agent:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Sub ${AWS::StackName}-agent-user
+
+  AgentKeys:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !Ref Agent
+
+  FilesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      VersioningConfiguration:
+        Status: Enabled
+      WebsiteConfiguration:
+        IndexDocument: alerts.xml
+        ErrorDocument: error.html
+      BucketName: !Sub ${AWS::StackName}-files
+
+  AlertPublishedTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub ${AWS::StackName}-alert-published
+      DisplayName: Alert published
+
+  AlertsDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${AWS::StackName}-alerts
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      StreamSpecification:
+        StreamViewType: NEW_IMAGE
+
+  ProcessAlert:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-process-alert
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt ProcessAlertLambdaExecutionRole.Arn
+      Timeout: 20
+      Environment:
+        Variables:
+          S3_BUCKET_NAME: !Ref FilesBucket
+          DYNAMODB_TABLE_NAME: !Ref AlertsDB
+          ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
+    DependsOn:
+      - FilesBucket
+      - AlertsDB
+      - ProcessAlertLambdaExecutionRole
+
+  ProcessAlertLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - sns:*
+                Resource: !Ref AlertPublishedTopic
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt AlertsDB.Arn
+                Effect: Allow
+              - Action:
+                  - s3:*
+                Resource: !GetAtt FilesBucket.Arn
+                Effect: Allow
+              - Action:
+                  - s3:*
+                Resource: !Join ['', [!GetAtt FilesBucket.Arn, '/*']]
+                Effect: Allow
+              - Action:
+                  - dynamodb:DescribeStream
+                  - dynamodb:GetRecords
+                  - dynamodb:GetShardIterator
+                  - dynamodb:ListStreams
+                Resource: !GetAtt AlertsDB.StreamArn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+  AlertsDBTrigger:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 1
+      Enabled: True
+      EventSourceArn: !GetAtt AlertsDB.StreamArn
+      FunctionName: !GetAtt ProcessAlert.Arn
+      StartingPosition: LATEST
+
+  Subscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: david.stone@defra.net
+      Protocol: email
+      TopicArn: !Ref AlertPublishedTopic
+  
+Outputs:
+  AccessKey:
+    Value: !Ref AgentKeys
+    Description: AWS Access Key Id of new user
+  SecretKey:
+    Value: !GetAtt AgentKeys.SecretAccessKey
+    Description: AWS Secret Access Key of new user
+
+  # Create the 'messages' SQS DL queue
+  # MessagesDLQueue:
+  #   Type: AWS::SQS::Queue
+  #   Properties:
+  #     QueueName: !Sub ${AWS::StackName}-messages-dlq
+
+  # # Create the 'message' SQS queue
+  # MessagesQueue:
+  #   Type: AWS::SQS::Queue
+  #   Properties:
+  #     QueueName: !Sub ${AWS::StackName}-messages
+  #     RedrivePolicy:
+  #       deadLetterTargetArn: !GetAtt MessagesDLQueue.Arn
+  #       maxReceiveCount: 1
+
+  # MessagesQueueURL: 
+  #   Description: URL of messages queue
+  #   Value: 
+  #     Ref: MessagesQueue
+  # MessagesQueueARN: 
+  #   Description: ARN of messages queue
+  #   Value: !GetAtt MessagesQueue.Arn
+  # MessagesDLQueueURL: 
+  #   Description: URL of messages dead-letter queue
+  #   Value: !Ref MessagesDLQueue
+  # MessagesDLQueueARN: 
+  #   Description: ARN of messages dead-letter queue
+  #   Value: !GetAtt MessagesDLQueue.Arn
+
+  # ContactMessageEnqueuerRole:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     Description: Lambda Enqueuer Role
+  #     AssumeRolePolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #       - Effect: Allow
+  #         Principal:
+  #           Service:
+  #           - lambda.amazonaws.com
+  #         Action:
+  #         - sts:AssumeRole
+  #     Path: "/"
+  #     Policies:
+  #     - PolicyName: AllowLogs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - logs:*
+  #           Resource: arn:aws:logs:*:*:*
+
+  # ContactMessageEmailSenderRole:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     Description: Contact Message Email Sender Role
+  #     AssumeRolePolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #       - Effect: Allow
+  #         Principal:
+  #           Service:
+  #           - lambda.amazonaws.com
+  #         Action:
+  #         - sts:AssumeRole
+  #     Path: "/"
+  #     Policies:
+  #     - PolicyName: AllowLogs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - logs:*
+  #           Resource: arn:aws:logs:*:*:*
+  #     - PolicyName: AllowSqs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - sqs:ReceiveMessage
+  #           - sqs:DeleteMessage
+  #           - sqs:GetQueueAttributes
+  #           - sqs:ChangeMessageVisibility
+  #           Resource: !GetAtt ContactMessageEmailQueue.Arn
+
+  # ContactMessageSMSSenderRole:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     Description: Contact Message SMS Sender Role
+  #     AssumeRolePolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #       - Effect: Allow
+  #         Principal:
+  #           Service:
+  #           - lambda.amazonaws.com
+  #         Action:
+  #         - sts:AssumeRole
+  #     Path: "/"
+  #     Policies:
+  #     - PolicyName: AllowLogs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - logs:*
+  #           Resource: arn:aws:logs:*:*:*
+  #     - PolicyName: AllowSqs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - sqs:ReceiveMessage
+  #           - sqs:DeleteMessage
+  #           - sqs:GetQueueAttributes
+  #           - sqs:ChangeMessageVisibility
+  #           Resource: !GetAtt ContactMessageSMSQueue.Arn
+
+  # ContactMessageVoiceSenderRole:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     Description: Contact Message Voice Sender Role
+  #     AssumeRolePolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #       - Effect: Allow
+  #         Principal:
+  #           Service:
+  #           - lambda.amazonaws.com
+  #         Action:
+  #         - sts:AssumeRole
+  #     Path: "/"
+  #     Policies:
+  #     - PolicyName: AllowLogs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - logs:*
+  #           Resource: arn:aws:logs:*:*:*
+  #     - PolicyName: AllowSqs
+  #       PolicyDocument:
+  #         Version: '2012-10-17'
+  #         Statement:
+  #         - Effect: Allow
+  #           Action:
+  #           - sqs:ReceiveMessage
+  #           - sqs:DeleteMessage
+  #           - sqs:GetQueueAttributes
+  #           - sqs:ChangeMessageVisibility
+  #           Resource: !GetAtt ContactMessageVoiceQueue.Arn
+
+  # # Notifications
+  # MessageApprovedTopic:
+  #   Type: AWS::SNS::Topic
+  #   Properties: 
+  #     DisplayName: Message approved topic
+  #     TopicName: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - message
+  #         - approved
+
+  # Subscription:
+  #   Type: AWS::SNS::Subscription
+  #   Properties:
+  #     Endpoint: david.stone@defra.net
+  #     Protocol: email
+  #     TopicArn: !Ref 'MessageApprovedTopic'
+  
+  # # Functions
+  # ContactMessageEnqueuer:
+  #   Type: AWS::Lambda::Function
+  #   Properties: 
+  #     Handler: index.handler
+  #     Code: 
+  #       ZipFile: |
+  #           exports.handler = function (event, context) {
+  #             console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+  #             return 'ok'
+  #           }
+  #     # DeadLetterConfig: 
+  #     #   DeadLetterConfig
+  #     Description: Contact Message Enqueuer
+  #     # Environment: 
+  #     #   Environment
+  #     FunctionName: ContactMessageEnqueuer
+  #     Role: !GetAtt ["ContactMessageEnqueuerRole", "Arn"]
+  #     #  !Ref 'ContactMessageEnqueuerRole'
+  #     Runtime: nodejs12.x
+  #     Timeout: 10
+
+  # ContactMessageEmailSender:
+  #   Type: AWS::Lambda::Function
+  #   Properties: 
+  #     Handler: index.handler
+  #     Code: 
+  #       ZipFile: |
+  #           exports.handler = function (event, context) {
+  #             console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+  #             return 'ok'
+  #           }
+  #     # DeadLetterConfig: 
+  #     #   DeadLetterConfig
+  #     Description: Contact Message Email Sender
+  #     # Environment: 
+  #     #   Environment
+  #     FunctionName: ContactMessageEmailSender
+  #     Role: !GetAtt ["ContactMessageEmailSenderRole", "Arn"]
+  #     Runtime: nodejs12.x
+  #     Timeout: 10
+
+  # ContactMessageSMSSender:
+  #   Type: AWS::Lambda::Function
+  #   Properties: 
+  #     Handler: index.handler
+  #     Code: 
+  #       ZipFile: |
+  #           exports.handler = function (event, context) {
+  #             console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+  #             return 'ok'
+  #           }
+  #     # DeadLetterConfig: 
+  #     #   DeadLetterConfig
+  #     Description: Contact Message SMS Sender
+  #     # Environment: 
+  #     #   Environment
+  #     FunctionName: ContactMessageSMSSender
+  #     Role: !GetAtt ["ContactMessageSMSSenderRole", "Arn"]
+  #     Runtime: nodejs12.x
+  #     Timeout: 10
+
+  # ContactMessageVoiceSender:
+  #   Type: AWS::Lambda::Function
+  #   Properties: 
+  #     Handler: index.handler
+  #     Code: 
+  #       ZipFile: |
+  #           exports.handler = function (event, context) {
+  #             console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+  #             return 'ok'
+  #           }
+  #     # DeadLetterConfig: 
+  #     #   DeadLetterConfig
+  #     Description: Contact Message Voice Sender
+  #     # Environment: 
+  #     #   Environment
+  #     FunctionName: ContactMessageVoiceSender
+  #     Role: !GetAtt ["ContactMessageVoiceSenderRole", "Arn"]
+  #     Runtime: nodejs12.x
+  #     Timeout: 10
+
+  # # Queues
+  # ContactMessageEmailQueue:
+  #   Type: AWS::SQS::Queue
+  #   Properties: 
+  #     QueueName: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - email
+  #         - queue
+
+  # ContactMessageSMSQueue:
+  #   Type: AWS::SQS::Queue
+  #   Properties: 
+  #     QueueName: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - sms
+  #         - queue
+
+  # ContactMessageVoiceQueue:
+  #   Type: AWS::SQS::Queue
+  #   Properties: 
+  #     QueueName: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - voice
+  #         - queue
+
+  # # Rules
+  # ApprovedRule:
+  #   Type: AWS::Events::Rule
+  #   Properties: 
+  #     Description: Message approved rule
+  #     EventBusName: !GetAtt ["EventBus", "Name"]
+  #     EventPattern:
+  #       detail-type:
+  #         - xws-message-approved
+  #       account:
+  #         - !Ref AWS::AccountId
+  #     Name: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - message
+  #         - approved
+  #         - rule
+  #     Targets:
+  #       - Arn: !Ref 'MessageApprovedTopic'
+  #         Id: !Join 
+  #           - '-'
+  #           - - !Ref AWS::StackName
+  #             - message
+  #             - approved
+  #             - rule
+  #             - to
+  #             - sns
+  #             - topic
+  #       - Arn: !GetAtt ["ContactMessageEnqueuer", "Arn"]
+  #         Id: !Join 
+  #           - '-'
+  #           - - !Ref AWS::StackName
+  #             - message
+  #             - approved
+  #             - rule
+  #             - to
+  #             - lambda
+  #             - contact
+  #             - message
+  #             - enqueuer
+
+  # ContactMessageEmailRule:
+  #   Type: AWS::Events::Rule
+  #   Properties: 
+  #     Description: Contact message Email rule
+  #     EventBusName: !GetAtt ["EventBus", "Name"]
+  #     EventPattern:
+  #       detail-type:
+  #         - xws-contact-message
+  #       account:
+  #         - !Ref AWS::AccountId
+  #       detail:
+  #         contact:
+  #           kind:
+  #             - email
+
+  #     Name: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - email
+  #         - rule
+  #     Targets:
+  #       - Arn: !GetAtt ["ContactMessageEmailQueue", "Arn"]
+  #         Id: !Join 
+  #           - '-'
+  #           - - !Ref AWS::StackName
+  #             - contact
+  #             - message
+  #             - rule
+  #             - to
+  #             - sqs
+
+  # ContactMessageSMSRule:
+  #   Type: AWS::Events::Rule
+  #   Properties: 
+  #     Description: Contact message SMS rule
+  #     EventBusName: !GetAtt ["EventBus", "Name"]
+  #     EventPattern:
+  #       detail-type:
+  #         - xws-contact-message
+  #       account:
+  #         - !Ref AWS::AccountId
+  #       detail:
+  #         contact:
+  #           kind:
+  #             - mobile
+  #     Name: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - sms
+  #         - rule
+  #     Targets:
+  #       - Arn: !GetAtt ["ContactMessageSMSQueue", "Arn"]
+  #         Id: !Join 
+  #           - '-'
+  #           - - !Ref AWS::StackName
+  #             - contact
+  #             - message
+  #             - rule
+  #             - to
+  #             - sqs
+  
+  # ContactMessageVoiceRule:
+  #   Type: AWS::Events::Rule
+  #   Properties: 
+  #     Description: Contact message Voice rule
+  #     EventBusName: !GetAtt ["EventBus", "Name"]
+  #     EventPattern:
+  #       detail-type:
+  #         - xws-contact-message
+  #       account:
+  #         - !Ref AWS::AccountId
+  #       detail:
+  #         contact:
+  #           kind:
+  #             - landline
+  #     Name: !Join 
+  #       - '-'
+  #       - - !Ref AWS::StackName
+  #         - contact
+  #         - message
+  #         - voice
+  #         - rule
+  #     Targets:
+  #       - Arn: !GetAtt ["ContactMessageVoiceQueue", "Arn"]
+  #         Id: !Join 
+  #           - '-'
+  #           - - !Ref AWS::StackName
+  #             - contact
+  #             - message
+  #             - rule
+  #             - to
+  #             - sqs
+
+  # # Function Event Source Mappings
+  # ContactMessageEmailSenderEventSourceMapping:
+  #   Type: AWS::Lambda::EventSourceMapping
+  #   Properties:
+  #     BatchSize: 1
+  #     Enabled: true
+  #     EventSourceArn: !GetAtt ContactMessageEmailQueue.Arn
+  #     FunctionName: !GetAtt ContactMessageEmailSender.Arn
+
+  # ContactMessageSMSSenderEventSourceMapping:
+  #   Type: AWS::Lambda::EventSourceMapping
+  #   Properties:
+  #     BatchSize: 1
+  #     Enabled: true
+  #     EventSourceArn: !GetAtt ContactMessageSMSQueue.Arn
+  #     FunctionName: !GetAtt ContactMessageSMSSender.Arn
+
+  # ContactMessageVoiceSenderEventSourceMapping:
+  #   Type: AWS::Lambda::EventSourceMapping
+  #   Properties:
+  #     BatchSize: 1
+  #     Enabled: true
+  #     EventSourceArn: !GetAtt ContactMessageVoiceQueue.Arn
+  #     FunctionName: !GetAtt ContactMessageVoiceSender.Arn
+
+  # # Policies
+  # EventTopicPolicy:
+  #   Type: AWS::SNS::TopicPolicy
+  #   Properties:
+  #     PolicyDocument:
+  #       Statement:
+  #         - Effect: Allow
+  #           Principal:
+  #             Service: events.amazonaws.com
+  #           Action: sns:Publish
+  #           Resource: '*'
+  #     Topics:
+  #       - !Ref MessageApprovedTopic
+
+  # EventQueuePolicy:
+  #   Type: AWS::SQS::QueuePolicy
+  #   Properties:
+  #     PolicyDocument:
+  #       Statement:
+  #         - Effect: Allow
+  #           Principal:
+  #             Service: events.amazonaws.com
+  #           Action: sqs:SendMessage
+  #           Resource: '*'
+  #     Queues:
+  #       - !Ref ContactMessageEmailQueue
+  #       - !Ref ContactMessageSMSQueue
+  #       - !Ref ContactMessageVoiceQueue
+
+  # PermissionForEventsToInvokeLambda: 
+  #     Type: AWS::Lambda::Permission
+  #     Properties: 
+  #       FunctionName: !GetAtt ["ContactMessageEnqueuer", "Arn"]
+  #       Action: "lambda:InvokeFunction"
+  #       Principal: "events.amazonaws.com"
+  #       SourceArn: 
+  #         Fn::GetAtt: 
+  #           - "ApprovedRule"
+  #           - "Arn"

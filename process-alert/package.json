@@ -1,0 +1,19 @@
+{
+  "name": "process-alert",
+  "version": "0.0.1",
+  "description": "Process a new alert",
+  "main": "index.js",
+  "scripts": {
+    "package": "zip -r -q function.zip ."
+  },
+  "author": "DEFRA",
+  "license": "ISC",
+  "dependencies": {
+    "caplib": "github:NeXt-Warning-System/caplib",
+    "feed": "4.2.2",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "standard": "16.0.4"
+  }
+}

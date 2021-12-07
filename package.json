@@ -1,0 +1,25 @@
+{
+  "name": "flood-xws-alert-resources",
+  "version": "0.1.0",
+  "description": "XWS AWS Alert resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEFRA/flood-xws-alert-resources.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DEFRA/flood-xws-alert-resources/issues"
+  },
+  "homepage": "https://github.com/DEFRA/flood-xws-alert-resources#readme",
+  "dependencies": {
+    "aws-sdk": "^2.717.0"
+  },
+  "devDependencies": {
+    "standard": "16.0.4"
+  }
+}
