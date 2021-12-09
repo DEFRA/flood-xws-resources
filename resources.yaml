@@ -131,6 +131,79 @@ Resources:
               Service:
                 - lambda.amazonaws.com
 
+  AlertNotification:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-alert-notification
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt AlertNotificationLambdaExecutionRole.Arn
+      Timeout: 20
+      Environment:
+        Variables:
+          ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
+          PINPOINT_APPLICATION_ID: !Ref PinpointApp
+    DependsOn:
+      - PinpointApp
+      - Subscription
+      - AlertNotificationLambdaExecutionRole
+
+  AlertNotificationLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - sns:*
+                Resource: !Ref AlertPublishedTopic
+                Effect: Allow
+              - Action:
+                  - mobiletargeting:GetEndpoint
+                  - mobiletargeting:UpdateEndpoint
+                  - mobiletargeting:GetUserEndpoints
+                  - mobiletargeting:DeleteEndpoint
+                  - mobiletargeting:DeleteUserEndpoints
+                  - mobiletargeting:CreateCampaign
+                  - mobiletargeting:CreateSegment
+                Effect: Allow
+                Resource:
+                  - !Sub
+                    - '${pinpointAppArn}'
+                    - { pinpointAppArn: !GetAtt PinpointApp.Arn }
+              - Action:
+                  - mobiletargeting:UpdateSegment
+                Effect: Allow
+                Resource:
+                  - !Sub
+                    - '${pinpointAppArn}/segments/*'
+                    - { pinpointAppArn: !GetAtt PinpointApp.Arn }
+
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
   AlertsDBTrigger:
     Type: AWS::Lambda::EventSourceMapping
     Properties:
@@ -146,7 +219,26 @@ Resources:
       Endpoint: david.stone@defra.net
       Protocol: email
       TopicArn: !Ref AlertPublishedTopic
-  
+
+  PinpointApp:
+    Type: AWS::Pinpoint::App
+    Properties:
+      Name: !Sub ${AWS::StackName}-pinpoint
+
+  PinpointSmsChannel:
+    Type: AWS::Pinpoint::SMSChannel
+    Properties:
+      ApplicationId: !Ref PinpointApp
+      Enabled: true
+
+  PinpointEmailChannel:
+    Type: AWS::Pinpoint::EmailChannel
+    Properties:
+      ApplicationId: !Ref PinpointApp
+      Enabled: true
+      FromAddress: getfloodwarnings@gmail.com
+      Identity: arn:aws:ses:eu-west-2:190133113546:identity/getfloodwarnings@gmail.com
+
 Outputs:
   AccessKey:
     Value: !Ref AgentKeys

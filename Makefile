@@ -10,6 +10,9 @@ uploadfiles:
 uploadProcessAlertLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-process-alert --zip-file "fileb://./process-alert/function.zip"
 
+uploadAlertNotificationLambda:
+	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-alert-notification --zip-file "fileb://./alert-notification/function.zip"
+
 delete:
 	aws cloudformation delete-stack --stack-name xws-$(ENV) --profile $(AWS_PROFILE)
 
