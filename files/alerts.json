@@ -1,0 +1,14 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Flood Alerts and Warnings",
+    "home_page_url": "https://www.gov.uk/check-flooding",
+    "feed_url": "https://www.gov.uk/json",
+    "description": "Latest flood alerts and warnings",
+    "icon": "__static/xws.png",
+    "author": {
+        "name": "DEFRA",
+        "url": "https://gov.com/defra"
+    },
+    "items": [
+    ]
+}

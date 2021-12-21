@@ -1,0 +1,32 @@
+{
+  "ApplicationId": "{{applicationId}}",
+	"WriteCampaignRequest": {
+		"AdditionalTreatments": [],
+		"Description": " ",
+		"HoldoutPercent": 0,
+		"IsPaused": false,
+		"Limits": {
+			"Daily": 0,
+			"MaximumDuration": 10800,
+			"MessagesPerSecond": 20000,
+			"Total": 0
+		},
+		"MessageConfiguration": {
+      "SMSMessage": {
+        "Body": "{{body}}",
+        "MessageType": "TRANSACTIONAL"
+      }
+		},
+		"Name": "{{name}} SMS",
+		"Schedule": {
+			"IsLocalTime": false,
+			"QuietTime": {},
+			"StartTime": "IMMEDIATE",
+			"Timezone": "UTC"
+		},
+		"SegmentId": "{{segmentId}}",
+		"SegmentVersion": "{{segmentVersion}}",
+		"tags": {},
+		"TemplateConfiguration": {}
+	}
+}

@@ -52,8 +52,7 @@ function buildCapAlert (alert) {
   const source = service.description
   const language = 'en-GB'
   const identifier = alert.id
-  const code = alert.code
-  const event = code + ' 062 Remove Flood Alert EA' // Todo
+  const event = '031 Issue Flood Alert EA'
 
   const capAlert = new Alert()
   capAlert.identifier = identifier
@@ -204,13 +203,11 @@ async function saveAlert (alert) {
   return s3.putObject(params).promise()
 }
 
-async function publishAlert (id, code) {
-  const message = { id, code }
-
+async function publishAlert (message) {
   return sns.publish({
     Message: JSON.stringify(message),
     MessageAttributes: {
-      code: { DataType: 'String', StringValue: code }
+      code: { DataType: 'String', StringValue: message.area_code }
     },
     TopicArn: topicArn
   }).promise()

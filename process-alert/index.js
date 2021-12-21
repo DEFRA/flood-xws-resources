@@ -28,6 +28,7 @@ exports.handler = async (event) => {
         const [, areaId, , code] = alert.sk.split('#')
 
         // Get the alert data
+        console.log('Alert', alert)
         const alertDataItem = await getAlertData(alert.id)
         console.log('alertDataItem', alertDataItem)
 
@@ -48,7 +49,11 @@ exports.handler = async (event) => {
         console.log('feedRes', feedResult)
 
         // Publish
-        const publishResult = await publishAlert(id, code)
+        const publishResult = await publishAlert({
+          area_code: alert.code,
+          headline: alert.headline,
+          description: alert.body
+        })
         console.log('publishResult', publishResult)
       }
     }

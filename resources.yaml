@@ -38,6 +38,18 @@ Resources:
     Properties:
       TopicName: !Sub ${AWS::StackName}-alert-published
       DisplayName: Alert published
+      Subscription:
+      - Protocol: lambda
+        Endpoint: !GetAtt AlertNotification.Arn
+
+  LambdaFunctionPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        Action: lambda:InvokeFunction
+        Principal: sns.amazonaws.com
+        SourceArn:  !Ref AlertPublishedTopic
+        FunctionName: !GetAtt AlertNotification.Arn
+
 
   AlertsDB:
     Type: AWS::DynamoDB::Table
@@ -147,11 +159,9 @@ Resources:
       Timeout: 20
       Environment:
         Variables:
-          ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
           PINPOINT_APPLICATION_ID: !Ref PinpointApp
     DependsOn:
       - PinpointApp
-      - Subscription
       - AlertNotificationLambdaExecutionRole
 
   AlertNotificationLambdaExecutionRole:
@@ -168,10 +178,6 @@ Resources:
                   - logs:PutLogEvents
                 Resource:
                   - arn:aws:logs:*:*:*
-                Effect: Allow
-              - Action:
-                  - sns:*
-                Resource: !Ref AlertPublishedTopic
                 Effect: Allow
               - Action:
                   - mobiletargeting:GetEndpoint

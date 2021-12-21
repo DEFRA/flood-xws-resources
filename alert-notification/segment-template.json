@@ -1,0 +1,41 @@
+{
+  "ApplicationId": "{{applicationId}}",
+	"WriteSegmentRequest": {
+		"Dimensions": {
+			"Attributes": {},
+			"Behavior": {},
+			"Demographic": {},
+			"Location": {},
+			"UserAttributes": {}
+		},
+		"Name": "{{name}}",
+		"SegmentGroups": {
+			"Groups": [
+				{
+					"Dimensions": [
+						{
+							"Attributes": {},
+							"Behavior": {},
+							"Demographic": {},
+							"Location": {},
+							"Metrics": {},
+							"UserAttributes": {
+								"lists": {
+									"AttributeType": "CONTAINS",
+									"Values": [
+										"{{areaCode}}"
+									]
+								}
+							}
+						}
+					],
+					"SourceSegments": [],
+					"SourceType": "ANY",
+					"Type": "ANY"
+				}
+			],
+			"Include": "ALL"
+		},
+		"tags": {}
+	}
+}
