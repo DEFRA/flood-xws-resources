@@ -6,6 +6,8 @@ deploy:
 
 uploadfiles:
 	aws s3 sync ./files s3://xws-$(ENV)-files/alerts/__static --profile $(AWS_PROFILE) --acl public-read
+	aws s3 mv s3://xws-$(ENV)-files/alerts/__static/alerts.xml s3://xws-$(ENV)-files/alerts/alerts.xml --profile $(AWS_PROFILE) --acl public-read
+	aws s3 mv s3://xws-$(ENV)-files/alerts/__static/alerts.json s3://xws-$(ENV)-files/alerts/alerts.json --profile $(AWS_PROFILE) --acl public-read
 
 uploadProcessAlertLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-process-alert --zip-file "fileb://./process-alert/function.zip"
