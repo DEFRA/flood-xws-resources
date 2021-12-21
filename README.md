@@ -15,5 +15,8 @@ or
 ### Upload the process alert lambda
 `$ make uploadProcessAlertLambda`
 
+### Delete the S3 files
+`$ make deletefiles`
+
 ### Delete the stack
 `$ make delete`

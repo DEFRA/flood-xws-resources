@@ -26,8 +26,8 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
-      VersioningConfiguration:
-        Status: Enabled
+      # VersioningConfiguration:
+      #   Status: Enabled
       WebsiteConfiguration:
         IndexDocument: alerts.xml
         ErrorDocument: error.html
