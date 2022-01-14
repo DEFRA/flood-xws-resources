@@ -1,27 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: XWS
-
-Parameters:
-  env:
-    Default: dev
-    Description: The environment
-    Type: String
-    MinLength: 1
-    MaxLength: 16
+Description: XWS Alert
 
 Resources:
-
-  # Security Roles & Users
-  Agent:
-    Type: AWS::IAM::User
-    Properties:
-      UserName: !Sub ${AWS::StackName}-agent-user
-
-  AgentKeys:
-    Type: AWS::IAM::AccessKey
-    Properties:
-      UserName: !Ref Agent
-
   FilesBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -42,7 +22,7 @@ Resources:
   AlertsDB:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub ${AWS::StackName}-alerts
+      TableName: !Sub ${AWS::StackName}-db
       AttributeDefinitions:
         - AttributeName: pk
           AttributeType: S
@@ -146,14 +126,6 @@ Resources:
       Endpoint: david.stone@defra.net
       Protocol: email
       TopicArn: !Ref AlertPublishedTopic
-  
-Outputs:
-  AccessKey:
-    Value: !Ref AgentKeys
-    Description: AWS Access Key Id of new user
-  SecretKey:
-    Value: !GetAtt AgentKeys.SecretAccessKey
-    Description: AWS Secret Access Key of new user
 
   # Create the 'messages' SQS DL queue
   # MessagesDLQueue:

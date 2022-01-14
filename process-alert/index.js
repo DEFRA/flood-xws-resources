@@ -41,11 +41,11 @@ exports.handler = async (event) => {
 
         // Write the alert capxml file
         const saveResult = await saveAlert(alert)
-        console.log('putObjectResult', saveResult)
+        console.log('saveResult', saveResult)
 
         // Update the feeds
         const feedResult = await saveFeed()
-        console.log('feedRes', feedResult)
+        console.log('feedResult', feedResult)
 
         // Publish
         const publishResult = await publishAlert(id, code)
