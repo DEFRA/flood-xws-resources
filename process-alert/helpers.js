@@ -128,7 +128,7 @@ function getRssFeed (alerts) {
       link: `items/${alert.sk}.xml`,
       description: alert.body,
       date: new Date(alert.updated),
-      image: `https://xws-dstone-files.s3.eu-west-2.amazonaws.com/alerts/__static/alert-types/${type.id}.gif`
+      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/__static/alert-types/${type.id}.gif`
     })
   })
 
