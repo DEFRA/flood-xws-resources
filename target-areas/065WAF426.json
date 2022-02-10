@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Alert_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "065WAF426", "name": "Tidal areas of River Road Arundel", "description": "River Road, Arundel, near Tarrant Wharf and Arun Street", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.557101, 50.852737 ], [ -0.557271, 50.852936 ], [ -0.557006, 50.853058 ], [ -0.556173, 50.853349 ], [ -0.555955, 50.853487 ], [ -0.555895, 50.853502 ], [ -0.555773, 50.853361 ], [ -0.555913, 50.853294 ], [ -0.555848, 50.85316 ], [ -0.556046, 50.853092 ], [ -0.555978, 50.852951 ], [ -0.556381, 50.85287 ], [ -0.557101, 50.852737 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "065WAF426", "name": "Tidal areas of River Road Arundel", "description": "River Road, Arundel, near Tarrant Wharf and Arun Street", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.557101, 50.852737 ], [ -0.556381, 50.85287 ], [ -0.555978, 50.852951 ], [ -0.556046, 50.853092 ], [ -0.555848, 50.85316 ], [ -0.555913, 50.853294 ], [ -0.555773, 50.853361 ], [ -0.555895, 50.853502 ], [ -0.555955, 50.853487 ], [ -0.556173, 50.853349 ], [ -0.557006, 50.853058 ], [ -0.557271, 50.852936 ], [ -0.557101, 50.852737 ] ] ] } }
 ]
 }

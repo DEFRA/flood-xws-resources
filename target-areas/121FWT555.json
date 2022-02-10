@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "121FWT555", "name": "Wear estuary at Sunderland low street", "description": "Properties at Wylam Warfe, Low Street", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.37499, 54.909345 ], [ -1.374876, 54.909632 ], [ -1.374828, 54.909757 ], [ -1.374173, 54.909709 ], [ -1.373675, 54.909661 ], [ -1.373713, 54.909239 ], [ -1.374304, 54.909314 ], [ -1.37499, 54.909345 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "121FWT555", "name": "Wear estuary at Sunderland low street", "description": "Properties at Wylam Warfe, Low Street", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.37499, 54.909345 ], [ -1.374304, 54.909314 ], [ -1.373713, 54.909239 ], [ -1.373675, 54.909661 ], [ -1.374173, 54.909709 ], [ -1.374828, 54.909757 ], [ -1.374876, 54.909632 ], [ -1.37499, 54.909345 ] ] ] } }
 ]
 }

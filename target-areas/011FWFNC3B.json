@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "011FWFNC3B", "name": "River Eden at Carlisle, Etterby Terrace and Eden Place", "description": "Residential properties adjacent to the River Eden at Etterby Terrace and Eden Place", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.943837, 54.905863 ], [ -2.943478, 54.905848 ], [ -2.943076, 54.905995 ], [ -2.94157, 54.905611 ], [ -2.941752, 54.905403 ], [ -2.942261, 54.905148 ], [ -2.942255, 54.904914 ], [ -2.942391, 54.904706 ], [ -2.942512, 54.904535 ], [ -2.942668, 54.904551 ], [ -2.942793, 54.904577 ], [ -2.942811, 54.904676 ], [ -2.942878, 54.904846 ], [ -2.943294, 54.905302 ], [ -2.943405, 54.905373 ], [ -2.943579, 54.905506 ], [ -2.943741, 54.905747 ], [ -2.943837, 54.905863 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "011FWFNC3B", "name": "River Eden at Carlisle, Etterby Terrace and Eden Place", "description": "Residential properties adjacent to the River Eden at Etterby Terrace and Eden Place", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.943837, 54.905863 ], [ -2.943741, 54.905747 ], [ -2.943579, 54.905506 ], [ -2.943405, 54.905373 ], [ -2.943294, 54.905302 ], [ -2.942878, 54.904846 ], [ -2.942811, 54.904676 ], [ -2.942793, 54.904577 ], [ -2.942668, 54.904551 ], [ -2.942512, 54.904535 ], [ -2.942391, 54.904706 ], [ -2.942255, 54.904914 ], [ -2.942261, 54.905148 ], [ -2.941752, 54.905403 ], [ -2.94157, 54.905611 ], [ -2.943076, 54.905995 ], [ -2.943478, 54.905848 ], [ -2.943837, 54.905863 ] ] ] } }
 ]
 }

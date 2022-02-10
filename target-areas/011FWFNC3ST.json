@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "011FWFNC3ST", "name": "River Eden at Stainton", "description": "Low lying roads, agricultural land and residential properties adjacent to the River Eden at Stainton", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.969129, 54.902823 ], [ -2.967848, 54.902952 ], [ -2.967797, 54.90273 ], [ -2.967235, 54.90274 ], [ -2.966892, 54.90266 ], [ -2.966748, 54.902661 ], [ -2.965654, 54.902412 ], [ -2.965653, 54.902182 ], [ -2.966344, 54.901951 ], [ -2.968294, 54.902143 ], [ -2.969111, 54.902662 ], [ -2.969129, 54.902823 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "011FWFNC3ST", "name": "River Eden at Stainton", "description": "Low lying roads, agricultural land and residential properties adjacent to the River Eden at Stainton", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.969129, 54.902823 ], [ -2.969111, 54.902662 ], [ -2.968294, 54.902143 ], [ -2.966344, 54.901951 ], [ -2.965653, 54.902182 ], [ -2.965654, 54.902412 ], [ -2.966748, 54.902661 ], [ -2.966892, 54.90266 ], [ -2.967235, 54.90274 ], [ -2.967797, 54.90273 ], [ -2.967848, 54.902952 ], [ -2.969129, 54.902823 ] ] ] } }
 ]
 }

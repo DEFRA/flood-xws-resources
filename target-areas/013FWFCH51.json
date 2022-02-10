@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "013FWFCH51", "name": "River Weaver at Mill Lane and Weaver Park Industrial Estate", "description": "Areas at risk include some properties on Mill Lane and Sutton Quays Business Park", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.704249, 53.304397 ], [ -2.702446, 53.303356 ], [ -2.704973, 53.30192 ], [ -2.706165, 53.301392 ], [ -2.706577, 53.301812 ], [ -2.706451, 53.302388 ], [ -2.706589, 53.302558 ], [ -2.706923, 53.302754 ], [ -2.70699, 53.303185 ], [ -2.707127, 53.303328 ], [ -2.704774, 53.304385 ], [ -2.704249, 53.304397 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "013FWFCH51", "name": "River Weaver at Mill Lane and Weaver Park Industrial Estate", "description": "Areas at risk include some properties on Mill Lane and Sutton Quays Business Park", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.704249, 53.304397 ], [ -2.704774, 53.304385 ], [ -2.707127, 53.303328 ], [ -2.70699, 53.303185 ], [ -2.706923, 53.302754 ], [ -2.706589, 53.302558 ], [ -2.706451, 53.302388 ], [ -2.706577, 53.301812 ], [ -2.706165, 53.301392 ], [ -2.704973, 53.30192 ], [ -2.702446, 53.303356 ], [ -2.704249, 53.304397 ] ] ] } }
 ]
 }

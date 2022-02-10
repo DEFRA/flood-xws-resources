@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "121FWF310", "name": "River Wear at Bonemill Lane and Riverview, Fatfield", "description": "Properties on East Bridge Street, River View and Bonemill Lane, Fatfield", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.518093, 54.879478 ], [ -1.518062, 54.879451 ], [ -1.517687, 54.879584 ], [ -1.517342, 54.879727 ], [ -1.51708, 54.879528 ], [ -1.518255, 54.879003 ], [ -1.518579, 54.879282 ], [ -1.519227, 54.879851 ], [ -1.518756, 54.880074 ], [ -1.518093, 54.879478 ] ] ], [ [ [ -1.514412, 54.87976 ], [ -1.514553, 54.87968 ], [ -1.514661, 54.87977 ], [ -1.514285, 54.879912 ], [ -1.514193, 54.879813 ], [ -1.514412, 54.87976 ] ] ] ] } }
+{ "type": "Feature", "properties": { "code": "121FWF310", "name": "River Wear at Bonemill Lane and Riverview, Fatfield", "description": "Properties on East Bridge Street, River View and Bonemill Lane, Fatfield", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.518093, 54.879478 ], [ -1.518756, 54.880074 ], [ -1.519227, 54.879851 ], [ -1.518579, 54.879282 ], [ -1.518255, 54.879003 ], [ -1.51708, 54.879528 ], [ -1.517342, 54.879727 ], [ -1.517687, 54.879584 ], [ -1.518062, 54.879451 ], [ -1.518093, 54.879478 ] ] ], [ [ [ -1.514412, 54.87976 ], [ -1.514193, 54.879813 ], [ -1.514285, 54.879912 ], [ -1.514661, 54.87977 ], [ -1.514553, 54.87968 ], [ -1.514412, 54.87976 ] ] ] ] } }
 ]
 }

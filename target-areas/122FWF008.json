@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "122FWF008", "name": "River Nidd at Cattal", "description": "Riverside properties at Cattal including Oak Lodge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.31819, 53.981292 ], [ -1.318071, 53.981139 ], [ -1.318744, 53.980963 ], [ -1.318909, 53.98117 ], [ -1.31874, 53.981223 ], [ -1.318696, 53.981151 ], [ -1.31819, 53.981292 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "122FWF008", "name": "River Nidd at Cattal", "description": "Riverside properties at Cattal including Oak Lodge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.31819, 53.981292 ], [ -1.318696, 53.981151 ], [ -1.31874, 53.981223 ], [ -1.318909, 53.98117 ], [ -1.318744, 53.980963 ], [ -1.318071, 53.981139 ], [ -1.31819, 53.981292 ] ] ] } }
 ]
 }

@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "013FWFCH48", "name": "River Weaver at Meadowgate Farm", "description": "Areas at risk include the Meadowgate Farm area", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.698095, 53.30526 ], [ -2.697336, 53.304707 ], [ -2.697616, 53.3044 ], [ -2.698807, 53.30477 ], [ -2.699004, 53.304877 ], [ -2.699021, 53.304985 ], [ -2.698095, 53.30526 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "013FWFCH48", "name": "River Weaver at Meadowgate Farm", "description": "Areas at risk include the Meadowgate Farm area", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.698095, 53.30526 ], [ -2.699021, 53.304985 ], [ -2.699004, 53.304877 ], [ -2.698807, 53.30477 ], [ -2.697616, 53.3044 ], [ -2.697336, 53.304707 ], [ -2.698095, 53.30526 ] ] ] } }
 ]
 }

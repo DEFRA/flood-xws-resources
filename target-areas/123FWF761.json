@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "123FWF761", "name": "River Aire at Wheldale Lane", "description": "Properties on Wheldale Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.29264, 53.733829 ], [ -1.292714, 53.733919 ], [ -1.292226, 53.73406 ], [ -1.29189, 53.734238 ], [ -1.291343, 53.734333 ], [ -1.290928, 53.733738 ], [ -1.291643, 53.733616 ], [ -1.291806, 53.733842 ], [ -1.292551, 53.733675 ], [ -1.29264, 53.733829 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "123FWF761", "name": "River Aire at Wheldale Lane", "description": "Properties on Wheldale Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.29264, 53.733829 ], [ -1.292551, 53.733675 ], [ -1.291806, 53.733842 ], [ -1.291643, 53.733616 ], [ -1.290928, 53.733738 ], [ -1.291343, 53.734333 ], [ -1.29189, 53.734238 ], [ -1.292226, 53.73406 ], [ -1.292714, 53.733919 ], [ -1.29264, 53.733829 ] ] ] } }
 ]
 }

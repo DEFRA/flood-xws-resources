@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "011FWFNC15", "name": "River Ehen at Low Mill", "description": "Properties adjacent to the River Ehen at Low Mill", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -3.533645, 54.463901 ], [ -3.53357, 54.463542 ], [ -3.533516, 54.463327 ], [ -3.533386, 54.463158 ], [ -3.533382, 54.462637 ], [ -3.534289, 54.462536 ], [ -3.534668, 54.462782 ], [ -3.535005, 54.462724 ], [ -3.53524, 54.462811 ], [ -3.53548, 54.463042 ], [ -3.535691, 54.463318 ], [ -3.535806, 54.463514 ], [ -3.536105, 54.463663 ], [ -3.533645, 54.463901 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "011FWFNC15", "name": "River Ehen at Low Mill", "description": "Properties adjacent to the River Ehen at Low Mill", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -3.533645, 54.463901 ], [ -3.536105, 54.463663 ], [ -3.535806, 54.463514 ], [ -3.535691, 54.463318 ], [ -3.53548, 54.463042 ], [ -3.53524, 54.462811 ], [ -3.535005, 54.462724 ], [ -3.534668, 54.462782 ], [ -3.534289, 54.462536 ], [ -3.533382, 54.462637 ], [ -3.533386, 54.463158 ], [ -3.533516, 54.463327 ], [ -3.53357, 54.463542 ], [ -3.533645, 54.463901 ] ] ] } }
 ]
 }

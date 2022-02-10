@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "111FWFAVOM507", "name": "Middle Avon at The Maltings, Salisbury", "description": "The Maltings and properties on Silver Street backing on to The Maltings", "region": "Wessex" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.796964, 51.068746 ], [ -1.796948, 51.068615 ], [ -1.797196, 51.068605 ], [ -1.797924, 51.068685 ], [ -1.798214, 51.068743 ], [ -1.798088, 51.069134 ], [ -1.797996, 51.069279 ], [ -1.797831, 51.069211 ], [ -1.797517, 51.069153 ], [ -1.797202, 51.069142 ], [ -1.797179, 51.06873 ], [ -1.796964, 51.068746 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "111FWFAVOM507", "name": "Middle Avon at The Maltings, Salisbury", "description": "The Maltings and properties on Silver Street backing on to The Maltings", "region": "Wessex" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.796964, 51.068746 ], [ -1.797179, 51.06873 ], [ -1.797202, 51.069142 ], [ -1.797517, 51.069153 ], [ -1.797831, 51.069211 ], [ -1.797996, 51.069279 ], [ -1.798088, 51.069134 ], [ -1.798214, 51.068743 ], [ -1.797924, 51.068685 ], [ -1.797196, 51.068605 ], [ -1.796948, 51.068615 ], [ -1.796964, 51.068746 ] ] ] } }
 ]
 }

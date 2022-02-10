@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "121FWF221", "name": "River Tyne at Wellbank Riverside and The Mill, Corbridge", "description": "Properties and low lying areas around Wellbank, St. Andrews Terrace and The Mill, Corbridge", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -2.033154, 54.977705 ], [ -2.033451, 54.977426 ], [ -2.034279, 54.977596 ], [ -2.033873, 54.977911 ], [ -2.033154, 54.977705 ] ] ], [ [ [ -2.021466, 54.974508 ], [ -2.021575, 54.974472 ], [ -2.022075, 54.97493 ], [ -2.022029, 54.975002 ], [ -2.021747, 54.975011 ], [ -2.021544, 54.974993 ], [ -2.021529, 54.974922 ], [ -2.02156, 54.974751 ], [ -2.021403, 54.974607 ], [ -2.021513, 54.974562 ], [ -2.021466, 54.974508 ] ] ] ] } }
+{ "type": "Feature", "properties": { "code": "121FWF221", "name": "River Tyne at Wellbank Riverside and The Mill, Corbridge", "description": "Properties and low lying areas around Wellbank, St. Andrews Terrace and The Mill, Corbridge", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -2.033154, 54.977705 ], [ -2.033873, 54.977911 ], [ -2.034279, 54.977596 ], [ -2.033451, 54.977426 ], [ -2.033154, 54.977705 ] ] ], [ [ [ -2.021466, 54.974508 ], [ -2.021513, 54.974562 ], [ -2.021403, 54.974607 ], [ -2.02156, 54.974751 ], [ -2.021529, 54.974922 ], [ -2.021544, 54.974993 ], [ -2.021747, 54.975011 ], [ -2.022029, 54.975002 ], [ -2.022075, 54.97493 ], [ -2.021575, 54.974472 ], [ -2.021466, 54.974508 ] ] ] ] } }
 ]
 }

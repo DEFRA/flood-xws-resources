@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "033FWF3TAME007", "name": "River Tame at Sandwell Valley", "description": "River Tame at Sandwell Valley including Forge Mill Farm area", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.959756, 52.532133 ], [ -1.959771, 52.532385 ], [ -1.959697, 52.53269 ], [ -1.959711, 52.533014 ], [ -1.96008, 52.533239 ], [ -1.960168, 52.533401 ], [ -1.959814, 52.533517 ], [ -1.959534, 52.533499 ], [ -1.959578, 52.53367 ], [ -1.959268, 52.53367 ], [ -1.958856, 52.533724 ], [ -1.958783, 52.532996 ], [ -1.958871, 52.532447 ], [ -1.959225, 52.532259 ], [ -1.959742, 52.532142 ], [ -1.959756, 52.532133 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "033FWF3TAME007", "name": "River Tame at Sandwell Valley", "description": "River Tame at Sandwell Valley including Forge Mill Farm area", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.959756, 52.532133 ], [ -1.959742, 52.532142 ], [ -1.959225, 52.532259 ], [ -1.958871, 52.532447 ], [ -1.958783, 52.532996 ], [ -1.958856, 52.533724 ], [ -1.959268, 52.53367 ], [ -1.959578, 52.53367 ], [ -1.959534, 52.533499 ], [ -1.959814, 52.533517 ], [ -1.960168, 52.533401 ], [ -1.96008, 52.533239 ], [ -1.959711, 52.533014 ], [ -1.959697, 52.53269 ], [ -1.959771, 52.532385 ], [ -1.959756, 52.532133 ] ] ] } }
 ]
 }

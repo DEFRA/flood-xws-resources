@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "013FWFCH3", "name": "River Weaver at Shrewbridge Lodge", "description": "The area at risk includes Shrewbridge Lodge", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.524107, 53.054909 ], [ -2.52413, 53.055583 ], [ -2.523577, 53.055514 ], [ -2.523275, 53.055191 ], [ -2.523241, 53.054886 ], [ -2.524107, 53.054909 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "013FWFCH3", "name": "River Weaver at Shrewbridge Lodge", "description": "The area at risk includes Shrewbridge Lodge", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.524107, 53.054909 ], [ -2.523241, 53.054886 ], [ -2.523275, 53.055191 ], [ -2.523577, 53.055514 ], [ -2.52413, 53.055583 ], [ -2.524107, 53.054909 ] ] ] } }
 ]
 }

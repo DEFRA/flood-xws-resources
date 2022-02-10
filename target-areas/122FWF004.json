@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "122FWF004", "name": "River Nidd at Kirk Hammerton", "description": "Riverside properties situated along the left-bank at Mill Lane, Kirk Hammerton", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.284423, 53.985257 ], [ -1.284456, 53.985105 ], [ -1.285567, 53.985237 ], [ -1.285471, 53.985479 ], [ -1.285273, 53.98546 ], [ -1.284695, 53.985385 ], [ -1.284712, 53.985295 ], [ -1.284423, 53.985257 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "122FWF004", "name": "River Nidd at Kirk Hammerton", "description": "Riverside properties situated along the left-bank at Mill Lane, Kirk Hammerton", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.284423, 53.985257 ], [ -1.284712, 53.985295 ], [ -1.284695, 53.985385 ], [ -1.285273, 53.98546 ], [ -1.285471, 53.985479 ], [ -1.285567, 53.985237 ], [ -1.284456, 53.985105 ], [ -1.284423, 53.985257 ] ] ] } }
 ]
 }

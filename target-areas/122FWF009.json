@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "122FWF009", "name": "River Nidd at Cowthorpe", "description": "Properties situated off Oak Road at Cowthorpe", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.351613, 53.966692 ], [ -1.351429, 53.966763 ], [ -1.351187, 53.966627 ], [ -1.351064, 53.966698 ], [ -1.350953, 53.966976 ], [ -1.350801, 53.966957 ], [ -1.350753, 53.967092 ], [ -1.350449, 53.967054 ], [ -1.35064, 53.966516 ], [ -1.35078, 53.966328 ], [ -1.350902, 53.966346 ], [ -1.351114, 53.966437 ], [ -1.351613, 53.966692 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "122FWF009", "name": "River Nidd at Cowthorpe", "description": "Properties situated off Oak Road at Cowthorpe", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.351613, 53.966692 ], [ -1.351114, 53.966437 ], [ -1.350902, 53.966346 ], [ -1.35078, 53.966328 ], [ -1.35064, 53.966516 ], [ -1.350449, 53.967054 ], [ -1.350753, 53.967092 ], [ -1.350801, 53.966957 ], [ -1.350953, 53.966976 ], [ -1.351064, 53.966698 ], [ -1.351187, 53.966627 ], [ -1.351429, 53.966763 ], [ -1.351613, 53.966692 ] ] ] } }
 ]
 }

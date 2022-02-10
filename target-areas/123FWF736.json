@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "123FWF736", "name": "River Calder between Sowerby Bridge and Copley", "description": "Properties adjacent to Calder and Hebble Navigation between Sowerby Bridge and Copley", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.888961, 53.708818 ], [ -1.888219, 53.708575 ], [ -1.887372, 53.708223 ], [ -1.886207, 53.707539 ], [ -1.885345, 53.706972 ], [ -1.884801, 53.706558 ], [ -1.884196, 53.706009 ], [ -1.884287, 53.705974 ], [ -1.884756, 53.706244 ], [ -1.885014, 53.706307 ], [ -1.88515, 53.706307 ], [ -1.885317, 53.706208 ], [ -1.885697, 53.705885 ], [ -1.885923, 53.706119 ], [ -1.885969, 53.706119 ], [ -1.886604, 53.706416 ], [ -1.88739, 53.706911 ], [ -1.888162, 53.707433 ], [ -1.88922, 53.70818 ], [ -1.889447, 53.708369 ], [ -1.889462, 53.708405 ], [ -1.888961, 53.708818 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "123FWF736", "name": "River Calder between Sowerby Bridge and Copley", "description": "Properties adjacent to Calder and Hebble Navigation between Sowerby Bridge and Copley", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.888961, 53.708818 ], [ -1.889462, 53.708405 ], [ -1.889447, 53.708369 ], [ -1.88922, 53.70818 ], [ -1.888162, 53.707433 ], [ -1.88739, 53.706911 ], [ -1.886604, 53.706416 ], [ -1.885969, 53.706119 ], [ -1.885923, 53.706119 ], [ -1.885697, 53.705885 ], [ -1.885317, 53.706208 ], [ -1.88515, 53.706307 ], [ -1.885014, 53.706307 ], [ -1.884756, 53.706244 ], [ -1.884287, 53.705974 ], [ -1.884196, 53.706009 ], [ -1.884801, 53.706558 ], [ -1.885345, 53.706972 ], [ -1.886207, 53.707539 ], [ -1.887372, 53.708223 ], [ -1.888219, 53.708575 ], [ -1.888961, 53.708818 ] ] ] } }
 ]
 }

@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Alert_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "065FAG008", "name": "Groundwater flooding in Bishops Sutton", "description": "Areas at risk of groundwater flooding in Bishops Sutton, near Alresford in Hampshire", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.124827, 51.081202 ], [ -1.126984, 51.080897 ], [ -1.134213, 51.081878 ], [ -1.139289, 51.082914 ], [ -1.144923, 51.084453 ], [ -1.147332, 51.085861 ], [ -1.147307, 51.087181 ], [ -1.145987, 51.088169 ], [ -1.142855, 51.089109 ], [ -1.138563, 51.088507 ], [ -1.136143, 51.087705 ], [ -1.133321, 51.087185 ], [ -1.130558, 51.086558 ], [ -1.129154, 51.085977 ], [ -1.126509, 51.085101 ], [ -1.124368, 51.084515 ], [ -1.123707, 51.083583 ], [ -1.124019, 51.082051 ], [ -1.124827, 51.081202 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "065FAG008", "name": "Groundwater flooding in Bishops Sutton", "description": "Areas at risk of groundwater flooding in Bishops Sutton, near Alresford in Hampshire", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.124827, 51.081202 ], [ -1.124019, 51.082051 ], [ -1.123707, 51.083583 ], [ -1.124368, 51.084515 ], [ -1.126509, 51.085101 ], [ -1.129154, 51.085977 ], [ -1.130558, 51.086558 ], [ -1.133321, 51.087185 ], [ -1.136143, 51.087705 ], [ -1.138563, 51.088507 ], [ -1.142855, 51.089109 ], [ -1.145987, 51.088169 ], [ -1.147307, 51.087181 ], [ -1.147332, 51.085861 ], [ -1.144923, 51.084453 ], [ -1.139289, 51.082914 ], [ -1.134213, 51.081878 ], [ -1.126984, 51.080897 ], [ -1.124827, 51.081202 ] ] ] } }
 ]
 }

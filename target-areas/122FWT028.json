@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "122FWT028", "name": "Humber estuary at East Hessle foreshore", "description": "North bank of Humber estuary to the east of Humber Bridge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.450566, 53.714242 ], [ -0.450625, 53.71541 ], [ -0.450125, 53.715441 ], [ -0.447048, 53.716146 ], [ -0.446844, 53.715919 ], [ -0.44438, 53.716319 ], [ -0.44417, 53.716315 ], [ -0.44407, 53.716012 ], [ -0.444024, 53.71594 ], [ -0.443212, 53.714666 ], [ -0.445409, 53.714301 ], [ -0.447605, 53.713916 ], [ -0.448892, 53.713942 ], [ -0.450518, 53.714232 ], [ -0.450566, 53.714242 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "122FWT028", "name": "Humber estuary at East Hessle foreshore", "description": "North bank of Humber estuary to the east of Humber Bridge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.450566, 53.714242 ], [ -0.450518, 53.714232 ], [ -0.448892, 53.713942 ], [ -0.447605, 53.713916 ], [ -0.445409, 53.714301 ], [ -0.443212, 53.714666 ], [ -0.444024, 53.71594 ], [ -0.44407, 53.716012 ], [ -0.44417, 53.716315 ], [ -0.44438, 53.716319 ], [ -0.446844, 53.715919 ], [ -0.447048, 53.716146 ], [ -0.450125, 53.715441 ], [ -0.450625, 53.71541 ], [ -0.450566, 53.714242 ] ] ] } }
 ]
 }

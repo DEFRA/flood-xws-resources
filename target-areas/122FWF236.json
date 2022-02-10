@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "122FWF236", "name": "River Swale at Thornton Bridge", "description": "Properties and roads around Thornton Bridge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.341411, 54.137008 ], [ -1.341464, 54.136577 ], [ -1.341954, 54.136589 ], [ -1.34252, 54.136556 ], [ -1.344367, 54.138849 ], [ -1.343948, 54.13917 ], [ -1.343295, 54.138897 ], [ -1.341732, 54.138996 ], [ -1.340408, 54.13756 ], [ -1.341411, 54.137008 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "122FWF236", "name": "River Swale at Thornton Bridge", "description": "Properties and roads around Thornton Bridge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.341411, 54.137008 ], [ -1.340408, 54.13756 ], [ -1.341732, 54.138996 ], [ -1.343295, 54.138897 ], [ -1.343948, 54.13917 ], [ -1.344367, 54.138849 ], [ -1.34252, 54.136556 ], [ -1.341954, 54.136589 ], [ -1.341464, 54.136577 ], [ -1.341411, 54.137008 ] ] ] } }
 ]
 }

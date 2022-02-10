@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "123FWF767", "name": "River Aire at East Haddlesey", "description": "East Haddlesey including Hirst Road", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.108955, 53.726033 ], [ -1.103482, 53.726811 ], [ -1.102292, 53.727898 ], [ -1.099365, 53.727247 ], [ -1.100997, 53.724635 ], [ -1.102357, 53.724834 ], [ -1.102651, 53.725267 ], [ -1.103009, 53.725513 ], [ -1.104988, 53.725851 ], [ -1.105306, 53.725836 ], [ -1.107841, 53.724938 ], [ -1.108734, 53.724989 ], [ -1.109708, 53.725518 ], [ -1.108955, 53.726033 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "123FWF767", "name": "River Aire at East Haddlesey", "description": "East Haddlesey including Hirst Road", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.108955, 53.726033 ], [ -1.109708, 53.725518 ], [ -1.108734, 53.724989 ], [ -1.107841, 53.724938 ], [ -1.105306, 53.725836 ], [ -1.104988, 53.725851 ], [ -1.103009, 53.725513 ], [ -1.102651, 53.725267 ], [ -1.102357, 53.724834 ], [ -1.100997, 53.724635 ], [ -1.099365, 53.727247 ], [ -1.102292, 53.727898 ], [ -1.103482, 53.726811 ], [ -1.108955, 53.726033 ] ] ] } }
 ]
 }

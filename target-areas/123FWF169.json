@@ -1,8 +1,7 @@
 {
 "type": "FeatureCollection",
 "name": "Flood_Warning_Areas",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "code": "123FWF169", "name": "River Aire at Neptune Street - Canal and River Trust car park", "description": "Leeds including Neptune Street and Canal and River Trust car park", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.532569, 53.793103 ], [ -1.53187, 53.793136 ], [ -1.531222, 53.792756 ], [ -1.531529, 53.792452 ], [ -1.532057, 53.792715 ], [ -1.532358, 53.792922 ], [ -1.532569, 53.793103 ] ] ] } }
+{ "type": "Feature", "properties": { "code": "123FWF169", "name": "River Aire at Neptune Street - Canal and River Trust car park", "description": "Leeds including Neptune Street and Canal and River Trust car park", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.532569, 53.793103 ], [ -1.532358, 53.792922 ], [ -1.532057, 53.792715 ], [ -1.531529, 53.792452 ], [ -1.531222, 53.792756 ], [ -1.53187, 53.793136 ], [ -1.532569, 53.793103 ] ] ] } }
 ]
 }
