@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "121FWF205", "name": "River Tyne and Cockshaw Burn at Tyne Green Mews Hexham", "description": "Properties around Tyne Green Mews", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.1067, 54.976895 ], [ -2.106705, 54.976897 ], [ -2.106715, 54.9769 ], [ -2.107112, 54.976871 ], [ -2.107115, 54.976865 ], [ -2.107131, 54.976864 ], [ -2.107119, 54.976821 ], [ -2.107398, 54.9768 ], [ -2.107414, 54.976843 ], [ -2.107507, 54.976836 ], [ -2.107587, 54.977112 ], [ -2.106934, 54.977148 ], [ -2.10662, 54.977174 ], [ -2.106559, 54.976908 ], [ -2.106559, 54.976903 ], [ -2.106699, 54.976894 ], [ -2.1067, 54.976895 ] ] ] } }
+]
+}

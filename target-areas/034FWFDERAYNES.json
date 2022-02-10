@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "034FWFDERAYNES", "name": "River Derwent at Raynesway", "description": "River Derwent at Raynesway including the Works area", "region": "East Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.43667, 52.908836 ], [ -1.439161, 52.910119 ], [ -1.440152, 52.910924 ], [ -1.435066, 52.912352 ], [ -1.431476, 52.910591 ], [ -1.430563, 52.910118 ], [ -1.431589, 52.908024 ], [ -1.431578, 52.907651 ], [ -1.431553, 52.907143 ], [ -1.432098, 52.906676 ], [ -1.434144, 52.906523 ], [ -1.43565, 52.90839 ], [ -1.436656, 52.908818 ], [ -1.43667, 52.908836 ] ] ] } }
+]
+}

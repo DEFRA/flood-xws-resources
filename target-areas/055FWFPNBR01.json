@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "055FWFPNBR01", "name": "North Bank Road alongside the River Nene, east of Peterborough and west of Dog-in-a-Doublet Sluice", "description": "North Bank Road alongside the River Nene to the east of Peterborough and the West of the Dog-in-a-Doublet Sluice", "region": "Lincs and Northants" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.179728, 52.569989 ], [ -0.179569, 52.569722 ], [ -0.179726, 52.569998 ], [ -0.179651, 52.570294 ], [ -0.177588, 52.570561 ], [ -0.166929, 52.570217 ], [ -0.156099, 52.572201 ], [ -0.14261, 52.574367 ], [ -0.133929, 52.57598 ], [ -0.125181, 52.577412 ], [ -0.121706, 52.578048 ], [ -0.121191, 52.577086 ], [ -0.16172, 52.570221 ], [ -0.167014, 52.569488 ], [ -0.176459, 52.569742 ], [ -0.179861, 52.569468 ], [ -0.179861, 52.569469 ], [ -0.179728, 52.569989 ] ] ] } }
+]
+}

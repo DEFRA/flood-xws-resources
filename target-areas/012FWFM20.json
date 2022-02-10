@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "012FWFM20", "name": "Fouracres and The Crescent at Maghull", "description": "Properties on Fouracres and The Crescent which are at risk from surface water flooding", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.953519, 53.503349 ], [ -2.953195, 53.503573 ], [ -2.952975, 53.503727 ], [ -2.952681, 53.503843 ], [ -2.952502, 53.503927 ], [ -2.952197, 53.503613 ], [ -2.95211, 53.503525 ], [ -2.950767, 53.502845 ], [ -2.95066, 53.502821 ], [ -2.950339, 53.50269 ], [ -2.950035, 53.502389 ], [ -2.950706, 53.502016 ], [ -2.950972, 53.502014 ], [ -2.951401, 53.502213 ], [ -2.951691, 53.502369 ], [ -2.951907, 53.502513 ], [ -2.952903, 53.502885 ], [ -2.95316, 53.502978 ], [ -2.953519, 53.503349 ] ] ] } }
+]
+}

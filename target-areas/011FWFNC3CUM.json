@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "011FWFNC3CUM", "name": "River Caldew at Cummersdale, Factory", "description": "The Stead McAlpin Factory on Caldew Road and parts of the Cumbria Way Cycleway adjacent to the River Caldew at Cummersdale, Carlisle", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.947876, 54.870048 ], [ -2.945814, 54.870398 ], [ -2.944888, 54.869829 ], [ -2.944366, 54.869157 ], [ -2.944103, 54.868466 ], [ -2.944113, 54.867656 ], [ -2.945709, 54.867176 ], [ -2.947876, 54.870048 ] ] ] } }
+]
+}

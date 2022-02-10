@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "034FWFWRMILLS", "name": "River Wreake for mills at Hoby, Thrussington and Ratcliffe", "description": "River Wreake for mills at Hoby, Thrussington and Ratcliffe including Broome Lane, Rearsby Road and Brooksby Road", "region": "East Midlands" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.028169, 52.735687 ], [ -1.028475, 52.735048 ], [ -1.029297, 52.73511 ], [ -1.029301, 52.73511 ], [ -1.029503, 52.73511 ], [ -1.029446, 52.735609 ], [ -1.029446, 52.735612 ], [ -1.029517, 52.736145 ], [ -1.028651, 52.736045 ], [ -1.028169, 52.735687 ] ] ], [ [ [ -1.007378, 52.746189 ], [ -1.007826, 52.745835 ], [ -1.008573, 52.746143 ], [ -1.00877, 52.746658 ], [ -1.008377, 52.746895 ], [ -1.008322, 52.746849 ], [ -1.008321, 52.746848 ], [ -1.007728, 52.746421 ], [ -1.007727, 52.74642 ], [ -1.007378, 52.746189 ] ] ], [ [ [ -1.066951, 52.721137 ], [ -1.067698, 52.72109 ], [ -1.067848, 52.7214 ], [ -1.066541, 52.721815 ], [ -1.065713, 52.721377 ], [ -1.066951, 52.721137 ] ] ] ] } }
+]
+}

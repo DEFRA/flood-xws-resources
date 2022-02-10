@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWT027", "name": "North Bank of the Humber estuary at Waterside Business Park in Hessle", "description": "Properties at Waterside Business Park in Hessle", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.4208, 53.720353 ], [ -0.419753, 53.720542 ], [ -0.41925, 53.719524 ], [ -0.424208, 53.718438 ], [ -0.426404, 53.718054 ], [ -0.427529, 53.717745 ], [ -0.430361, 53.717166 ], [ -0.431168, 53.718603 ], [ -0.431357, 53.719054 ], [ -0.428909, 53.719404 ], [ -0.425604, 53.719817 ], [ -0.423014, 53.720154 ], [ -0.4208, 53.720353 ] ] ] } }
+]
+}

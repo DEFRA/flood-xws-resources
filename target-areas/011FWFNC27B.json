@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "011FWFNC27B", "name": "Ullswater and River Eamont at Pooley Bridge, The Eamont at Pooley Bridge Village", "description": "Properties on Finkle Street, the B5320 and Heughscar Close", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.822396, 54.611191 ], [ -2.822993, 54.611544 ], [ -2.822586, 54.61176 ], [ -2.822404, 54.611886 ], [ -2.822319, 54.611991 ], [ -2.82218, 54.612271 ], [ -2.82214, 54.612351 ], [ -2.821925, 54.613039 ], [ -2.821727, 54.613504 ], [ -2.819282, 54.613032 ], [ -2.819432, 54.612765 ], [ -2.819465, 54.612672 ], [ -2.820463, 54.612512 ], [ -2.820886, 54.612298 ], [ -2.820857, 54.61201 ], [ -2.820727, 54.611567 ], [ -2.821212, 54.611334 ], [ -2.822396, 54.611191 ] ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "031FWFSE485", "name": "River Severn at Waterside, Upton upon Severn", "description": "River Severn at Waterside, Upton upon Severn", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.214971, 52.064047 ], [ -2.215017, 52.063743 ], [ -2.214394, 52.063658 ], [ -2.214326, 52.063221 ], [ -2.214187, 52.062757 ], [ -2.216391, 52.06328 ], [ -2.216812, 52.062874 ], [ -2.21706, 52.062901 ], [ -2.21709, 52.063062 ], [ -2.217602, 52.063295 ], [ -2.217387, 52.064024 ], [ -2.218323, 52.06449 ], [ -2.218032, 52.064805 ], [ -2.218018, 52.064805 ], [ -2.217347, 52.064815 ], [ -2.21701, 52.0646 ], [ -2.215945, 52.064449 ], [ -2.215535, 52.064171 ], [ -2.214971, 52.064047 ] ] ] } }
+]
+}

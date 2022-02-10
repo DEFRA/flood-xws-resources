@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "121FWB111", "name": "River Coquet at Lower Stanners at Warkworth", "description": "Properties at Lower Stanners (No. 1) and Youngers Terrace (No. 1)", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.613074, 55.348476 ], [ -1.61304, 55.348239 ], [ -1.61317, 55.348226 ], [ -1.613188, 55.348328 ], [ -1.613206, 55.348464 ], [ -1.613216, 55.348636 ], [ -1.61297, 55.348656 ], [ -1.612878, 55.348498 ], [ -1.613074, 55.348476 ] ] ] } }
+]
+}

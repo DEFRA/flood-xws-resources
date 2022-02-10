@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWF406", "name": "River Nidd at Hunsingore", "description": "The Old Cornmill at Hunsingore", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.348258, 53.97168 ], [ -1.348869, 53.971593 ], [ -1.348912, 53.9718 ], [ -1.348377, 53.971887 ], [ -1.348258, 53.97168 ] ] ] } }
+]
+}

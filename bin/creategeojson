@@ -1,0 +1,9 @@
+#!/bin/bash
+
+unzip -d faa EA_FloodAlertAreas_SHP_Full.zip
+./shp2geojson.sh faa/data/Flood_Alert_Areas.shp fws_tacode ../target-areas
+rm -rf faa
+
+unzip -d fwa EA_FloodWarningAreas_SHP_Full.zip
+./shp2geojson.sh fwa/data/Flood_Warning_Areas.shp fws_tacode ../target-areas
+rm -rf fwa

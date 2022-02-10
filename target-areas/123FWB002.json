@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "123FWB002", "name": "River Aire upstream of Temple Hirst", "description": "Properties upstream of Temple Hirst along Main Road including the Nursing Home", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.089408, 53.715972 ], [ -1.093422, 53.716749 ], [ -1.096633, 53.718238 ], [ -1.098671, 53.719323 ], [ -1.10613, 53.722004 ], [ -1.106633, 53.722574 ], [ -1.105782, 53.72272 ], [ -1.100428, 53.723633 ], [ -1.089718, 53.720568 ], [ -1.089408, 53.715972 ] ] ] } }
+]
+}

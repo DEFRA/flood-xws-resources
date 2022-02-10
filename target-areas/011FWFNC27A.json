@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "011FWFNC27A", "name": "Ullswater and River Eamont at Pooley Bridge, Ullswater Steamer Pier to B5320 Bridge", "description": "Properties on the B5320 between Dunmallard Hill and the river, including the steamer pier", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.824793, 54.610808 ], [ -2.825886, 54.610721 ], [ -2.826826, 54.610685 ], [ -2.826798, 54.610876 ], [ -2.826109, 54.61091 ], [ -2.82529, 54.611069 ], [ -2.825148, 54.611117 ], [ -2.82321, 54.6124 ], [ -2.822319, 54.611991 ], [ -2.822404, 54.611886 ], [ -2.822586, 54.61176 ], [ -2.822993, 54.611544 ], [ -2.823987, 54.611146 ], [ -2.824573, 54.610878 ], [ -2.824793, 54.610808 ] ] ] } }
+]
+}

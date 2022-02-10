@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "052FWFCL01GIRTON", "name": "Beck Brook and Washpit Brook at Girton", "description": "Woodlands Close, Dodford Lane, Fairway, Northfield and Oakington Road in Girton", "region": "East Anglia" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 0.083979, 52.247271 ], [ 0.080102, 52.245939 ], [ 0.077397, 52.248187 ], [ 0.080594, 52.249905 ], [ 0.083979, 52.247271 ] ] ], [ [ [ 0.076662, 52.240211 ], [ 0.07644, 52.239866 ], [ 0.07614, 52.239943 ], [ 0.076362, 52.240294 ], [ 0.076662, 52.240211 ] ] ], [ [ [ 0.081596, 52.243843 ], [ 0.081238, 52.243366 ], [ 0.079622, 52.243909 ], [ 0.079361, 52.243543 ], [ 0.079221, 52.243372 ], [ 0.076566, 52.244027 ], [ 0.079742, 52.245604 ], [ 0.081595, 52.244888 ], [ 0.080961, 52.24407 ], [ 0.081596, 52.243843 ] ] ] ] } }
+]
+}

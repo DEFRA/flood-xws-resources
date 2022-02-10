@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "121FWT553", "name": "Wear estuary at Sunderland North Dock and White Heugh", "description": "Marine Activities Centre at Wearmouth and properties at White Heugh, Fatfield", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.367401, 54.919865 ], [ -1.367671, 54.919524 ], [ -1.367967, 54.919589 ], [ -1.367727, 54.919956 ], [ -1.367401, 54.919865 ] ] ], [ [ [ -1.458195, 54.902887 ], [ -1.458211, 54.902878 ], [ -1.458198, 54.902699 ], [ -1.458463, 54.902709 ], [ -1.45846, 54.902888 ], [ -1.458398, 54.902879 ], [ -1.458395, 54.903113 ], [ -1.458146, 54.903085 ], [ -1.458195, 54.902887 ] ] ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWT029", "name": "North Bank of the Humber estuary at Hessle Haven", "description": "Hessle area around Hessle Haven", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.443186, 53.71467 ], [ -0.444024, 53.71594 ], [ -0.44232, 53.716283 ], [ -0.4396, 53.716895 ], [ -0.439531, 53.717532 ], [ -0.438704, 53.71791 ], [ -0.433504, 53.718892 ], [ -0.4315, 53.719215 ], [ -0.430399, 53.717069 ], [ -0.43041, 53.717066 ], [ -0.431557, 53.71679 ], [ -0.432194, 53.71678 ], [ -0.433888, 53.716508 ], [ -0.433887, 53.716506 ], [ -0.434394, 53.716297 ], [ -0.436881, 53.715853 ], [ -0.439993, 53.715291 ], [ -0.442751, 53.714762 ], [ -0.443153, 53.714676 ], [ -0.443186, 53.71467 ] ] ] } }
+]
+}

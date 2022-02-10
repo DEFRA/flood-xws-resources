@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWF723", "name": "River Ouse at Naburn Lock", "description": "Naburn Lock Buildings and Lock Cottages", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.097213, 53.89408 ], [ -1.096863, 53.893804 ], [ -1.095254, 53.89441 ], [ -1.093489, 53.894689 ], [ -1.093361, 53.894221 ], [ -1.096429, 53.89346 ], [ -1.096375, 53.893418 ], [ -1.097541, 53.893004 ], [ -1.098543, 53.893812 ], [ -1.097802, 53.894282 ], [ -1.09774, 53.894327 ], [ -1.097213, 53.89408 ] ] ] } }
+]
+}

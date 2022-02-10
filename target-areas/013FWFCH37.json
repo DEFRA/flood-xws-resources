@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "013FWFCH37", "name": "River Weaver at Pickerings Bridge", "description": "Areas at risk include Primrose Cottage, Pickerings Bridge Cottage, The Bungalow and Pickerings Lock Caravan Park", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.637832, 53.28069 ], [ -2.637744, 53.280172 ], [ -2.637788, 53.280114 ], [ -2.637966, 53.280144 ], [ -2.637967, 53.280214 ], [ -2.638118, 53.280211 ], [ -2.638173, 53.280515 ], [ -2.638173, 53.280515 ], [ -2.640243, 53.282229 ], [ -2.639944, 53.282446 ], [ -2.639521, 53.282645 ], [ -2.639424, 53.282689 ], [ -2.638604, 53.282508 ], [ -2.638603, 53.282444 ], [ -2.637285, 53.282363 ], [ -2.637265, 53.282108 ], [ -2.637618, 53.281697 ], [ -2.637593, 53.281638 ], [ -2.637625, 53.28156 ], [ -2.637718, 53.28126 ], [ -2.637696, 53.280829 ], [ -2.637687, 53.280785 ], [ -2.637832, 53.28069 ] ] ] } }
+]
+}

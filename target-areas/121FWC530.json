@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "121FWC530", "name": "North Sea at Beadnell", "description": "Properties at the south end of Harbour Road next to Beadnell Harbour", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.625283, 55.550928 ], [ -1.62521, 55.550953 ], [ -1.624963, 55.550949 ], [ -1.624781, 55.550939 ], [ -1.624632, 55.550931 ], [ -1.624576, 55.550926 ], [ -1.624604, 55.550669 ], [ -1.624625, 55.550551 ], [ -1.624754, 55.550547 ], [ -1.625037, 55.550557 ], [ -1.625331, 55.550598 ], [ -1.625283, 55.550928 ] ] ] } }
+]
+}

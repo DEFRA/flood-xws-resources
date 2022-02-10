@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "055FWFUWEL05", "name": "River Welland and tributaries in Welham", "description": "River Welland and tributaries in Welham including properties in Welham and farms on Stonton Brook", "region": "Lincs and Northants" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.879327, 52.507202 ], [ -0.886326, 52.50589 ], [ -0.89342, 52.508292 ], [ -0.891387, 52.509269 ], [ -0.892041, 52.51073 ], [ -0.891267, 52.511565 ], [ -0.891974, 52.513372 ], [ -0.888792, 52.515103 ], [ -0.885922, 52.516914 ], [ -0.885261, 52.51821 ], [ -0.886245, 52.521513 ], [ -0.882838, 52.52217 ], [ -0.876761, 52.524142 ], [ -0.87249, 52.526667 ], [ -0.871488, 52.526581 ], [ -0.866235, 52.523314 ], [ -0.867457, 52.522177 ], [ -0.867929, 52.520918 ], [ -0.869846, 52.519596 ], [ -0.87334, 52.517982 ], [ -0.877915, 52.515805 ], [ -0.878916, 52.513478 ], [ -0.878447, 52.512172 ], [ -0.879223, 52.511299 ], [ -0.878449, 52.509645 ], [ -0.879327, 52.507202 ] ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWF720", "name": "River Ouse at York - River Street", "description": "Properties on River Street and on Lower Darnborough Street", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.079889, 53.95183 ], [ -1.08041, 53.951703 ], [ -1.080453, 53.951754 ], [ -1.080884, 53.951678 ], [ -1.081725, 53.951721 ], [ -1.081689, 53.951898 ], [ -1.081587, 53.951927 ], [ -1.081481, 53.952487 ], [ -1.080789, 53.95255 ], [ -1.080605, 53.952581 ], [ -1.080531, 53.952528 ], [ -1.079964, 53.951923 ], [ -1.079889, 53.95183 ] ] ] } }
+]
+}

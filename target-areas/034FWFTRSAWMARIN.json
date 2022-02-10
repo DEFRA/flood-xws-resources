@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "034FWFTRSAWMARIN", "name": "River Trent at Sawley Marina, including Sawley Lock", "description": "River Trent at Sawley Marina, including Sawley Lock including low lying farms", "region": "East Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.302015, 52.860359 ], [ -1.306341, 52.867454 ], [ -1.308293, 52.86748 ], [ -1.311747, 52.867915 ], [ -1.312054, 52.868158 ], [ -1.320531, 52.865146 ], [ -1.323568, 52.866747 ], [ -1.323066, 52.867604 ], [ -1.319498, 52.868792 ], [ -1.318497, 52.87037 ], [ -1.318329, 52.872625 ], [ -1.315484, 52.87293 ], [ -1.309851, 52.872737 ], [ -1.307733, 52.873376 ], [ -1.306942, 52.874443 ], [ -1.306577, 52.875438 ], [ -1.305558, 52.876686 ], [ -1.301042, 52.875013 ], [ -1.298569, 52.875074 ], [ -1.294368, 52.873977 ], [ -1.290819, 52.872732 ], [ -1.291349, 52.872071 ], [ -1.29527, 52.866253 ], [ -1.296406, 52.864893 ], [ -1.297766, 52.863384 ], [ -1.302015, 52.860359 ] ] ] } }
+]
+}

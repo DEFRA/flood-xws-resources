@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWC009", "name": "North Sea at Scarborough - North Bay", "description": "Properties adjacent to Peasholm Gap and along Royal Albert Drive", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.40857, 54.293086 ], [ -0.407934, 54.293248 ], [ -0.408405, 54.293776 ], [ -0.408384, 54.293919 ], [ -0.408212, 54.293998 ], [ -0.407919, 54.294021 ], [ -0.407723, 54.293929 ], [ -0.407017, 54.293101 ], [ -0.406464, 54.292708 ], [ -0.402626, 54.290248 ], [ -0.403158, 54.289985 ], [ -0.407706, 54.292778 ], [ -0.408218, 54.292641 ], [ -0.40857, 54.293086 ] ] ] } }
+]
+}

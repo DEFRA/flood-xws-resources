@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWF227", "name": "River Swale at Helperby", "description": "Helperby including Bridge Street, Dunroyal and Tofts Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.331725, 54.122611 ], [ -1.332001, 54.122558 ], [ -1.332142, 54.122361 ], [ -1.33257, 54.122364 ], [ -1.332612, 54.122589 ], [ -1.332867, 54.122941 ], [ -1.333514, 54.123591 ], [ -1.333916, 54.124286 ], [ -1.333303, 54.124363 ], [ -1.333183, 54.124237 ], [ -1.333247, 54.124048 ], [ -1.333039, 54.123669 ], [ -1.332754, 54.12329 ], [ -1.332406, 54.123064 ], [ -1.332285, 54.122946 ], [ -1.331902, 54.123025 ], [ -1.331828, 54.122836 ], [ -1.331708, 54.122718 ], [ -1.331725, 54.122611 ] ] ] } }
+]
+}

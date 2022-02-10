@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Alert_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "065FAG001", "name": "Groundwater flooding in Deane and Ashe in North Hampshire", "description": "Areas at risk of groundwater flooding in Deane and Ashe in the Upper Test catchment in North Hampshire", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.238224, 51.24799 ], [ -1.234866, 51.248365 ], [ -1.231857, 51.248253 ], [ -1.22977, 51.248118 ], [ -1.227925, 51.248045 ], [ -1.225782, 51.248396 ], [ -1.220173, 51.249761 ], [ -1.21687, 51.249709 ], [ -1.213134, 51.24947 ], [ -1.207259, 51.249339 ], [ -1.206405, 51.248145 ], [ -1.207004, 51.247173 ], [ -1.209984, 51.246187 ], [ -1.212826, 51.244774 ], [ -1.215469, 51.243572 ], [ -1.217363, 51.243615 ], [ -1.222325, 51.243099 ], [ -1.225734, 51.242573 ], [ -1.228064, 51.24265 ], [ -1.235394, 51.242881 ], [ -1.238789, 51.243238 ], [ -1.239074, 51.246532 ], [ -1.238224, 51.24799 ] ] ] } }
+]
+}

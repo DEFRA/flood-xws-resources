@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Alert_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "052FAGFORNHAM", "name": "Groundwater flooding in Fornham St Martin", "description": "Areas of Fornham St Martin at risk of groundwater flooding, including Old Hall Lane", "region": "East Anglia" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 0.71054, 52.269453 ], [ 0.711055, 52.269135 ], [ 0.710596, 52.268782 ], [ 0.710977, 52.268549 ], [ 0.710466, 52.26841 ], [ 0.709432, 52.268924 ], [ 0.71054, 52.269453 ] ] ] } }
+]
+}

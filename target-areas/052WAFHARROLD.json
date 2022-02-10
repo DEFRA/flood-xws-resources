@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Alert_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "052WAFHARROLD", "name": "Low lying roads between Harrold and Oakley in Bedfordshire", "description": "Roads close to the bridges at Harrold, Oakley, Felmersham and Radwell", "region": "East Anglia" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -0.526784, 52.165466 ], [ -0.527188, 52.163833 ], [ -0.528022, 52.1639 ], [ -0.527668, 52.165563 ], [ -0.526784, 52.165466 ] ] ], [ [ [ -0.602874, 52.199026 ], [ -0.603459, 52.198315 ], [ -0.603908, 52.198439 ], [ -0.60324, 52.199132 ], [ -0.602874, 52.199026 ] ] ], [ [ [ -0.529903, 52.203492 ], [ -0.530557, 52.203348 ], [ -0.531393, 52.204718 ], [ -0.530795, 52.20483 ], [ -0.529903, 52.203492 ] ] ], [ [ [ -0.551494, 52.210185 ], [ -0.551864, 52.210077 ], [ -0.552377, 52.210626 ], [ -0.551985, 52.210724 ], [ -0.551494, 52.210185 ] ] ] ] } }
+]
+}

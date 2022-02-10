@@ -28,7 +28,7 @@ exports.handler = async (event) => {
         const [, areaId, , code] = alert.sk.split('#')
 
         // Get the alert data
-        const alertDataItem = await getAlertData(alert.id)
+        const alertDataItem = await getAlertData(id)
         console.log('alertDataItem', alertDataItem)
 
         const alertData = alertDataItem.Item

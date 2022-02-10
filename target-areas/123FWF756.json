@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "123FWF756", "name": "Lingwell Gate Beck at Lofthouse Gate", "description": "Properties along Philip's Grove, Lingwell Nook Crescent, Lingwell Nook Court, Lingwell Chase and Park View", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.495598, 53.717741 ], [ -1.497614, 53.717623 ], [ -1.49884, 53.717763 ], [ -1.499203, 53.717837 ], [ -1.499627, 53.717847 ], [ -1.499684, 53.718117 ], [ -1.499652, 53.71827 ], [ -1.499334, 53.718269 ], [ -1.499305, 53.718179 ], [ -1.497972, 53.718083 ], [ -1.497306, 53.71808 ], [ -1.496519, 53.717996 ], [ -1.495746, 53.717993 ], [ -1.495598, 53.717741 ] ] ] } }
+]
+}

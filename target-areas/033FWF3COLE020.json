@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "033FWF3COLE020", "name": "River Cole at Woodlands, Coleshill", "description": "River Cole at Woodlands, Coleshill including Coleshill Hall Bridge area", "region": "West Midlands" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.721522, 52.491808 ], [ -1.721183, 52.491969 ], [ -1.72077, 52.492022 ], [ -1.720448, 52.491724 ], [ -1.720522, 52.491545 ], [ -1.720111, 52.491418 ], [ -1.719449, 52.491326 ], [ -1.719436, 52.49094 ], [ -1.719792, 52.490671 ], [ -1.720189, 52.490681 ], [ -1.721201, 52.491348 ], [ -1.721522, 52.491808 ] ] ], [ [ [ -1.730296, 52.492538 ], [ -1.729089, 52.492409 ], [ -1.72918, 52.491987 ], [ -1.729431, 52.491817 ], [ -1.730064, 52.491917 ], [ -1.730296, 52.492538 ] ] ], [ [ [ -1.719841, 52.499193 ], [ -1.719149, 52.499039 ], [ -1.719269, 52.498743 ], [ -1.719755, 52.498726 ], [ -1.719841, 52.499193 ] ] ] ] } }
+]
+}

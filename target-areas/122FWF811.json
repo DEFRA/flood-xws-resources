@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWF811", "name": "River Dove at Salton", "description": "Properties in the village of Salton", "region": "Yorkshire" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -0.897163, 54.212089 ], [ -0.897534, 54.2114 ], [ -0.902678, 54.209964 ], [ -0.905319, 54.210384 ], [ -0.905491, 54.210871 ], [ -0.905004, 54.211873 ], [ -0.902869, 54.212572 ], [ -0.898485, 54.212514 ], [ -0.897163, 54.212089 ] ] ], [ [ [ -0.892121, 54.207944 ], [ -0.893939, 54.207628 ], [ -0.894359, 54.20854 ], [ -0.892587, 54.208874 ], [ -0.892121, 54.207944 ] ] ] ] } }
+]
+}

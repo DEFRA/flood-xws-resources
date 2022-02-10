@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "121FWF309", "name": "River Wear at West and East Bridge Street, Fatfield", "description": "Properties along West Bridge Street and East Bridge Street, Fatfield", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.51647, 54.878366 ], [ -1.516611, 54.878322 ], [ -1.5168, 54.87817 ], [ -1.516986, 54.878279 ], [ -1.516264, 54.878698 ], [ -1.514694, 54.879653 ], [ -1.51457, 54.879599 ], [ -1.515041, 54.879277 ], [ -1.51548, 54.879018 ], [ -1.515591, 54.878929 ], [ -1.516093, 54.878599 ], [ -1.51647, 54.878366 ] ] ], [ [ [ -1.513145, 54.88015 ], [ -1.514099, 54.87984 ], [ -1.514193, 54.879813 ], [ -1.514285, 54.879921 ], [ -1.514035, 54.879983 ], [ -1.513237, 54.880232 ], [ -1.512564, 54.880454 ], [ -1.512441, 54.880327 ], [ -1.512879, 54.880194 ], [ -1.513145, 54.88015 ] ] ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWC048", "name": "North Sea at Scarborough - Foreshore Road", "description": "Properties on Foreshore Road from the roundabout to West Pier", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.397666, 54.281068 ], [ -0.396707, 54.28243 ], [ -0.395337, 54.283284 ], [ -0.394805, 54.283538 ], [ -0.393932, 54.283877 ], [ -0.393423, 54.283528 ], [ -0.394561, 54.283103 ], [ -0.395631, 54.282443 ], [ -0.39611, 54.281982 ], [ -0.396628, 54.281306 ], [ -0.397323, 54.280003 ], [ -0.397659, 54.280061 ], [ -0.397588, 54.280312 ], [ -0.397401, 54.280768 ], [ -0.397569, 54.280788 ], [ -0.397666, 54.281068 ] ] ] } }
+]
+}

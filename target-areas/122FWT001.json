@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "122FWT001", "name": "Humber estuary at West Hessle foreshore", "description": "North bank of Humber estuary to the west of Humber Bridge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.450625, 53.71541 ], [ -0.450566, 53.714242 ], [ -0.451948, 53.714511 ], [ -0.454227, 53.715161 ], [ -0.456012, 53.715669 ], [ -0.458042, 53.7161 ], [ -0.459243, 53.716403 ], [ -0.455601, 53.716123 ], [ -0.452854, 53.715404 ], [ -0.451447, 53.715359 ], [ -0.450625, 53.71541 ] ] ] } }
+]
+}

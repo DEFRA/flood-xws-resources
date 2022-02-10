@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "011FWFNC3F", "name": "River Eden at Carlisle, Tesco Store Warwick Road", "description": "Low lying roads and agricultural land, adjacent to the River Eden at Tesco Store, Warwick Road", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.89693, 54.89636 ], [ -2.896745, 54.89647 ], [ -2.896226, 54.896959 ], [ -2.895734, 54.897277 ], [ -2.89528, 54.897163 ], [ -2.893865, 54.898082 ], [ -2.893241, 54.898068 ], [ -2.892943, 54.897953 ], [ -2.892482, 54.89757 ], [ -2.892146, 54.897195 ], [ -2.891953, 54.896208 ], [ -2.891631, 54.895743 ], [ -2.891771, 54.895742 ], [ -2.891898, 54.89584 ], [ -2.8921, 54.895812 ], [ -2.892192, 54.89573 ], [ -2.894906, 54.895782 ], [ -2.894985, 54.895818 ], [ -2.896196, 54.89562 ], [ -2.896212, 54.895602 ], [ -2.896741, 54.895562 ], [ -2.89669, 54.896093 ], [ -2.89693, 54.89636 ] ] ] } }
+]
+}

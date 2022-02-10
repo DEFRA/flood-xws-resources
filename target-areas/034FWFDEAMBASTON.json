@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flood_Warning_Areas",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "code": "034FWFDEAMBASTON", "name": "River Derwent at Ambaston", "description": "River Derwent at Ambaston including Main Street, Mere Beck and Meadow Court", "region": "East Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.366999, 52.887823 ], [ -1.367567, 52.888306 ], [ -1.36798, 52.88856 ], [ -1.367796, 52.888955 ], [ -1.367603, 52.889418 ], [ -1.367914, 52.890384 ], [ -1.367316, 52.890573 ], [ -1.367406, 52.891162 ], [ -1.36663, 52.891292 ], [ -1.365213, 52.891223 ], [ -1.36396, 52.890687 ], [ -1.362766, 52.889589 ], [ -1.362359, 52.888902 ], [ -1.362013, 52.888144 ], [ -1.361584, 52.887686 ], [ -1.361472, 52.887193 ], [ -1.361392, 52.886954 ], [ -1.361741, 52.886403 ], [ -1.365803, 52.886832 ], [ -1.366277, 52.886979 ], [ -1.366999, 52.887823 ] ] ] } }
+]
+}
