@@ -57,7 +57,7 @@ function buildCapAlert (alert) {
   // Todo: Add polygon
   // capArea.addPolygon(...)
 
-  const xml = addStylesheet('../__static/alert-style.xsl', capAlert.toXml())
+  const xml = addStylesheet('../assets/alert-style.xsl', capAlert.toXml())
 
   return xml
 }
@@ -80,8 +80,8 @@ function getRssFeed (alerts) {
     generator: 'xws',
     link: 'https://www.gov.uk/check-flooding',
     updated: new Date(),
-    image: '__static/xws.png',
-    favicon: '__static/favicon.ico',
+    image: 'assets/xws.png',
+    favicon: 'assets/favicon.ico',
     feedLinks: {
       json: 'https://www.gov.uk/json',
       atom: 'https://www.gov.uk/atom'
@@ -94,14 +94,17 @@ function getRssFeed (alerts) {
 
   alerts.forEach(alert => {
     const type = alertTypesMap.get(alert.type)
-    feed.addItem({
+    const item = {
       id: alert.sk,
-      title: `${type.name} for ${alert.code}: ${alert.headline}`,
+      title: alert.headline,
       link: `items/${alert.sk}.xml`,
-      description: alert.body,
+      description: `${type.name} for ${alert.code}`,
+      content: alert.body,
       date: new Date(alert.updated),
-      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/__static/alert-types/${type.id}.gif`
-    })
+      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/assets/alert-types/${type.id}.gif`
+    }
+
+    feed.addItem(item)
   })
 
   return feed
@@ -124,20 +127,28 @@ async function getRss () {
   // Get rss feed
   const feed = getRssFeed(alerts)
 
-  const rss = addStylesheet('./__static/rss-style.xsl', feed.rss2())
-  const json = feed.json1()
+  const rss = addStylesheet('./assets/rss-style.xsl', feed.rss2())
+  const atom = feed.atom1()
 
-  return { alerts, rss, json }
+  return { alerts, rss, atom }
 }
 
 async function saveFeed () {
-  const { alerts, rss, json } = await getRss()
+  const { alerts, rss, atom } = await getRss()
 
-  const result = await s3.putObject({
+  const rssResult = await s3.putObject({
     Bucket: bucketName,
     Key: 'alerts/alerts.rss',
     Body: rss,
-    ContentType: 'text/xml',
+    ContentType: 'application/rss+xml',
+    ACL: 'public-read'
+  }).promise()
+
+  const atomResult = await s3.putObject({
+    Bucket: bucketName,
+    Key: 'alerts/alerts.atom',
+    Body: atom,
+    ContentType: 'application/atom+xml',
     ACL: 'public-read'
   }).promise()
 
@@ -151,7 +162,7 @@ async function saveFeed () {
     return { id, code, type: alertType, headline, message, area, region, updated, polygon }
   }
 
-  const result1 = await s3.putObject({
+  const jsonResult = await s3.putObject({
     Bucket: bucketName,
     Key: 'alerts/alerts.json',
     Body: JSON.stringify(alerts.map(mapper), null, 2),
@@ -159,7 +170,7 @@ async function saveFeed () {
     ACL: 'public-read'
   }).promise()
  
-  return { result, result1 }
+  return { rssResult, atomResult, jsonResult }
 }
 
 async function getAlertData (id) {

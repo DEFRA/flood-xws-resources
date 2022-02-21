@@ -6,7 +6,7 @@ deploy:
 
 syncFiles:
 	aws s3 sync ./static s3://xws-alert-$(ENV)-files --profile $(AWS_PROFILE) --acl public-read
-	aws s3 sync ./__static s3://xws-alert-$(ENV)-files/alerts/__static --profile $(AWS_PROFILE) --acl public-read
+	aws s3 sync ./assets s3://xws-alert-$(ENV)-files/alerts/assets --profile $(AWS_PROFILE) --acl public-read
 
 syncTargetAreas:
 	aws s3 sync ./target-areas s3://xws-alert-$(ENV)-files/target-areas --profile $(AWS_PROFILE) --acl public-read

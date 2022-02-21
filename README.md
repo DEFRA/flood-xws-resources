@@ -53,7 +53,7 @@ https://xws.com
   * alerts.json (The RSS json feed)
   * items (All alert files go in here)
     * [alert-guid].xml
-  * __static (The files for alert feed styling found in this repo go here)
+  * assets (The files for alert feed styling found in this repo go here)
     * alert-style.xsl
     * draw-shapes.js
     * favicon.ico

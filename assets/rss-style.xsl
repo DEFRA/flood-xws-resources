@@ -11,16 +11,16 @@
       <meta name="keywords" content="emergency, alert, warning"/>
       <title><xsl:value-of select="title" /></title>
       <style type="text/css">
-        body { font-family: 'Roboto', Verdana, Geneva, sans-serif; }
-        table { font-size: smaller; margin-left: 20px; }
-        img { vertical-align: middle; margin-right: 12px }
+        body { font-family: monospace; }
+        table { margin-left: 20px; }
+        img { vertical-align: middle; margin-right: 12px; }
         .block { overflow: hidden; }
         .block img { width: 48px; float: left; }
-        .block em { color: darkgray; }
+        .block small { color: darkgray; }
         .block > div { padding-left: 60px; }
-        a, a:visited, a:hover, a:active { color: rgb(0, 0, 238); }
+        a, a:visited, a:hover, a:active { color: #1d70b8; }
       </style>
-      <link rel="icon" type="image/x-icon" href="__static/favicon.ico" />
+      <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     </head>
     <body>
       <h2>
@@ -40,10 +40,9 @@
             <img src="{enclosure/@url}" class="icon" alt="icon" />
             <div>
               <h4><a href="{link}"><xsl:value-of select="title" /></a></h4>
-              <p>
-                <xsl:value-of select="description" />
-              </p>
-              <small><em><xsl:value-of select="pubDate" /></em></small>
+              <p><xsl:value-of select="description" /></p>
+              <p><xsl:value-of select="*[name()='content:encoded']" /></p>
+              <small><xsl:value-of select="pubDate" /></small>
             </div>
           </div>
         </td>
