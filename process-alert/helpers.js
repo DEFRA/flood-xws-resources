@@ -1,40 +1,14 @@
 const AWS = require('aws-sdk')
 const { Feed } = require('feed')
-const { Alert } = require('caplib')
+const { Alert } = require('flood-xws-common/caplib')
+const { alertTypesMap, regionsMap, areasMap } = require('flood-xws-common/data')
+const { publisher, service } = require('flood-xws-common/constants')
 const s3 = new AWS.S3()
 const sns = new AWS.SNS()
 const ddb = new AWS.DynamoDB.DocumentClient()
 const bucketName = process.env.S3_BUCKET_NAME
 const tableName = process.env.DYNAMODB_TABLE_NAME
 const topicArn = process.env.ALERT_PUBLISHED_TOPIC_ARN
-
-const alertTypes = [
-  {
-    id: 'fa',
-    name: 'Flood alert'
-  },
-  {
-    id: 'fw',
-    name: 'Flood warning'
-  },
-  {
-    id: 'sfw',
-    name: 'Severe flood warning'
-  }
-]
-const alertTypesMap = new Map(alertTypes.map(type => [type.id, type]))
-
-const publisher = {
-  id: '92895119-cb53-4012-8eb9-173a22f2db7a',
-  name: 'Environment Agency',
-  url: 'www.gov.uk/environment-agency'
-}
-
-const service = {
-  id: 'ecbb79cc-47f5-4bb0-ad0c-ca803b671cfb',
-  name: 'XWS',
-  description: 'Flood warning service'
-}
 
 /**
  * Convert an alert to cap. Currently uses the
@@ -99,11 +73,10 @@ function addStylesheet (href, xml) {
 }
 
 function getRssFeed (alerts) {
-  // Todo: pull titles, author etc. from service/publisher/source/sender
   const feed = new Feed({
     id: 'https://www.gov.uk',
-    title: 'Flood Alerts and Warnings',
-    description: 'Latest flood alerts and warnings',
+    title: service.description,
+    description: service.name,
     generator: 'xws',
     link: 'https://www.gov.uk/check-flooding',
     updated: new Date(),
@@ -114,9 +87,8 @@ function getRssFeed (alerts) {
       atom: 'https://www.gov.uk/atom'
     },
     author: {
-      name: 'DEFRA',
-      email: 'defra@gov.uk',
-      link: 'https://gov.com/defra'
+      name: publisher.name,
+      link: publisher.url
     }
   })
 
@@ -155,28 +127,38 @@ async function getRss () {
   const rss = addStylesheet('./__static/rss-style.xsl', feed.rss2())
   const json = feed.json1()
 
-  return { rss, json }
+  return { alerts, rss, json }
 }
 
 async function saveFeed () {
-  const { rss, json } = await getRss()
+  const { alerts, rss, json } = await getRss()
 
   const result = await s3.putObject({
     Bucket: bucketName,
-    Key: 'alerts/alerts.xml',
+    Key: 'alerts/alerts.rss',
     Body: rss,
     ContentType: 'text/xml',
     ACL: 'public-read'
   }).promise()
 
+  const mapper = alert => {
+    const { code, headline, body: message, updated, areaId, type, sk: id } = alert
+    const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/target-areas/${code}.json`
+    const alertType = alertTypesMap.get(type)
+    const area = areasMap.get(areaId)
+    const region = regionsMap.get(area.regionId)
+
+    return { id, code, type: alertType, headline, message, area, region, updated, polygon }
+  }
+
   const result1 = await s3.putObject({
     Bucket: bucketName,
     Key: 'alerts/alerts.json',
-    Body: json,
+    Body: JSON.stringify(alerts.map(mapper), null, 2),
     ContentType: 'text/json',
     ACL: 'public-read'
   }).promise()
-
+ 
   return { result, result1 }
 }
 

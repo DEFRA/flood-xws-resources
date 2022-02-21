@@ -5,7 +5,8 @@ deploy:
 	aws cloudformation deploy --capabilities CAPABILITY_NAMED_IAM --template-file resources.yaml --stack-name xws-alert-$(ENV) --profile $(AWS_PROFILE)
 
 syncFiles:
-	aws s3 sync ./files s3://xws-alert-$(ENV)-files/alerts/__static --profile $(AWS_PROFILE) --acl public-read
+	aws s3 sync ./static s3://xws-alert-$(ENV)-files --profile $(AWS_PROFILE) --acl public-read
+	aws s3 sync ./__static s3://xws-alert-$(ENV)-files/alerts/__static --profile $(AWS_PROFILE) --acl public-read
 
 syncTargetAreas:
 	aws s3 sync ./target-areas s3://xws-alert-$(ENV)-files/target-areas --profile $(AWS_PROFILE) --acl public-read

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+unzip -d faa EA_FloodAlertAreas_SHP_Full.zip
+ogr2ogr -f GeoJSON -t_srs EPSG:4326 -nlt NONE -sql "SELECT fws_tacode AS code, ta_name AS name, descrip AS description, area AS region from Flood_Alert_Areas" -lco RFC7946=YES -lco COORDINATE_PRECISION=6 faa.json faa/data/Flood_Alert_Areas.shp -progress
+rm -rf faa
+
+unzip -d fwa EA_FloodWarningAreas_SHP_Full.zip
+ogr2ogr -f GeoJSON -t_srs EPSG:4326 -nlt NONE -sql "SELECT fws_tacode AS code, ta_name AS name, descrip AS description, area AS region from Flood_Warning_Areas" -lco RFC7946=YES -lco COORDINATE_PRECISION=6 fwa.json fwa/data/Flood_Warning_Areas.shp -progress
+rm -rf fwa
+
+node ./process-areas.js
+
+rm faa.json
+rm fwa.json

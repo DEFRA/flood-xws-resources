@@ -1,0 +1,22 @@
+{
+  "name": "flood-xws-alert-resources",
+  "version": "1.0.0",
+  "description": "XWS Alert Resources",
+  "main": "create-static-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEFRA/flood-xws-alert-resources.git"
+  },
+  "author": "DEFRA",
+  "license": "OGL-UK-3.0",
+  "bugs": {
+    "url": "https://github.com/DEFRA/flood-xws-alert-resources/issues"
+  },
+  "homepage": "https://github.com/DEFRA/flood-xws-alert-resources#readme",
+  "dependencies": {
+    "flood-xws-common": "github:DEFRA/flood-xws-common"
+  }
+}

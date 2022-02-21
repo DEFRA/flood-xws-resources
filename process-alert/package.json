@@ -9,8 +9,8 @@
   "author": "DEFRA",
   "license": "ISC",
   "dependencies": {
-    "caplib": "github:NeXt-Warning-System/caplib",
     "feed": "4.2.2",
+    "flood-xws-common": "github:DEFRA/flood-xws-common",
     "uuid": "8.3.2"
   },
   "devDependencies": {

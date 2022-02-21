@@ -24,7 +24,7 @@
     </head>
     <body>
       <h2>
-        <img src="{image/url}" alt="logo" width="64px" height="64px"/>
+        <!-- <img src="{image/url}" alt="logo" width="64px" height="64px"/> -->
         <xsl:value-of select="title" />
       </h2>
       <table>
