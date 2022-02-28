@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "011FWFNC3CUM", "name": "River Caldew at Cummersdale, Factory", "description": "The Stead McAlpin Factory on Caldew Road and parts of the Cumbria Way Cycleway adjacent to the River Caldew at Cummersdale, Carlisle", "region": "Cumbria and Lancashire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.947876, 54.870048 ], [ -2.945709, 54.867176 ], [ -2.944113, 54.867656 ], [ -2.944103, 54.868466 ], [ -2.944366, 54.869157 ], [ -2.944888, 54.869829 ], [ -2.945814, 54.870398 ], [ -2.947876, 54.870048 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"011FWFNC3CUM","type":"Feature","geometry":{"bbox":[-2.947876,54.867176,-2.944103,54.870398],"type":"MultiPolygon","coordinates":[[[[-2.947876,54.870048],[-2.945814,54.870398],[-2.944888,54.869829],[-2.944366,54.869157],[-2.944103,54.868466],[-2.944113,54.867656],[-2.945709,54.867176],[-2.947876,54.870048]]]]},"properties":{"code":"011FWFNC3CUM","name":"River Caldew at Cummersdale, Factory","type_id":"f","centroid":{"type":"Point","coordinates":[-2.945721,54.868901]},"river_sea":"River Caldew","ea_area_id":"CLA","category_id":"fwa","description":"The Stead McAlpin Factory on Caldew Road and parts of the Cumbria Way Cycleway adjacent to the River Caldew at Cummersdale, Carlisle","ea_owner_id":"011","quick_dial_code":"302036","parent_area_code":"011WAFPC","local_authority_name":"Cumbria"}}]}

@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWC526", "name": "North Sea at Holy Island", "description": "Properties including Herring House, St. Oswalds and Athol Brose", "region": "North East" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.798008, 55.668892 ], [ -1.797835, 55.66856 ], [ -1.797199, 55.668478 ], [ -1.796989, 55.669277 ], [ -1.796748, 55.669591 ], [ -1.797479, 55.669673 ], [ -1.797831, 55.669332 ], [ -1.798008, 55.668892 ] ] ], [ [ [ -1.798604, 55.670556 ], [ -1.798224, 55.670195 ], [ -1.797937, 55.670294 ], [ -1.797616, 55.670994 ], [ -1.798124, 55.671049 ], [ -1.798604, 55.670556 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWC526","type":"Feature","geometry":{"bbox":[-1.798604,55.668478,-1.796748,55.671049],"type":"MultiPolygon","coordinates":[[[[-1.798008,55.668892],[-1.797831,55.669332],[-1.797479,55.669673],[-1.796748,55.669591],[-1.796989,55.669277],[-1.797199,55.668478],[-1.797835,55.66856],[-1.798008,55.668892]]],[[[-1.798604,55.670556],[-1.798124,55.671049],[-1.797616,55.670994],[-1.797937,55.670294],[-1.798224,55.670195],[-1.798604,55.670556]]]]},"properties":{"code":"121FWC526","name":"North Sea at Holy Island","type_id":"c","centroid":{"type":"Point","coordinates":[-1.797661,55.669621]},"river_sea":"North Sea","ea_area_id":"NEA","category_id":"fwa","description":"Properties including Herring House, St. Oswalds and Athol Brose","ea_owner_id":"121","quick_dial_code":"130001","parent_area_code":"121WAC921","local_authority_name":"Northumberland"}}]}

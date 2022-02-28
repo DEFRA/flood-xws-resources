@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF761", "name": "River Aire at Wheldale Lane", "description": "Properties on Wheldale Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.29264, 53.733829 ], [ -1.292551, 53.733675 ], [ -1.291806, 53.733842 ], [ -1.291643, 53.733616 ], [ -1.290928, 53.733738 ], [ -1.291343, 53.734333 ], [ -1.29189, 53.734238 ], [ -1.292226, 53.73406 ], [ -1.292714, 53.733919 ], [ -1.29264, 53.733829 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF761","type":"Feature","geometry":{"bbox":[-1.292714,53.733616,-1.290928,53.734333],"type":"MultiPolygon","coordinates":[[[[-1.29264,53.733829],[-1.292714,53.733919],[-1.292226,53.73406],[-1.29189,53.734238],[-1.291343,53.734333],[-1.290928,53.733738],[-1.291643,53.733616],[-1.291806,53.733842],[-1.292551,53.733675],[-1.29264,53.733829]]]]},"properties":{"code":"123FWF761","name":"River Aire at Wheldale Lane","type_id":"f","centroid":{"type":"Point","coordinates":[-1.291738,53.733948]},"river_sea":"River Aire","ea_area_id":"YOR","category_id":"fwa","description":"Properties on Wheldale Lane","ea_owner_id":"123","quick_dial_code":"304266","parent_area_code":"123WAF961","local_authority_name":"Wakefield"}}]}

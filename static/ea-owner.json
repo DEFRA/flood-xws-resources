@@ -1,0 +1,117 @@
+[
+  {
+    "id": "011",
+    "name": "Cumbria and Lancashire - Cumbria",
+    "ea_area_id": "CLA"
+  },
+  {
+    "id": "012",
+    "name": "Cumbria and Lancashire - Lancashire",
+    "ea_area_id": "CLA"
+  },
+  {
+    "id": "114",
+    "name": "Devon and Cornwall - Cornwall and IOS",
+    "ea_area_id": "DCS"
+  },
+  {
+    "id": "113",
+    "name": "Devon and Cornwall - Devon",
+    "ea_area_id": "DCS"
+  },
+  {
+    "id": "052",
+    "name": "East Anglia - Cambridgeshire and Bedfordshire",
+    "ea_area_id": "EAN"
+  },
+  {
+    "id": "051",
+    "name": "East Anglia - Essex, Norfolk and Suffolk",
+    "ea_area_id": "EAN"
+  },
+  {
+    "id": "054",
+    "name": "East Anglia - Essex, Norfolk and Suffolk",
+    "ea_area_id": "EAN"
+  },
+  {
+    "id": "034",
+    "name": "East Midlands",
+    "ea_area_id": "EMD"
+  },
+  {
+    "id": "013",
+    "name": "Gtr Mancs Mersey and Ches",
+    "ea_area_id": "GMC"
+  },
+  {
+    "id": "062",
+    "name": "Herts and North London",
+    "ea_area_id": "HNL"
+  },
+  {
+    "id": "063",
+    "name": "Kent S London and E Sussex",
+    "ea_area_id": "KSL"
+  },
+  {
+    "id": "064",
+    "name": "Kent S London and E Sussex",
+    "ea_area_id": "KSL"
+  },
+  {
+    "id": "053",
+    "name": "Lincs and Northants",
+    "ea_area_id": "LNA"
+  },
+  {
+    "id": "055",
+    "name": "Lincs and Northants",
+    "ea_area_id": "LNA"
+  },
+  {
+    "id": "121",
+    "name": "North East",
+    "ea_area_id": "NEA"
+  },
+  {
+    "id": "065",
+    "name": "Solent and South Downs",
+    "ea_area_id": "SSD"
+  },
+  {
+    "id": "061",
+    "name": "Thames",
+    "ea_area_id": "THM"
+  },
+  {
+    "id": "112",
+    "name": "Wessex - North",
+    "ea_area_id": "WSX"
+  },
+  {
+    "id": "111",
+    "name": "Wessex - South",
+    "ea_area_id": "WSX"
+  },
+  {
+    "id": "033",
+    "name": "West Midlands - East",
+    "ea_area_id": "WMD"
+  },
+  {
+    "id": "031",
+    "name": "West Midlands - West",
+    "ea_area_id": "WMD"
+  },
+  {
+    "id": "122",
+    "name": "Yorkshire - North and East",
+    "ea_area_id": "YOR"
+  },
+  {
+    "id": "123",
+    "name": "Yorkshire - South and West",
+    "ea_area_id": "YOR"
+  }
+]

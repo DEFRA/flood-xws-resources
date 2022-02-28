@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF723", "name": "River Ouse at Naburn Lock", "description": "Naburn Lock Buildings and Lock Cottages", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.097213, 53.89408 ], [ -1.09774, 53.894327 ], [ -1.097802, 53.894282 ], [ -1.098543, 53.893812 ], [ -1.097541, 53.893004 ], [ -1.096375, 53.893418 ], [ -1.096429, 53.89346 ], [ -1.093361, 53.894221 ], [ -1.093489, 53.894689 ], [ -1.095254, 53.89441 ], [ -1.096863, 53.893804 ], [ -1.097213, 53.89408 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF723","type":"Feature","geometry":{"bbox":[-1.098543,53.893004,-1.093361,53.894689],"type":"MultiPolygon","coordinates":[[[[-1.097213,53.89408],[-1.096863,53.893804],[-1.095254,53.89441],[-1.093489,53.894689],[-1.093361,53.894221],[-1.096429,53.89346],[-1.096375,53.893418],[-1.097541,53.893004],[-1.098543,53.893812],[-1.097802,53.894282],[-1.09774,53.894327],[-1.097213,53.89408]]]]},"properties":{"code":"122FWF723","name":"River Ouse at Naburn Lock","type_id":"f","centroid":{"type":"Point","coordinates":[-1.096129,53.893899]},"river_sea":"River Ouse","ea_area_id":"YOR","category_id":"fwa","description":"Naburn Lock Buildings and Lock Cottages","ea_owner_id":"122","quick_dial_code":"135900","parent_area_code":"122WAF947","local_authority_name":"York"}}]}

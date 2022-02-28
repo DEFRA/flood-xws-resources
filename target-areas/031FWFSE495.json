@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "031FWFSE495", "name": "River Severn at Dunns Lane, Upton upon Severn", "description": "River Severn at Dunns Lane, Upton upon Severn", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.214187, 52.062757 ], [ -2.214172, 52.062753 ], [ -2.21378, 52.063275 ], [ -2.213168, 52.063393 ], [ -2.213111, 52.063636 ], [ -2.214971, 52.064047 ], [ -2.215017, 52.063743 ], [ -2.214394, 52.063658 ], [ -2.214326, 52.063221 ], [ -2.214187, 52.062757 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"031FWFSE495","type":"Feature","geometry":{"bbox":[-2.215017,52.062753,-2.213111,52.064047],"type":"MultiPolygon","coordinates":[[[[-2.214187,52.062757],[-2.214326,52.063221],[-2.214394,52.063658],[-2.215017,52.063743],[-2.214971,52.064047],[-2.213111,52.063636],[-2.213168,52.063393],[-2.21378,52.063275],[-2.214172,52.062753],[-2.214187,52.062757]]]]},"properties":{"code":"031FWFSE495","name":"River Severn at Dunns Lane, Upton upon Severn","type_id":"f","centroid":{"type":"Point","coordinates":[-2.21405,52.063532]},"river_sea":"River Severn","ea_area_id":"WMD","category_id":"fwa","description":"River Severn at Dunns Lane, Upton upon Severn","ea_owner_id":"031","quick_dial_code":"309077","parent_area_code":"031WAF108","local_authority_name":"Worcestershire"}}]}

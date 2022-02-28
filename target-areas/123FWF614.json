@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF614", "name": "River Don at Waterside Gardens in Oughtibridge", "description": "Oughtibridge including Waterside Gardens and properties situated off Station Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.535832, 53.436001 ], [ -1.535967, 53.436091 ], [ -1.53581, 53.436639 ], [ -1.536276, 53.436695 ], [ -1.536432, 53.436228 ], [ -1.537875, 53.436404 ], [ -1.537832, 53.436197 ], [ -1.537729, 53.43599 ], [ -1.53767, 53.4359 ], [ -1.537656, 53.435747 ], [ -1.537493, 53.435549 ], [ -1.537196, 53.435116 ], [ -1.536855, 53.434647 ], [ -1.535057, 53.435306 ], [ -1.535384, 53.435666 ], [ -1.535832, 53.436001 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF614","type":"Feature","geometry":{"bbox":[-1.537875,53.434647,-1.535057,53.436695],"type":"MultiPolygon","coordinates":[[[[-1.535832,53.436001],[-1.535384,53.435666],[-1.535057,53.435306],[-1.536855,53.434647],[-1.537196,53.435116],[-1.537493,53.435549],[-1.537656,53.435747],[-1.53767,53.4359],[-1.537729,53.43599],[-1.537832,53.436197],[-1.537875,53.436404],[-1.536432,53.436228],[-1.536276,53.436695],[-1.53581,53.436639],[-1.535967,53.436091],[-1.535832,53.436001]]]]},"properties":{"code":"123FWF614","name":"River Don at Waterside Gardens in Oughtibridge","type_id":"f","centroid":{"type":"Point","coordinates":[-1.536524,53.435655]},"river_sea":"River Don","ea_area_id":"YOR","category_id":"fwa","description":"Oughtibridge including Waterside Gardens and properties situated off Station Lane","ea_owner_id":"123","quick_dial_code":"304106","parent_area_code":"123WAF970","local_authority_name":"Sheffield"}}]}

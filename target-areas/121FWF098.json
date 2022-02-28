@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWF098", "name": "River Coquet at Coquet Lodge at Warkworth", "description": "Properties at Coquet Lodge", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.626015, 55.347732 ], [ -1.625059, 55.347411 ], [ -1.624786, 55.347468 ], [ -1.624155, 55.347699 ], [ -1.623664, 55.347949 ], [ -1.623184, 55.348199 ], [ -1.624362, 55.348475 ], [ -1.625526, 55.348052 ], [ -1.626015, 55.347732 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWF098","type":"Feature","geometry":{"bbox":[-1.626015,55.347411,-1.623184,55.348475],"type":"MultiPolygon","coordinates":[[[[-1.626015,55.347732],[-1.625526,55.348052],[-1.624362,55.348475],[-1.623184,55.348199],[-1.623664,55.347949],[-1.624155,55.347699],[-1.624786,55.347468],[-1.625059,55.347411],[-1.626015,55.347732]]]]},"properties":{"code":"121FWF098","name":"River Coquet at Coquet Lodge at Warkworth","type_id":"f","centroid":{"type":"Point","coordinates":[-1.624645,55.347949]},"river_sea":"River Coquet","ea_area_id":"NEA","category_id":"fwa","description":"Properties at Coquet Lodge","ea_owner_id":"121","quick_dial_code":"301020","parent_area_code":"121WAF904","local_authority_name":"Northumberland"}}]}

@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWF025", "name": "River Tees at Low Dinsdale", "description": "Properties at, Spa Wells and Old Fishlocks at Low Dinsdale", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.459979, 54.481579 ], [ -1.459394, 54.481522 ], [ -1.459114, 54.481692 ], [ -1.458522, 54.482111 ], [ -1.458459, 54.482174 ], [ -1.458535, 54.482246 ], [ -1.458719, 54.482337 ], [ -1.458951, 54.482356 ], [ -1.459277, 54.482178 ], [ -1.45993, 54.48183 ], [ -1.459979, 54.481579 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWF025","type":"Feature","geometry":{"bbox":[-1.459979,54.481522,-1.458459,54.482356],"type":"MultiPolygon","coordinates":[[[[-1.459979,54.481579],[-1.45993,54.48183],[-1.459277,54.482178],[-1.458951,54.482356],[-1.458719,54.482337],[-1.458535,54.482246],[-1.458459,54.482174],[-1.458522,54.482111],[-1.459114,54.481692],[-1.459394,54.481522],[-1.459979,54.481579]]]]},"properties":{"code":"121FWF025","name":"River Tees at Low Dinsdale","type_id":"f","centroid":{"type":"Point","coordinates":[-1.459242,54.481926]},"river_sea":"River Tees","ea_area_id":"NEA","category_id":"fwa","description":"Properties at, Spa Wells and Old Fishlocks at Low Dinsdale","ea_owner_id":"121","quick_dial_code":"134002","parent_area_code":"121WAF924","local_authority_name":"Darlington"}}]}

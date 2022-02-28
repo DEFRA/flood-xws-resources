@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWF205", "name": "River Tyne and Cockshaw Burn at Tyne Green Mews Hexham", "description": "Properties around Tyne Green Mews", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.1067, 54.976895 ], [ -2.106699, 54.976894 ], [ -2.106559, 54.976903 ], [ -2.106559, 54.976908 ], [ -2.10662, 54.977174 ], [ -2.106934, 54.977148 ], [ -2.107587, 54.977112 ], [ -2.107507, 54.976836 ], [ -2.107414, 54.976843 ], [ -2.107398, 54.9768 ], [ -2.107119, 54.976821 ], [ -2.107131, 54.976864 ], [ -2.107115, 54.976865 ], [ -2.107112, 54.976871 ], [ -2.106715, 54.9769 ], [ -2.106705, 54.976897 ], [ -2.1067, 54.976895 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWF205","type":"Feature","geometry":{"bbox":[-2.107587,54.9768,-2.106559,54.977174],"type":"MultiPolygon","coordinates":[[[[-2.1067,54.976895],[-2.106705,54.976897],[-2.106715,54.9769],[-2.107112,54.976871],[-2.107115,54.976865],[-2.107131,54.976864],[-2.107119,54.976821],[-2.107398,54.9768],[-2.107414,54.976843],[-2.107507,54.976836],[-2.107587,54.977112],[-2.106934,54.977148],[-2.10662,54.977174],[-2.106559,54.976908],[-2.106559,54.976903],[-2.106699,54.976894],[-2.1067,54.976895]]]]},"properties":{"code":"121FWF205","name":"River Tyne and Cockshaw Burn at Tyne Green Mews Hexham","type_id":"f","centroid":{"type":"Point","coordinates":[-2.107081,54.976998]},"river_sea":"River Tyne, Cockshaw Burn","ea_area_id":"NEA","category_id":"fwa","description":"Properties around Tyne Green Mews","ea_owner_id":"121","quick_dial_code":"301078","parent_area_code":"121WAF910","local_authority_name":"Northumberland"}}]}

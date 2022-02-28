@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF810", "name": "Costa Beck at Costa Mills", "description": "Properties in the village of Costa Mills", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.809367, 54.244868 ], [ -0.811876, 54.245127 ], [ -0.812789, 54.244866 ], [ -0.814317, 54.243515 ], [ -0.814721, 54.2428 ], [ -0.815377, 54.242914 ], [ -0.815604, 54.242503 ], [ -0.814276, 54.242256 ], [ -0.81402, 54.242631 ], [ -0.811227, 54.2437 ], [ -0.809458, 54.243827 ], [ -0.80834, 54.244301 ], [ -0.808023, 54.24517 ], [ -0.808462, 54.245399 ], [ -0.808786, 54.24533 ], [ -0.809367, 54.244868 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF810","type":"Feature","geometry":{"bbox":[-0.815604,54.242256,-0.808023,54.245399],"type":"MultiPolygon","coordinates":[[[[-0.809367,54.244868],[-0.808786,54.24533],[-0.808462,54.245399],[-0.808023,54.24517],[-0.80834,54.244301],[-0.809458,54.243827],[-0.811227,54.2437],[-0.81402,54.242631],[-0.814276,54.242256],[-0.815604,54.242503],[-0.815377,54.242914],[-0.814721,54.2428],[-0.814317,54.243515],[-0.812789,54.244866],[-0.811876,54.245127],[-0.809367,54.244868]]]]},"properties":{"code":"122FWF810","name":"Costa Beck at Costa Mills","type_id":"f","centroid":{"type":"Point","coordinates":[-0.811699,54.244036]},"river_sea":"Costa Beck","ea_area_id":"YOR","category_id":"fwa","description":"Properties in the village of Costa Mills","ea_owner_id":"122","quick_dial_code":"301317","parent_area_code":"122WAF984","local_authority_name":"North Yorkshire"}}]}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "HNL",
+    "name": "Herts and North London",
+    "full_name": "Hertfordshire and North London",
+    "group": "South East"
+  },
+  {
+    "id": "LNA",
+    "name": "Lincs and Northants",
+    "full_name": "Lincolnshire and Northamptonshire",
+    "group": "West and Central"
+  },
+  {
+    "id": "DCS",
+    "name": "Devon and Cornwall",
+    "full_name": "Devon, Cornwall and the Isles of Scilly",
+    "group": "West and Central"
+  },
+  {
+    "id": "WMD",
+    "name": "West Midlands",
+    "full_name": "West Midlands",
+    "group": "West and Central"
+  },
+  {
+    "id": "EMD",
+    "name": "East Midlands",
+    "full_name": "East Midlands",
+    "group": "West and Central"
+  },
+  {
+    "id": "EAN",
+    "name": "East Anglia",
+    "full_name": "East Anglia",
+    "group": "South East"
+  },
+  {
+    "id": "KSL",
+    "name": "Kent S London and E Sussex",
+    "full_name": "Kent, South London and East Sussex",
+    "group": "South East"
+  },
+  {
+    "id": "NEA",
+    "name": "North East",
+    "full_name": "North East",
+    "group": "North"
+  },
+  {
+    "id": "YOR",
+    "name": "Yorkshire",
+    "full_name": "Yorkshire",
+    "group": "North"
+  },
+  {
+    "id": "SSD",
+    "name": "Solent and South Downs",
+    "full_name": "Solent and South Downs",
+    "group": "South East"
+  },
+  {
+    "id": "GMC",
+    "name": "Gtr Mancs Mersey and Ches",
+    "full_name": "Greater Manchester, Merseyside and Cheshire",
+    "group": "North"
+  },
+  {
+    "id": "WSX",
+    "name": "Wessex",
+    "full_name": "Wessex",
+    "group": "West and Central"
+  },
+  {
+    "id": "CLA",
+    "name": "Cumbria and Lancashire",
+    "full_name": "Cumbria and Lancashire",
+    "group": "North"
+  },
+  {
+    "id": "THM",
+    "name": "Thames",
+    "full_name": "Thames",
+    "group": "South East"
+  }
+]

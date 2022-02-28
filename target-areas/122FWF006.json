@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF006", "name": "River Nidd at Low Laithe", "description": "Riverside properties situated on the left-hand bank at Low Laithe", "region": "Yorkshire" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.712197, 54.067616 ], [ -1.71241, 54.067697 ], [ -1.712133, 54.067921 ], [ -1.712377, 54.06803 ], [ -1.712992, 54.067501 ], [ -1.712611, 54.067365 ], [ -1.712426, 54.067536 ], [ -1.712335, 54.067509 ], [ -1.712197, 54.067616 ] ] ], [ [ [ -1.708314, 54.065665 ], [ -1.708634, 54.065729 ], [ -1.709062, 54.065685 ], [ -1.709064, 54.065478 ], [ -1.708453, 54.065468 ], [ -1.708314, 54.065665 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF006","type":"Feature","geometry":{"bbox":[-1.712992,54.065468,-1.708314,54.06803],"type":"MultiPolygon","coordinates":[[[[-1.708314,54.065665],[-1.708453,54.065468],[-1.709064,54.065478],[-1.709062,54.065685],[-1.708634,54.065729],[-1.708314,54.065665]]],[[[-1.712197,54.067616],[-1.712335,54.067509],[-1.712426,54.067536],[-1.712611,54.067365],[-1.712992,54.067501],[-1.712377,54.06803],[-1.712133,54.067921],[-1.71241,54.067697],[-1.712197,54.067616]]]]},"properties":{"code":"122FWF006","name":"River Nidd at Low Laithe","type_id":"f","centroid":{"type":"Point","coordinates":[-1.711055,54.066866]},"river_sea":"River Nidd","ea_area_id":"YOR","category_id":"fwa","description":"Riverside properties situated on the left-hand bank at Low Laithe","ea_owner_id":"122","quick_dial_code":"310338","parent_area_code":"122WAF941","local_authority_name":"North Yorkshire"}}]}

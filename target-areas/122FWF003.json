@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF003", "name": "River Nidd at Birstwith", "description": "Properties situated along Wreaks Road, Clint Bank and Broom Field", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.62727, 54.033482 ], [ -1.629046, 54.032975 ], [ -1.629227, 54.033191 ], [ -1.630558, 54.032845 ], [ -1.630059, 54.032376 ], [ -1.630824, 54.032172 ], [ -1.630326, 54.031505 ], [ -1.629331, 54.031762 ], [ -1.628984, 54.031321 ], [ -1.6288, 54.031383 ], [ -1.628341, 54.03149 ], [ -1.628598, 54.031814 ], [ -1.627634, 54.032081 ], [ -1.626194, 54.032598 ], [ -1.626099, 54.032939 ], [ -1.626677, 54.033201 ], [ -1.62727, 54.033482 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF003","type":"Feature","geometry":{"bbox":[-1.630824,54.031321,-1.626099,54.033482],"type":"MultiPolygon","coordinates":[[[[-1.62727,54.033482],[-1.626677,54.033201],[-1.626099,54.032939],[-1.626194,54.032598],[-1.627634,54.032081],[-1.628598,54.031814],[-1.628341,54.03149],[-1.6288,54.031383],[-1.628984,54.031321],[-1.629331,54.031762],[-1.630326,54.031505],[-1.630824,54.032172],[-1.630059,54.032376],[-1.630558,54.032845],[-1.629227,54.033191],[-1.629046,54.032975],[-1.62727,54.033482]]]]},"properties":{"code":"122FWF003","name":"River Nidd at Birstwith","type_id":"f","centroid":{"type":"Point","coordinates":[-1.628552,54.032481]},"river_sea":"River Nidd","ea_area_id":"YOR","category_id":"fwa","description":"Properties situated along Wreaks Road, Clint Bank and Broom Field","ea_owner_id":"122","quick_dial_code":"310335","parent_area_code":"122WAF985","local_authority_name":"North Yorkshire"}}]}

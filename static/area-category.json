@@ -1,0 +1,10 @@
+[
+  {
+    "id": "faa",
+    "name": "Flood alert area"
+  },
+  {
+    "id": "fwa",
+    "name": "Flood warning area"
+  }
+]

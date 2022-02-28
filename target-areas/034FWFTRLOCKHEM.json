@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "034FWFTRLOCKHEM", "name": "River Trent at Hemington Ponds, Hole and Fields", "description": "River Trent at Hemington Ponds, Hole and Fields area including properties around the B6540 and the M1", "region": "East Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.334459, 52.853105 ], [ -1.330762, 52.852912 ], [ -1.326847, 52.852955 ], [ -1.323211, 52.85343 ], [ -1.317036, 52.854644 ], [ -1.310711, 52.856373 ], [ -1.302824, 52.86001 ], [ -1.306908, 52.867271 ], [ -1.312631, 52.867735 ], [ -1.3204, 52.864786 ], [ -1.324177, 52.862201 ], [ -1.331223, 52.859937 ], [ -1.334459, 52.853105 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"034FWFTRLOCKHEM","type":"Feature","geometry":{"bbox":[-1.334459,52.852912,-1.302824,52.867735],"type":"MultiPolygon","coordinates":[[[[-1.334459,52.853105],[-1.331223,52.859937],[-1.324177,52.862201],[-1.3204,52.864786],[-1.312631,52.867735],[-1.306908,52.867271],[-1.302824,52.86001],[-1.310711,52.856373],[-1.317036,52.854644],[-1.323211,52.85343],[-1.326847,52.852955],[-1.330762,52.852912],[-1.334459,52.853105]]]]},"properties":{"code":"034FWFTRLOCKHEM","name":"River Trent at Hemington Ponds, Hole and Fields","type_id":"f","centroid":{"type":"Point","coordinates":[-1.318,52.859793]},"river_sea":"River Trent","ea_area_id":"EMD","category_id":"fwa","description":"River Trent at Hemington Ponds, Hole and Fields area including properties around the B6540 and the M1","ea_owner_id":"034","quick_dial_code":"306166","parent_area_code":"034WAF415","local_authority_name":"Leicestershire"}}]}

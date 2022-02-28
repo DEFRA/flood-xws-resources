@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWC001", "name": "North Sea coast at Bridlington - Harbour Road and Floral Pavilion", "description": "The north side of the dock area, properties on Harbour Road and the Floral Pavilion", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.187639, 54.081617 ], [ -0.187907, 54.081247 ], [ -0.189688, 54.081594 ], [ -0.189921, 54.081175 ], [ -0.187851, 54.080596 ], [ -0.187391, 54.080993 ], [ -0.185638, 54.083331 ], [ -0.185371, 54.08383 ], [ -0.185763, 54.083962 ], [ -0.186417, 54.083343 ], [ -0.187639, 54.081617 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWC001","type":"Feature","geometry":{"bbox":[-0.189921,54.080596,-0.185371,54.083962],"type":"MultiPolygon","coordinates":[[[[-0.187639,54.081617],[-0.186417,54.083343],[-0.185763,54.083962],[-0.185371,54.08383],[-0.185638,54.083331],[-0.187391,54.080993],[-0.187851,54.080596],[-0.189921,54.081175],[-0.189688,54.081594],[-0.187907,54.081247],[-0.187639,54.081617]]]]},"properties":{"code":"122FWC001","name":"North Sea coast at Bridlington - Harbour Road and Floral Pavilion","type_id":"c","centroid":{"type":"Point","coordinates":[-0.187405,54.081965]},"river_sea":"North Sea","ea_area_id":"YOR","category_id":"fwa","description":"The north side of the dock area, properties on Harbour Road and the Floral Pavilion","ea_owner_id":"122","quick_dial_code":"130501","parent_area_code":"122WAC954","local_authority_name":"East Riding of Yorkshire"}}]}

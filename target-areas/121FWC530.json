@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWC530", "name": "North Sea at Beadnell", "description": "Properties at the south end of Harbour Road next to Beadnell Harbour", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.625283, 55.550928 ], [ -1.625331, 55.550598 ], [ -1.625037, 55.550557 ], [ -1.624754, 55.550547 ], [ -1.624625, 55.550551 ], [ -1.624604, 55.550669 ], [ -1.624576, 55.550926 ], [ -1.624632, 55.550931 ], [ -1.624781, 55.550939 ], [ -1.624963, 55.550949 ], [ -1.62521, 55.550953 ], [ -1.625283, 55.550928 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWC530","type":"Feature","geometry":{"bbox":[-1.625331,55.550547,-1.624576,55.550953],"type":"MultiPolygon","coordinates":[[[[-1.625283,55.550928],[-1.62521,55.550953],[-1.624963,55.550949],[-1.624781,55.550939],[-1.624632,55.550931],[-1.624576,55.550926],[-1.624604,55.550669],[-1.624625,55.550551],[-1.624754,55.550547],[-1.625037,55.550557],[-1.625331,55.550598],[-1.625283,55.550928]]]]},"properties":{"code":"121FWC530","name":"North Sea at Beadnell","type_id":"c","centroid":{"type":"Point","coordinates":[-1.624948,55.550752]},"river_sea":"North Sea","ea_area_id":"NEA","category_id":"fwa","description":"Properties at the south end of Harbour Road next to Beadnell Harbour","ea_owner_id":"121","quick_dial_code":"130004","parent_area_code":"121WAC921","local_authority_name":"Northumberland"}}]}

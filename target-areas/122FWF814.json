@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF814", "name": "River Derwent at Yedingham", "description": "Properties in the village of Yedingham", "region": "Yorkshire" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -0.629611, 54.201353 ], [ -0.632001, 54.2028 ], [ -0.633133, 54.202876 ], [ -0.633578, 54.201928 ], [ -0.632114, 54.201229 ], [ -0.629179, 54.197267 ], [ -0.625561, 54.195905 ], [ -0.624806, 54.196013 ], [ -0.626923, 54.199201 ], [ -0.629611, 54.201353 ] ] ], [ [ [ -0.637196, 54.205663 ], [ -0.632406, 54.206319 ], [ -0.632459, 54.206589 ], [ -0.632749, 54.206629 ], [ -0.633077, 54.207819 ], [ -0.637675, 54.206487 ], [ -0.637196, 54.205663 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF814","type":"Feature","geometry":{"bbox":[-0.637675,54.195905,-0.624806,54.207819],"type":"MultiPolygon","coordinates":[[[[-0.629611,54.201353],[-0.626923,54.199201],[-0.624806,54.196013],[-0.625561,54.195905],[-0.629179,54.197267],[-0.632114,54.201229],[-0.633578,54.201928],[-0.633133,54.202876],[-0.632001,54.2028],[-0.629611,54.201353]]],[[[-0.637196,54.205663],[-0.637675,54.206487],[-0.633077,54.207819],[-0.632749,54.206629],[-0.632459,54.206589],[-0.632406,54.206319],[-0.637196,54.205663]]]]},"properties":{"code":"122FWF814","name":"River Derwent at Yedingham","type_id":"f","centroid":{"type":"Point","coordinates":[-0.630417,54.200985]},"river_sea":"River Derwent","ea_area_id":"YOR","category_id":"fwa","description":"Properties in the village of Yedingham","ea_owner_id":"122","quick_dial_code":"301321","parent_area_code":"122WAF949","local_authority_name":"North Yorkshire"}}]}

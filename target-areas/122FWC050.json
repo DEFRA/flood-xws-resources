@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWC050", "name": "North Sea at Scarborough - Spa Complex", "description": "Scarborough Spa and Bandstand at Cleveland Way", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.39774, 54.276799 ], [ -0.397652, 54.276286 ], [ -0.397724, 54.276008 ], [ -0.397747, 54.275829 ], [ -0.397739, 54.275622 ], [ -0.397657, 54.27536 ], [ -0.397443, 54.27533 ], [ -0.3973, 54.275077 ], [ -0.397072, 54.275002 ], [ -0.397094, 54.274831 ], [ -0.396816, 54.274864 ], [ -0.396793, 54.275079 ], [ -0.396727, 54.275195 ], [ -0.396703, 54.275419 ], [ -0.396974, 54.275558 ], [ -0.397205, 54.276729 ], [ -0.39774, 54.276799 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWC050","type":"Feature","geometry":{"bbox":[-0.397747,54.274831,-0.396703,54.276799],"type":"MultiPolygon","coordinates":[[[[-0.39774,54.276799],[-0.397205,54.276729],[-0.396974,54.275558],[-0.396703,54.275419],[-0.396727,54.275195],[-0.396793,54.275079],[-0.396816,54.274864],[-0.397094,54.274831],[-0.397072,54.275002],[-0.3973,54.275077],[-0.397443,54.27533],[-0.397657,54.27536],[-0.397739,54.275622],[-0.397747,54.275829],[-0.397724,54.276008],[-0.397652,54.276286],[-0.39774,54.276799]]]]},"properties":{"code":"122FWC050","name":"North Sea at Scarborough - Spa Complex","type_id":"c","centroid":{"type":"Point","coordinates":[-0.397297,54.275806]},"river_sea":"North Sea","ea_area_id":"YOR","category_id":"fwa","description":"Scarborough Spa and Bandstand at Cleveland Way","ea_owner_id":"122","quick_dial_code":"303002","parent_area_code":"122WAC953","local_authority_name":"North Yorkshire"}}]}

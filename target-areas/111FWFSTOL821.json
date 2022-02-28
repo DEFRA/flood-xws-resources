@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "111FWFSTOL821", "name": "Lower Stour at Beaulieu Garden Park Home Site", "description": "Beaulieu Garden Park Home Site", "region": "Wessex" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.798895, 50.739359 ], [ -1.798916, 50.739161 ], [ -1.79822, 50.739163 ], [ -1.797934, 50.739206 ], [ -1.797601, 50.739314 ], [ -1.797258, 50.739432 ], [ -1.796999, 50.739636 ], [ -1.79681, 50.740015 ], [ -1.796992, 50.740029 ], [ -1.797773, 50.740214 ], [ -1.797864, 50.740215 ], [ -1.798032, 50.739951 ], [ -1.798639, 50.740061 ], [ -1.798753, 50.739764 ], [ -1.798853, 50.739481 ], [ -1.798895, 50.739359 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"111FWFSTOL821","type":"Feature","geometry":{"bbox":[-1.798916,50.739161,-1.79681,50.740215],"type":"MultiPolygon","coordinates":[[[[-1.798895,50.739359],[-1.798853,50.739481],[-1.798753,50.739764],[-1.798639,50.740061],[-1.798032,50.739951],[-1.797864,50.740215],[-1.797773,50.740214],[-1.796992,50.740029],[-1.79681,50.740015],[-1.796999,50.739636],[-1.797258,50.739432],[-1.797601,50.739314],[-1.797934,50.739206],[-1.79822,50.739163],[-1.798916,50.739161],[-1.798895,50.739359]]]]},"properties":{"code":"111FWFSTOL821","name":"Lower Stour at Beaulieu Garden Park Home Site","type_id":"f","centroid":{"type":"Point","coordinates":[-1.797936,50.739663]},"river_sea":"River Stour","ea_area_id":"WSX","category_id":"fwa","description":"Beaulieu Garden Park Home Site","ea_owner_id":"111","quick_dial_code":"166125","parent_area_code":"111WAFSTOL","local_authority_name":"Bournemouth, Christchurch and Poole"}}]}

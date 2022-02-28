@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWB002", "name": "River Aire upstream of Temple Hirst", "description": "Properties upstream of Temple Hirst along Main Road including the Nursing Home", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.089408, 53.715972 ], [ -1.089718, 53.720568 ], [ -1.100428, 53.723633 ], [ -1.105782, 53.72272 ], [ -1.106633, 53.722574 ], [ -1.10613, 53.722004 ], [ -1.098671, 53.719323 ], [ -1.096633, 53.718238 ], [ -1.093422, 53.716749 ], [ -1.089408, 53.715972 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWB002","type":"Feature","geometry":{"bbox":[-1.106633,53.715972,-1.089408,53.723633],"type":"MultiPolygon","coordinates":[[[[-1.089408,53.715972],[-1.093422,53.716749],[-1.096633,53.718238],[-1.098671,53.719323],[-1.10613,53.722004],[-1.106633,53.722574],[-1.105782,53.72272],[-1.100428,53.723633],[-1.089718,53.720568],[-1.089408,53.715972]]]]},"properties":{"code":"123FWB002","name":"River Aire upstream of Temple Hirst","type_id":"b","centroid":{"type":"Point","coordinates":[-1.0964,53.720246]},"river_sea":"River Aire","ea_area_id":"YOR","category_id":"fwa","description":"Properties upstream of Temple Hirst along Main Road including the Nursing Home","ea_owner_id":"123","quick_dial_code":"304249","parent_area_code":"123WAF962","local_authority_name":"North Yorkshire"}}]}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fa",
+    "name": "Flood alert"
+  },
+  {
+    "id": "fw",
+    "name": "Flood warning"
+  },
+  {
+    "id": "sfw",
+    "name": "Severe flood warning"
+  }
+]

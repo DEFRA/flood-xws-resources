@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "034FWFTRCASDONKM", "name": "River Trent at Castle Donington around Kings Mill", "description": "River Trent at Castle Donington, Kings Mills area", "region": "East Midlands" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.381553, 52.842795 ], [ -1.38065, 52.842694 ], [ -1.380529, 52.843112 ], [ -1.381476, 52.844044 ], [ -1.382519, 52.843725 ], [ -1.381553, 52.842795 ] ] ], [ [ [ -1.345987, 52.852214 ], [ -1.34571, 52.852833 ], [ -1.346691, 52.85282 ], [ -1.346715, 52.852218 ], [ -1.345987, 52.852214 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"034FWFTRCASDONKM","type":"Feature","geometry":{"bbox":[-1.382519,52.842694,-1.34571,52.852833],"type":"MultiPolygon","coordinates":[[[[-1.381553,52.842795],[-1.382519,52.843725],[-1.381476,52.844044],[-1.380529,52.843112],[-1.38065,52.842694],[-1.381553,52.842795]]],[[[-1.345987,52.852214],[-1.346715,52.852218],[-1.346691,52.85282],[-1.34571,52.852833],[-1.345987,52.852214]]]]},"properties":{"code":"034FWFTRCASDONKM","name":"River Trent at Castle Donington around Kings Mill","type_id":"f","centroid":{"type":"Point","coordinates":[-1.372203,52.84576]},"river_sea":"River Trent","ea_area_id":"EMD","category_id":"fwa","description":"River Trent at Castle Donington, Kings Mills area","ea_owner_id":"034","quick_dial_code":"306148","parent_area_code":"034WAF414","local_authority_name":"Leicestershire"}}]}

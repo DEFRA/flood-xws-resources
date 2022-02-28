@@ -1,0 +1,22 @@
+[
+  {
+    "id": "c",
+    "name": "Coastal"
+  },
+  {
+    "id": "t",
+    "name": "Tidal"
+  },
+  {
+    "id": "f",
+    "name": "Fluvial"
+  },
+  {
+    "id": "b",
+    "name": "Both (Tidal and Fluvial)"
+  },
+  {
+    "id": "g",
+    "name": "Groundwater"
+  }
+]

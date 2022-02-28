@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF408", "name": "River Dearne at Harlington", "description": "Harlington including Mill Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.273399, 53.514782 ], [ -1.272268, 53.514793 ], [ -1.272552, 53.514948 ], [ -1.273151, 53.515149 ], [ -1.273542, 53.515224 ], [ -1.273399, 53.514782 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF408","type":"Feature","geometry":{"bbox":[-1.283098,53.514782,-1.272268,53.516063],"type":"MultiPolygon","coordinates":[[[[-1.272268,53.514793],[-1.273399,53.514782],[-1.273542,53.515224],[-1.273151,53.515149],[-1.272552,53.514948],[-1.272268,53.514793]]],[[[-1.282354,53.51587],[-1.282649,53.51535],[-1.283098,53.515524],[-1.282999,53.516063],[-1.282354,53.51587]]]]},"properties":{"code":"123FWF408","name":"River Dearne at Harlington","type_id":"f","centroid":{"type":"Point","coordinates":[-1.278062,53.515345]},"river_sea":"River Dearne","ea_area_id":"YOR","category_id":"fwa","description":"Harlington including Mill Lane","ea_owner_id":"123","quick_dial_code":"137907","parent_area_code":"123WAF969","local_authority_name":"Doncaster"}}]}

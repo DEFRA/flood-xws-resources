@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "033FWF3DOVE004", "name": "River Dove at Rocester", "description": "River Dove at Rocester including Mill Street near Rocester Bridge", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.833811, 52.950068 ], [ -1.833242, 52.949938 ], [ -1.832004, 52.949876 ], [ -1.830717, 52.94969 ], [ -1.830566, 52.950253 ], [ -1.830746, 52.950692 ], [ -1.831248, 52.951232 ], [ -1.831772, 52.951726 ], [ -1.832683, 52.951578 ], [ -1.832846, 52.950909 ], [ -1.832951, 52.950792 ], [ -1.833264, 52.950784 ], [ -1.833488, 52.950559 ], [ -1.833811, 52.950068 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"033FWF3DOVE004","type":"Feature","geometry":{"bbox":[-1.833811,52.94969,-1.830566,52.951726],"type":"MultiPolygon","coordinates":[[[[-1.833811,52.950068],[-1.833488,52.950559],[-1.833264,52.950784],[-1.832951,52.950792],[-1.832846,52.950909],[-1.832683,52.951578],[-1.831772,52.951726],[-1.831248,52.951232],[-1.830746,52.950692],[-1.830566,52.950253],[-1.830717,52.94969],[-1.832004,52.949876],[-1.833242,52.949938],[-1.833811,52.950068]]]]},"properties":{"code":"033FWF3DOVE004","name":"River Dove at Rocester","type_id":"f","centroid":{"type":"Point","coordinates":[-1.832025,52.950589]},"river_sea":"River Dove","ea_area_id":"WMD","category_id":"fwa","description":"River Dove at Rocester including Mill Street near Rocester Bridge","ea_owner_id":"033","quick_dial_code":"308074","parent_area_code":"033WAF318","local_authority_name":"Staffordshire"}}]}

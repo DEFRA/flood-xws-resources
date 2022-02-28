@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF405", "name": "River Dearne at Broomhill", "description": "Broomhill including Highgate", "region": "Yorkshire" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.368674, 53.519125 ], [ -1.369337, 53.519165 ], [ -1.369387, 53.518877 ], [ -1.369569, 53.518806 ], [ -1.36996, 53.518889 ], [ -1.370096, 53.518881 ], [ -1.370261, 53.518936 ], [ -1.370307, 53.518846 ], [ -1.370264, 53.51872 ], [ -1.370271, 53.518253 ], [ -1.368765, 53.518137 ], [ -1.368674, 53.519125 ] ] ], [ [ [ -1.368731, 53.5214 ], [ -1.368912, 53.521401 ], [ -1.369215, 53.521339 ], [ -1.368812, 53.521032 ], [ -1.368676, 53.521031 ], [ -1.368731, 53.5214 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF405","type":"Feature","geometry":{"bbox":[-1.370307,53.518137,-1.368674,53.521401],"type":"MultiPolygon","coordinates":[[[[-1.368674,53.519125],[-1.368765,53.518137],[-1.370271,53.518253],[-1.370264,53.51872],[-1.370307,53.518846],[-1.370261,53.518936],[-1.370096,53.518881],[-1.36996,53.518889],[-1.369569,53.518806],[-1.369387,53.518877],[-1.369337,53.519165],[-1.368674,53.519125]]],[[[-1.368731,53.5214],[-1.368676,53.521031],[-1.368812,53.521032],[-1.369215,53.521339],[-1.368912,53.521401],[-1.368731,53.5214]]]]},"properties":{"code":"123FWF405","name":"River Dearne at Broomhill","type_id":"f","centroid":{"type":"Point","coordinates":[-1.369369,53.518836]},"river_sea":"River Dearne","ea_area_id":"YOR","category_id":"fwa","description":"Broomhill including Highgate","ea_owner_id":"123","quick_dial_code":"137902","parent_area_code":"123WAF969","local_authority_name":"Barnsley"}}]}

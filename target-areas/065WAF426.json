@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Alert_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "065WAF426", "name": "Tidal areas of River Road Arundel", "description": "River Road, Arundel, near Tarrant Wharf and Arun Street", "region": "Solent and South Downs" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.557101, 50.852737 ], [ -0.556381, 50.85287 ], [ -0.555978, 50.852951 ], [ -0.556046, 50.853092 ], [ -0.555848, 50.85316 ], [ -0.555913, 50.853294 ], [ -0.555773, 50.853361 ], [ -0.555895, 50.853502 ], [ -0.555955, 50.853487 ], [ -0.556173, 50.853349 ], [ -0.557006, 50.853058 ], [ -0.557271, 50.852936 ], [ -0.557101, 50.852737 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"065WAF426","type":"Feature","geometry":{"bbox":[-0.557271,50.852737,-0.555773,50.853502],"type":"MultiPolygon","coordinates":[[[[-0.557101,50.852737],[-0.557271,50.852936],[-0.557006,50.853058],[-0.556173,50.853349],[-0.555955,50.853487],[-0.555895,50.853502],[-0.555773,50.853361],[-0.555913,50.853294],[-0.555848,50.85316],[-0.556046,50.853092],[-0.555978,50.852951],[-0.556381,50.85287],[-0.557101,50.852737]]]]},"properties":{"code":"065WAF426","name":"Tidal areas of River Road Arundel","type_id":"f","centroid":{"type":"Point","coordinates":[-0.556474,50.853066]},"river_sea":"River Arun","ea_area_id":"SSD","category_id":"faa","description":"River Road, Arundel, near Tarrant Wharf and Arun Street","ea_owner_id":"065","quick_dial_code":"216089","parent_area_code":null,"local_authority_name":"West Sussex"}}]}

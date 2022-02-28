@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF759", "name": "River Calder at Whitwood Mere and Methley riverside properties", "description": "Whitwood Mere including Methley Road, and Riverside Way and Methley including Green Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.376958, 53.735591 ], [ -1.376897, 53.734602 ], [ -1.3809, 53.727297 ], [ -1.379533, 53.726472 ], [ -1.36619, 53.729827 ], [ -1.365905, 53.729636 ], [ -1.362747, 53.731013 ], [ -1.363258, 53.731321 ], [ -1.374486, 53.735641 ], [ -1.376958, 53.735591 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF759","type":"Feature","geometry":{"bbox":[-1.3809,53.726472,-1.362747,53.735641],"type":"MultiPolygon","coordinates":[[[[-1.376958,53.735591],[-1.374486,53.735641],[-1.363258,53.731321],[-1.362747,53.731013],[-1.365905,53.729636],[-1.36619,53.729827],[-1.379533,53.726472],[-1.3809,53.727297],[-1.376897,53.734602],[-1.376958,53.735591]]]]},"properties":{"code":"123FWF759","name":"River Calder at Whitwood Mere and Methley riverside properties","type_id":"f","centroid":{"type":"Point","coordinates":[-1.373161,53.731056]},"river_sea":"River Calder","ea_area_id":"YOR","category_id":"fwa","description":"Whitwood Mere including Methley Road, and Riverside Way and Methley including Green Lane","ea_owner_id":"123","quick_dial_code":"304267","parent_area_code":"123WAF964","local_authority_name":"Leeds, Wakefield"}}]}

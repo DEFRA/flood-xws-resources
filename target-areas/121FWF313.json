@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWF313", "name": "River Wear at Batts Terrace Riverside, Bishop Auckland", "description": "Properties and low lying areas around the Batts, Bishop Auckland", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.676342, 54.668109 ], [ -1.676051, 54.667569 ], [ -1.67554, 54.667568 ], [ -1.67554, 54.667586 ], [ -1.675353, 54.667603 ], [ -1.674577, 54.667727 ], [ -1.674484, 54.667726 ], [ -1.674666, 54.668266 ], [ -1.675411, 54.668214 ], [ -1.676109, 54.668153 ], [ -1.676342, 54.668109 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWF313","type":"Feature","geometry":{"bbox":[-1.676342,54.667568,-1.674484,54.668266],"type":"MultiPolygon","coordinates":[[[[-1.676342,54.668109],[-1.676109,54.668153],[-1.675411,54.668214],[-1.674666,54.668266],[-1.674484,54.667726],[-1.674577,54.667727],[-1.675353,54.667603],[-1.67554,54.667586],[-1.67554,54.667568],[-1.676051,54.667569],[-1.676342,54.668109]]]]},"properties":{"code":"121FWF313","name":"River Wear at Batts Terrace Riverside, Bishop Auckland","type_id":"f","centroid":{"type":"Point","coordinates":[-1.675399,54.667917]},"river_sea":"River Wear","ea_area_id":"NEA","category_id":"fwa","description":"Properties and low lying areas around the Batts, Bishop Auckland","ea_owner_id":"121","quick_dial_code":"301036","parent_area_code":"121WAF915","local_authority_name":"County Durham"}}]}

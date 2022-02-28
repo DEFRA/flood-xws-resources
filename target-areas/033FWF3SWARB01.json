@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "033FWF3SWARB01", "name": "River Swarbourn at Woodlane Bridge, Yoxall", "description": "River Swarbourn at Woodlane Bridge, Yoxall", "region": "West Midlands" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.79174, 52.779183 ], [ -1.791754, 52.779315 ], [ -1.791922, 52.779402 ], [ -1.79201, 52.779492 ], [ -1.792241, 52.779582 ], [ -1.792483, 52.779583 ], [ -1.79245, 52.779367 ], [ -1.79215, 52.779044 ], [ -1.79174, 52.779183 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"033FWF3SWARB01","type":"Feature","geometry":{"bbox":[-1.792483,52.779044,-1.79174,52.779583],"type":"MultiPolygon","coordinates":[[[[-1.79174,52.779183],[-1.79215,52.779044],[-1.79245,52.779367],[-1.792483,52.779583],[-1.792241,52.779582],[-1.79201,52.779492],[-1.791922,52.779402],[-1.791754,52.779315],[-1.79174,52.779183]]]]},"properties":{"code":"033FWF3SWARB01","name":"River Swarbourn at Woodlane Bridge, Yoxall","type_id":"f","centroid":{"type":"Point","coordinates":[-1.792129,52.779328]},"river_sea":"River Swarbourn","ea_area_id":"WMD","category_id":"fwa","description":"River Swarbourn at Woodlane Bridge, Yoxall","ea_owner_id":"033","quick_dial_code":"308132","parent_area_code":"033WAF313","local_authority_name":"Staffordshire"}}]}

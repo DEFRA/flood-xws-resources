@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF573", "name": "River Wharfe at Harewood Bridge", "description": "Mill Farm, Saw Mill and Bar Lodge", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.531975, 53.909084 ], [ -1.53108, 53.904984 ], [ -1.52545, 53.905767 ], [ -1.523773, 53.906096 ], [ -1.526503, 53.910058 ], [ -1.526982, 53.909456 ], [ -1.52783, 53.909003 ], [ -1.528742, 53.908828 ], [ -1.52993, 53.908837 ], [ -1.531975, 53.909084 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF573","type":"Feature","geometry":{"bbox":[-1.531975,53.904984,-1.523773,53.910058],"type":"MultiPolygon","coordinates":[[[[-1.531975,53.909084],[-1.52993,53.908837],[-1.528742,53.908828],[-1.52783,53.909003],[-1.526982,53.909456],[-1.526503,53.910058],[-1.523773,53.906096],[-1.52545,53.905767],[-1.53108,53.904984],[-1.531975,53.909084]]]]},"properties":{"code":"122FWF573","name":"River Wharfe at Harewood Bridge","type_id":"f","centroid":{"type":"Point","coordinates":[-1.528186,53.90723]},"river_sea":"River Wharfe","ea_area_id":"YOR","category_id":"fwa","description":"Mill Farm, Saw Mill and Bar Lodge","ea_owner_id":"122","quick_dial_code":"135607","parent_area_code":"122WAF943","local_authority_name":"Leeds, North Yorkshire"}}]}

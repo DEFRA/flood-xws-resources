@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "121FWF314", "name": "River Wear at Page Bank riverside", "description": "Properties and low lying areas around Page Bank Post Office, Stanners Farm and Park Hill Lodge", "region": "North East" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.642075, 54.714195 ], [ -1.641294, 54.712962 ], [ -1.637957, 54.71288 ], [ -1.63797, 54.713212 ], [ -1.638013, 54.713572 ], [ -1.638163, 54.714139 ], [ -1.638332, 54.714445 ], [ -1.638669, 54.714868 ], [ -1.638996, 54.71477 ], [ -1.639525, 54.714655 ], [ -1.642075, 54.714195 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"121FWF314","type":"Feature","geometry":{"bbox":[-1.642075,54.71288,-1.637957,54.714868],"type":"MultiPolygon","coordinates":[[[[-1.642075,54.714195],[-1.639525,54.714655],[-1.638996,54.71477],[-1.638669,54.714868],[-1.638332,54.714445],[-1.638163,54.714139],[-1.638013,54.713572],[-1.63797,54.713212],[-1.637957,54.71288],[-1.641294,54.712962],[-1.642075,54.714195]]]]},"properties":{"code":"121FWF314","name":"River Wear at Page Bank riverside","type_id":"f","centroid":{"type":"Point","coordinates":[-1.639795,54.71375]},"river_sea":"River Wear","ea_area_id":"NEA","category_id":"fwa","description":"Properties and low lying areas around Page Bank Post Office, Stanners Farm and Park Hill Lodge","ea_owner_id":"121","quick_dial_code":"301073","parent_area_code":"121WAF915","local_authority_name":"County Durham"}}]}

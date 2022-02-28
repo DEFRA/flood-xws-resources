@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF169", "name": "River Aire at Neptune Street - Canal and River Trust car park", "description": "Leeds including Neptune Street and Canal and River Trust car park", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.532569, 53.793103 ], [ -1.532358, 53.792922 ], [ -1.532057, 53.792715 ], [ -1.531529, 53.792452 ], [ -1.531222, 53.792756 ], [ -1.53187, 53.793136 ], [ -1.532569, 53.793103 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF169","type":"Feature","geometry":{"bbox":[-1.532569,53.792452,-1.531222,53.793136],"type":"MultiPolygon","coordinates":[[[[-1.532569,53.793103],[-1.53187,53.793136],[-1.531222,53.792756],[-1.531529,53.792452],[-1.532057,53.792715],[-1.532358,53.792922],[-1.532569,53.793103]]]]},"properties":{"code":"123FWF169","name":"River Aire at Neptune Street - Canal and River Trust car park","type_id":"f","centroid":{"type":"Point","coordinates":[-1.531839,53.792845]},"river_sea":"River Aire","ea_area_id":"YOR","category_id":"fwa","description":"Leeds including Neptune Street and Canal and River Trust car park","ea_owner_id":"123","quick_dial_code":"304136","parent_area_code":"123WAF961","local_authority_name":"Leeds"}}]}

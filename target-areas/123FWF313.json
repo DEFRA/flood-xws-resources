@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "123FWF313", "name": "Hebden Water at Hebden Bridge - Old Gate", "description": "Hebden Bridge including Royd Terrace, Hangingroyd Lane and Old Gate", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.012664, 53.742513 ], [ -2.013057, 53.742644 ], [ -2.013683, 53.742855 ], [ -2.013831, 53.742673 ], [ -2.014048, 53.742511 ], [ -2.014126, 53.742452 ], [ -2.013908, 53.742258 ], [ -2.013941, 53.742069 ], [ -2.013983, 53.742055 ], [ -2.014706, 53.741732 ], [ -2.014261, 53.74152 ], [ -2.013937, 53.741701 ], [ -2.013576, 53.741946 ], [ -2.012664, 53.742513 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"123FWF313","type":"Feature","geometry":{"bbox":[-2.014706,53.74152,-2.012664,53.742855],"type":"MultiPolygon","coordinates":[[[[-2.012664,53.742513],[-2.013576,53.741946],[-2.013937,53.741701],[-2.014261,53.74152],[-2.014706,53.741732],[-2.013983,53.742055],[-2.013941,53.742069],[-2.013908,53.742258],[-2.014126,53.742452],[-2.014048,53.742511],[-2.013831,53.742673],[-2.013683,53.742855],[-2.013057,53.742644],[-2.012664,53.742513]]]]},"properties":{"code":"123FWF313","name":"Hebden Water at Hebden Bridge - Old Gate","type_id":"f","centroid":{"type":"Point","coordinates":[-2.013672,53.742233]},"river_sea":"Hebden Water","ea_area_id":"YOR","category_id":"fwa","description":"Hebden Bridge including Royd Terrace, Hangingroyd Lane and Old Gate","ea_owner_id":"123","quick_dial_code":"304024","parent_area_code":"123WAF963","local_authority_name":"Calderdale"}}]}

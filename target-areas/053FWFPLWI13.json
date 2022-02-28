@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "053FWFPLWI13", "name": "River Waring immediately upstream of Stanhope Road", "description": "Properties near the River Waring immediately upstream of Stanhope Road", "region": "Lincs and Northants" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.10857, 53.208782 ], [ -0.108962, 53.209067 ], [ -0.109069, 53.209006 ], [ -0.109678, 53.208773 ], [ -0.109938, 53.209011 ], [ -0.109991, 53.209147 ], [ -0.110472, 53.209118 ], [ -0.110375, 53.208595 ], [ -0.109979, 53.2084 ], [ -0.109575, 53.208412 ], [ -0.109169, 53.208441 ], [ -0.108788, 53.208588 ], [ -0.10857, 53.208782 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"053FWFPLWI13","type":"Feature","geometry":{"bbox":[-0.110472,53.2084,-0.10857,53.209147],"type":"MultiPolygon","coordinates":[[[[-0.10857,53.208782],[-0.108788,53.208588],[-0.109169,53.208441],[-0.109575,53.208412],[-0.109979,53.2084],[-0.110375,53.208595],[-0.110472,53.209118],[-0.109991,53.209147],[-0.109938,53.209011],[-0.109678,53.208773],[-0.109069,53.209006],[-0.108962,53.209067],[-0.10857,53.208782]]]]},"properties":{"code":"053FWFPLWI13","name":"River Waring immediately upstream of Stanhope Road","type_id":"f","centroid":{"type":"Point","coordinates":[-0.109609,53.208737]},"river_sea":"River Waring","ea_area_id":"LNA","category_id":"fwa","description":"Properties near the River Waring immediately upstream of Stanhope Road","ea_owner_id":"053","quick_dial_code":"307030","parent_area_code":"053WAF118TBC","local_authority_name":"Lincolnshire"}}]}

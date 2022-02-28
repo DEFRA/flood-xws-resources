@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "033FWF3SOWE005", "name": "River Sowe at Baginton", "description": "River Sowe at Baginton including Mill Hill area", "region": "West Midlands" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -1.503213, 52.374277 ], [ -1.502412, 52.37432 ], [ -1.50217, 52.374606 ], [ -1.502067, 52.37471 ], [ -1.502501, 52.374743 ], [ -1.503053, 52.374886 ], [ -1.503257, 52.374918 ], [ -1.503631, 52.374257 ], [ -1.503385, 52.374163 ], [ -1.503213, 52.374277 ] ] ], [ [ [ -1.504383, 52.374021 ], [ -1.504466, 52.374193 ], [ -1.504627, 52.374277 ], [ -1.504886, 52.37396 ], [ -1.50453, 52.373881 ], [ -1.504383, 52.374021 ] ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"033FWF3SOWE005","type":"Feature","geometry":{"bbox":[-1.504886,52.373881,-1.502067,52.374918],"type":"MultiPolygon","coordinates":[[[[-1.504383,52.374021],[-1.50453,52.373881],[-1.504886,52.37396],[-1.504627,52.374277],[-1.504466,52.374193],[-1.504383,52.374021]]],[[[-1.503213,52.374277],[-1.503385,52.374163],[-1.503631,52.374257],[-1.503257,52.374918],[-1.503053,52.374886],[-1.502501,52.374743],[-1.502067,52.37471],[-1.50217,52.374606],[-1.502412,52.37432],[-1.503213,52.374277]]]]},"properties":{"code":"033FWF3SOWE005","name":"River Sowe at Baginton","type_id":"f","centroid":{"type":"Point","coordinates":[-1.503167,52.374471]},"river_sea":"Sowe","ea_area_id":"WMD","category_id":"fwa","description":"River Sowe at Baginton including Mill Hill area","ea_owner_id":"033","quick_dial_code":"308179","parent_area_code":"033WAF202","local_authority_name":"Warwickshire"}}]}

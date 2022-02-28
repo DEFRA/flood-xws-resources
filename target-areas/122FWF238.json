@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF238", "name": "River Swale at Myton on Swale", "description": "Myton on Swale including properties situated along Ox Close Lane and Hall Lane", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.33472, 54.091287 ], [ -1.334015, 54.091409 ], [ -1.33385, 54.093134 ], [ -1.333466, 54.093231 ], [ -1.333569, 54.093465 ], [ -1.33285, 54.093524 ], [ -1.332792, 54.093317 ], [ -1.332301, 54.093386 ], [ -1.332345, 54.093521 ], [ -1.331809, 54.093599 ], [ -1.331734, 54.093455 ], [ -1.330907, 54.093567 ], [ -1.33107, 54.093882 ], [ -1.3345, 54.093551 ], [ -1.334501, 54.093515 ], [ -1.33472, 54.091287 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF238","type":"Feature","geometry":{"bbox":[-1.33472,54.091287,-1.330907,54.093882],"type":"MultiPolygon","coordinates":[[[[-1.33472,54.091287],[-1.334501,54.093515],[-1.3345,54.093551],[-1.33107,54.093882],[-1.330907,54.093567],[-1.331734,54.093455],[-1.331809,54.093599],[-1.332345,54.093521],[-1.332301,54.093386],[-1.332792,54.093317],[-1.33285,54.093524],[-1.333569,54.093465],[-1.333466,54.093231],[-1.33385,54.093134],[-1.334015,54.091409],[-1.33472,54.091287]]]]},"properties":{"code":"122FWF238","name":"River Swale at Myton on Swale","type_id":"f","centroid":{"type":"Point","coordinates":[-1.333591,54.092865]},"river_sea":"River Swale","ea_area_id":"YOR","category_id":"fwa","description":"Myton on Swale including properties situated along Ox Close Lane and Hall Lane","ea_owner_id":"122","quick_dial_code":"135004","parent_area_code":"122WAF937","local_authority_name":"North Yorkshire"}}]}

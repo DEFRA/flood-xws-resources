@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "122FWF340", "name": "River Ure at Bar Lane Roecliffe", "description": "Properties and businesses at Bar Lane Roecliffe", "region": "Yorkshire" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.415398, 54.088147 ], [ -1.41372, 54.087896 ], [ -1.413104, 54.089277 ], [ -1.410378, 54.089596 ], [ -1.41051, 54.09001 ], [ -1.411857, 54.089873 ], [ -1.413344, 54.089611 ], [ -1.415659, 54.089173 ], [ -1.417227, 54.088569 ], [ -1.417227, 54.08856 ], [ -1.418473, 54.087991 ], [ -1.417186, 54.08714 ], [ -1.415398, 54.088147 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"122FWF340","type":"Feature","geometry":{"bbox":[-1.418473,54.08714,-1.410378,54.09001],"type":"MultiPolygon","coordinates":[[[[-1.415398,54.088147],[-1.417186,54.08714],[-1.418473,54.087991],[-1.417227,54.08856],[-1.417227,54.088569],[-1.415659,54.089173],[-1.413344,54.089611],[-1.411857,54.089873],[-1.41051,54.09001],[-1.410378,54.089596],[-1.413104,54.089277],[-1.41372,54.087896],[-1.415398,54.088147]]]]},"properties":{"code":"122FWF340","name":"River Ure at Bar Lane Roecliffe","type_id":"f","centroid":{"type":"Point","coordinates":[-1.414958,54.088637]},"river_sea":"River Ure","ea_area_id":"YOR","category_id":"fwa","description":"Properties and businesses at Bar Lane Roecliffe","ea_owner_id":"122","quick_dial_code":"303042","parent_area_code":"122WAF940","local_authority_name":"North Yorkshire"}}]}

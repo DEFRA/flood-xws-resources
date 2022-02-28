@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "013FWFCH3", "name": "River Weaver at Shrewbridge Lodge", "description": "The area at risk includes Shrewbridge Lodge", "region": "Gtr Mancs Mersey and Ches" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -2.524107, 53.054909 ], [ -2.523241, 53.054886 ], [ -2.523275, 53.055191 ], [ -2.523577, 53.055514 ], [ -2.52413, 53.055583 ], [ -2.524107, 53.054909 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"013FWFCH3","type":"Feature","geometry":{"bbox":[-2.52413,53.054886,-2.523241,53.055583],"type":"MultiPolygon","coordinates":[[[[-2.524107,53.054909],[-2.52413,53.055583],[-2.523577,53.055514],[-2.523275,53.055191],[-2.523241,53.054886],[-2.524107,53.054909]]]]},"properties":{"code":"013FWFCH3","name":"River Weaver at Shrewbridge Lodge","type_id":"f","centroid":{"type":"Point","coordinates":[-2.52373,53.055198]},"river_sea":"River Weaver","ea_area_id":"GMC","category_id":"fwa","description":"The area at risk includes Shrewbridge Lodge","ea_owner_id":"013","quick_dial_code":"143157","parent_area_code":"013WAFWE","local_authority_name":"Cheshire East"}}]}

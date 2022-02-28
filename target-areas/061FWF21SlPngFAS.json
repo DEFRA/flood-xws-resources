@@ -1,7 +1,1 @@
-{
-"type": "FeatureCollection",
-"name": "Flood_Warning_Areas",
-"features": [
-{ "type": "Feature", "properties": { "code": "061FWF21SlPngFAS", "name": "Briars Close, Pangbourne benefiting from the Flood Alleviation Scheme", "description": "Briars Close Flood area in Pangbourne benefiting from the Flood Alleviation Scheme", "region": "Thames" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -1.075821, 51.481976 ], [ -1.076858, 51.481966 ], [ -1.076902, 51.481938 ], [ -1.076887, 51.481938 ], [ -1.077246, 51.481712 ], [ -1.077447, 51.48158 ], [ -1.077887, 51.481237 ], [ -1.078815, 51.4806 ], [ -1.079158, 51.480319 ], [ -1.079997, 51.479993 ], [ -1.080008, 51.479986 ], [ -1.076389, 51.479499 ], [ -1.075333, 51.4819 ], [ -1.075821, 51.481976 ] ] ] } }
-]
-}
+{"type":"FeatureCollection","features":[{"id":"061FWF21SlPngFAS","type":"Feature","geometry":{"bbox":[-1.080008,51.479499,-1.075333,51.481976],"type":"MultiPolygon","coordinates":[[[[-1.075821,51.481976],[-1.075333,51.4819],[-1.076389,51.479499],[-1.080008,51.479986],[-1.079997,51.479993],[-1.079158,51.480319],[-1.078815,51.4806],[-1.077887,51.481237],[-1.077447,51.48158],[-1.077246,51.481712],[-1.076887,51.481938],[-1.076902,51.481938],[-1.076858,51.481966],[-1.075821,51.481976]]]]},"properties":{"code":"061FWF21SlPngFAS","name":"Briars Close, Pangbourne benefiting from the Flood Alleviation Scheme","type_id":"f","centroid":{"type":"Point","coordinates":[-1.077208,51.480683]},"river_sea":"Briars Close Ditch","ea_area_id":"THM","category_id":"fwa","description":"Briars Close Flood area in Pangbourne benefiting from the Flood Alleviation Scheme","ea_owner_id":"061","quick_dial_code":"171105","parent_area_code":"061WAF21PangSulm","local_authority_name":"West Berkshire"}}]}
