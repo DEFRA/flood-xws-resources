@@ -1,0 +1,531 @@
+openapi: 3.0.0
+servers:
+- url: https://xws-alert-sandpit-files.s3.eu-west-2.amazonaws.com
+  description: SANDPIT
+- url: https://xws-alert-dstone-files.s3.eu-west-2.amazonaws.com
+  description: DSTONE
+info:
+  description: A collection of URL endpoints for obtaining flood data, including live flood alerts and warnings, geospatial target area data and other static reference data.
+  version: "1.0.0"
+  title: Get flood warnings public API
+  contact:
+    email: you@your-company.com
+  license:
+    name: OGL-UK-3.0
+    url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
+tags:
+  - name: alerts
+    description: Related to alerts
+  - name: areas
+    description: Related to areas
+paths:
+  /alerts/alerts.json:
+    get:
+      tags:
+        - alerts
+      summary: Flood alerts and warnings feed
+      operationId: alert-json
+      description: |
+        The flood alerts and warnings json
+      responses:
+        '200':
+          description: The JSON Feed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Alerts'
+  /alerts/alerts.rss:
+    get:
+      tags:
+        - alerts
+      summary: Flood RSS feed
+      operationId: alert-feed-rss
+      description: |
+        The flood alerts and warnings RSS feed
+      responses:
+        '200':
+          description: The XML RSS Feed
+          content:
+            text/xml:
+              schema:
+                type: string
+  /alerts/alerts.atom:
+    get:
+      tags:
+        - alerts
+      summary: Flood ATOM feed
+      operationId: alert-feed-atom
+      description: |
+        The flood alerts and warnings ATOM feed
+      responses:
+        '200':
+          description: The ATOM RSS Feed
+          content:
+            text/xml:
+              schema:
+                type: string
+  /alerts/item/{id}.xml:
+    get:
+      tags:
+        - alerts
+      summary: CAPXML alert
+      operationId: alert-item
+      description: CAPXML alert
+      parameters:
+        - in: path
+          name: id
+          description: Id of the alert or warning
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The alert in CAP XML form
+          content:
+            text/xml:
+              schema:
+                type: string
+  /alerts/alert-type.json:
+    get:
+      tags:
+        - alerts
+      summary: The types of alerts and warnings
+      operationId: alert-type
+      description: |
+        An array of objects each representing a type of an alert
+      responses:
+        '200':
+          description: The array of possible alert types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                example: 
+                  - id: fa
+                    name: Flood alert
+                  - id: fw
+                    name: Flood warning
+                  - id: sfw
+                    name: Severe flood warning
+  /areas/area-category.json:
+    get:
+      tags:
+        - areas
+      summary: The area categories
+      operationId: area-category
+      description: |
+        An array of objects each representing a category of an area
+      responses:
+        '200':
+          description: The array of possible area categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                example: 
+                  - id: faa
+                    name: Flood alert area
+                  - id: fwa
+                    name: Flood warning area
+  /areas/area-type.json:
+    get:
+      tags:
+        - areas
+      summary: The area types
+      operationId: area-type
+      description: |
+        An array of objects each representing a type of an area
+      responses:
+        '200':
+          description: The array of possible area types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                example: 
+                  - id: c
+                    name: Coastal
+                  - id: t
+                    name: Tidal
+                  - id: f
+                    name: Fluvial
+                  - id: b
+                    name: Both (Tidal and Fluvial)
+                  - id: g
+                    name: Groundwater
+  /areas/ea-area.json:
+    get:
+      tags:
+        - areas
+      summary: The EA areas
+      operationId: ea-area
+      description: |
+        An array of objects each representing an EA area
+      responses:
+        '200':
+          description: The array of possible EA areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    full_name:
+                      type: string
+                    group:
+                      type: string
+                example: 
+                  - id: HNL
+                    name: Herts and North London
+                    full_name: Hertfordshire and North London
+                    group: South East
+                  - id: LNA
+                    name: Lincs and Northants
+                    full_name: Lincolnshire and Northamptonshire
+                    group: West and Central
+                  - id: DCS
+                    name: Devon and Cornwall
+                    full_name: Devon, Cornwall and the Isles of Scilly
+                    group: West and Central
+                  - id: WMD
+                    name: West Midlands
+                    full_name: West Midlands
+                    group: West and Central
+                  - id: EMD
+                    name: East Midlands
+                    full_name: East Midlands
+                    group: West and Central
+                  - id: EAN
+                    name: East Anglia
+                    full_name: East Anglia
+                    group: South East
+                  - id: KSL
+                    name: Kent S London and E Sussex
+                    full_name: Kent, South London and East Sussex
+                    group: South East
+                  - id: NEA
+                    name: North East
+                    full_name: North East
+                    group: North
+                  - id: YOR
+                    name: Yorkshire
+                    full_name: Yorkshire
+                    group: North
+                  - id: SSD
+                    name: Solent and South Downs
+                    full_name: Solent and South Downs
+                    group: South East
+                  - id: GMC
+                    name: Gtr Mancs Mersey and Ches
+                    full_name: Greater Manchester, Merseyside and Cheshire
+                    group: North
+                  - id: WSX
+                    name: Wessex
+                    full_name: Wessex
+                    group: West and Central
+                  - id: CLA
+                    name: Cumbria and Lancashire
+                    full_name: Cumbria and Lancashire
+                    group: North
+                  - id: THM
+                    name: Thames
+                    full_name: Thames
+                    group: South East
+  /areas/ea-owner.json:
+    get:
+      tags:
+        - areas
+      summary: The EA owners
+      operationId: ea-owner
+      description: |
+        An array of objects each representing an EA owner
+      responses:
+        '200':
+          description: The array of possible EA owners
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    ea_area_id:
+                      type: string
+                example: 
+                  - id: '011'
+                    name: Cumbria and Lancashire - Cumbria
+                    ea_area_id: CLA
+                  - id: '012'
+                    name: Cumbria and Lancashire - Lancashire
+                    ea_area_id: CLA
+                  - id: '114'
+                    name: Devon and Cornwall - Cornwall and IOS
+                    ea_area_id: DCS
+                  - id: '113'
+                    name: Devon and Cornwall - Devon
+                    ea_area_id: DCS
+                  - id: '052'
+                    name: East Anglia - Cambridgeshire and Bedfordshire
+                    ea_area_id: EAN
+                  - id: '051'
+                    name: East Anglia - Essex, Norfolk and Suffolk
+                    ea_area_id: EAN
+                  - id: '054'
+                    name: East Anglia - Essex, Norfolk and Suffolk
+                    ea_area_id: EAN
+                  - id: '034'
+                    name: East Midlands
+                    ea_area_id: EMD
+                  - id: '013'
+                    name: Gtr Mancs Mersey and Ches
+                    ea_area_id: GMC
+                  - id: '062'
+                    name: Herts and North London
+                    ea_area_id: HNL
+                  - id: '063'
+                    name: Kent S London and E Sussex
+                    ea_area_id: KSL
+                  - id: '064'
+                    name: Kent S London and E Sussex
+                    ea_area_id: KSL
+                  - id: '053'
+                    name: Lincs and Northants
+                    ea_area_id: LNA
+                  - id: '055'
+                    name: Lincs and Northants
+                    ea_area_id: LNA
+                  - id: '121'
+                    name: North East
+                    ea_area_id: NEA
+                  - id: '065'
+                    name: Solent and South Downs
+                    ea_area_id: SSD
+                  - id: '061'
+                    name: Thames
+                    ea_area_id: THM
+                  - id: '112'
+                    name: Wessex - North
+                    ea_area_id: WSX
+                  - id: '111'
+                    name: Wessex - South
+                    ea_area_id: WSX
+                  - id: '033'
+                    name: West Midlands - East
+                    ea_area_id: WMD
+                  - id: '031'
+                    name: West Midlands - West
+                    ea_area_id: WMD
+                  - id: '122'
+                    name: Yorkshire - North and East
+                    ea_area_id: YOR
+                  - id: '123'
+                    name: Yorkshire - South and West
+                    ea_area_id: YOR
+  /areas/target-area.json:
+    get:
+      tags:
+        - areas
+      summary: The target areas
+      operationId: target-areas
+      description: |
+        An array of objects each representing a target area
+      responses:
+        '200':
+          description: The array of target areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                example:
+                  - code: 013WAFDEE
+                  - name: River Dee catchment in England from Whitchurch to Chester
+                  - description: River Dee in England covers areas around Shocklach, Farndon, Handley, Lower Kinnerton, Chester and Puddington
+  /areas/target-area/{code}.json:
+    get:
+      tags:
+        - areas
+      summary: A target area
+      operationId: target-area
+      description: |
+        A geojson representation of a target area
+      parameters:
+        - in: path
+          name: code
+          description: The target area code
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: The target area json
+          content:
+            application/json:
+              schema:
+                type: object
+                example: 
+                  type: FeatureCollection
+                  features:
+                    - id: 122FWF406
+                      type: Feature
+                      geometry:
+                        bbox:
+                          - -1.348912
+                          - 53.971593
+                          - -1.348258
+                          - 53.971887
+                        type: MultiPolygon
+                        coordinates:
+                          - - - - -1.348258
+                                - 53.97168
+                              - - -1.348869
+                                - 53.971593
+                              - - -1.348912
+                                - 53.9718
+                              - - -1.348377
+                                - 53.971887
+                              - - -1.348258
+                                - 53.97168
+                      properties:
+                        code: 122FWF406
+                        name: River Nidd at Hunsingore
+                        type_id: f
+                        centroid:
+                          type: Point
+                          coordinates:
+                            - -1.3486
+                            - 53.971738
+                        river_sea: River Nidd
+                        ea_area_id: YOR
+                        category_id: fwa
+                        description: The Old Cornmill at Hunsingore
+                        ea_owner_id: '122'
+                        quick_dial_code: '135402'
+                        parent_area_code: 122WAF933
+                        local_authority_name: North Yorkshire
+
+components:
+  schemas:
+    Alerts:
+      type: array
+      items:
+        $ref: '#/components/schemas/Alert'
+
+    Alert:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        type:
+          $ref: '#/components/schemas/Type'
+        headline:
+          type: string
+        message:
+          type: string
+        area:
+          $ref: '#/components/schemas/Area'
+        region:
+          $ref: '#/components/schemas/Region'
+        updated:
+          type: integer
+        polygon:
+          type: string
+          format: uri
+      required:
+        - area
+        - code
+        - headline
+        - id
+        - message
+        - polygon
+        - region
+        - type
+        - updated
+      title: Alert
+    Area:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: integer
+        name:
+          type: string
+        regionId:
+          type: string
+          format: integer
+      required:
+        - id
+        - name
+        - regionId
+      title: Area
+    Region:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+      title: Region
+    Type:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+      title: Type
