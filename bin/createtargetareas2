@@ -6,5 +6,5 @@ rm -rf ../target-areas
 mkdir ../static
 mkdir ../target-areas
 
-node ./create-static-files.js
+# node ./create-static-files.js
 node ./create-static-files2.js

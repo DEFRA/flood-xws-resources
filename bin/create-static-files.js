@@ -1,7 +1,46 @@
 const fs = require('fs')
-const { alertTypes, areas, regions, targetAreaTypes } = require('flood-xws-common/data')
+const { promisify } = require('util')
+const { Client } = require('pg')
+const writeFile = promisify(fs.writeFile)
+const { alertTypes } = require('flood-xws-common/data')
 
-fs.writeFileSync('../static/areas.json', JSON.stringify(areas, null, 2))
-fs.writeFileSync('../static/regions.json', JSON.stringify(regions, null, 2))
-fs.writeFileSync('../static/target-area-types.json', JSON.stringify(targetAreaTypes, null, 2))
-fs.writeFileSync('../static/alert-types.json', JSON.stringify(alertTypes, null, 2))
+async function writeStaticFiles () {
+  const client = new Client(process.env.DATABASE_URL)
+  await client.connect()
+
+  const data = await client.query(`
+    SELECT id, name FROM xws_area.category;
+    SELECT id, name, full_name, "group" FROM xws_area.ea_area;
+    SELECT id, name, ea_area_id FROM xws_area.ea_owner;
+    SELECT code, name, description FROM xws_area.area;
+    SELECT id, name FROM xws_area.type;
+  `)
+
+  await writeFile(`../areas/area-category.json`, JSON.stringify(data[0].rows, null, 2))
+  await writeFile(`../areas/ea-area.json`, JSON.stringify(data[1].rows, null, 2))
+  await writeFile(`../areas/ea-owner.json`, JSON.stringify(data[2].rows, null, 2))
+  await writeFile(`../areas/target-area.json`, JSON.stringify(data[3].rows))
+  await writeFile(`../areas/area-type.json`, JSON.stringify(data[4].rows, null, 2))
+  await writeFile(`../alerts/alert-type.json`, JSON.stringify(alertTypes, null, 2))
+  return client.end()
+}
+
+// async function writeTargetAreasList () {
+//   const client = new Client(process.env.DATABASE_URL)
+//   await client.connect()
+//   const writableStream = fs.createWriteStream('../static/target-areas.json')
+//   const query = new QueryStream('select code, name, description from xws_area.area')
+//   const stream = client.query(query)
+  
+//   // Release the client when the stream is finished
+//   stream.on('end', () => client.end())
+
+//   // Pipe query to file
+//   stream.pipe(JSONStream.stringify()).pipe(writableStream)
+// }
+
+async function run () {
+  writeStaticFiles()
+}
+
+run ()

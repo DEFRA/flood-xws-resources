@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# rm -rf ../areas
+
+# mkdir ../areas
+
+node ./create-static-files.js

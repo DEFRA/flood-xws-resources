@@ -4,12 +4,11 @@ AWS_PROFILE ?= defra-dev-sandpit
 deploy:
 	aws cloudformation deploy --capabilities CAPABILITY_NAMED_IAM --template-file resources.yaml --stack-name xws-alert-$(ENV) --profile $(AWS_PROFILE)
 
-syncFiles:
-	aws s3 sync ./static s3://xws-alert-$(ENV)-files --profile $(AWS_PROFILE) --acl public-read
-	aws s3 sync ./assets s3://xws-alert-$(ENV)-files/alerts/assets --profile $(AWS_PROFILE) --acl public-read
+syncAlerts:
+	aws s3 sync ./alerts s3://xws-alert-$(ENV)-files/alerts --profile $(AWS_PROFILE) --acl public-read
 
-syncTargetAreas:
-	aws s3 sync ./target-areas s3://xws-alert-$(ENV)-files/target-areas --profile $(AWS_PROFILE) --acl public-read
+syncAreas:
+	aws s3 sync ./areas s3://xws-alert-$(ENV)-files/areas --profile $(AWS_PROFILE) --acl public-read --delete
 
 uploadProcessAlertLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-alert-$(ENV)-process-alert --zip-file "fileb://./process-alert/function.zip"

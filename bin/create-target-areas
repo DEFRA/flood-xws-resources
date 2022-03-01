@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm -rf ../areas/target-areas
+
+mkdir ../areas/target-areas
+
+node ./create-target-areas.js

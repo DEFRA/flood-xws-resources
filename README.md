@@ -3,7 +3,7 @@
 Default $ENV is "dev"
 
 ### Create geojson TA files
-`$ DATABASE_URL=<Enter DB URL> cd bin && ./createfiles && cd ..`
+`$ DATABASE_URL=<Enter DB URL> cd bin && ./create-target-areas && cd ..`
 
 ### Deploy the stack
 `$ make deploy`

@@ -2,9 +2,8 @@
   "name": "flood-xws-alert-resources",
   "version": "1.0.0",
   "description": "XWS Alert Resources",
-  "main": "create-static-files.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -22,5 +21,8 @@
     "pg": "8.7.3",
     "pg-query-stream": "4.2.3",
     "through": "2.3.8"
+  },
+  "devDependencies": {
+    "standard": "16.0.4"
   }
 }
