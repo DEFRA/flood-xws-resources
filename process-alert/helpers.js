@@ -93,15 +93,14 @@ function getRssFeed (alerts) {
   })
 
   alerts.forEach(alert => {
-    const type = alertTypesMap.get(alert.type)
     const item = {
       id: alert.sk,
       title: alert.headline,
       link: `items/${alert.sk}.xml`,
-      description: `${type.name} for ${alert.code}`,
+      description: `Flood in force for ${alert.code}`,
       content: alert.body,
       date: new Date(alert.updated),
-      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/assets/alert-types/${type.id}.gif`
+      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/assets/alert-types/${alert.type_id}.gif`
     }
 
     feed.addItem(item)
@@ -153,13 +152,13 @@ async function saveFeed () {
   }).promise()
 
   const mapper = alert => {
-    const { code, headline, body: message, updated, areaId, type, sk: id } = alert
+    const { sk: id, code, type_id, headline, body: message, ea_owner_id, ea_area_id, updated } = alert
     const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/target-areas/${code}.json`
-    const alertType = alertTypesMap.get(type)
-    const area = areasMap.get(areaId)
-    const region = regionsMap.get(area.regionId)
+    // const alertType = alertTypesMap.get(type)
+    // const area = areasMap.get(areaId)
+    // const region = regionsMap.get(area.regionId)
 
-    return { id, code, type: alertType, headline, message, area, region, updated, polygon }
+    return { id, code, type_id, headline, message, ea_owner_id, ea_area_id, updated, polygon }
   }
 
   const jsonResult = await s3.putObject({

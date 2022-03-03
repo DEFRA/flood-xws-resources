@@ -12,15 +12,18 @@ async function writeStaticFiles () {
     SELECT id, name FROM xws_area.category;
     SELECT id, name, full_name, "group" FROM xws_area.ea_area;
     SELECT id, name, ea_area_id FROM xws_area.ea_owner;
+    SELECT code, name, description, ea_owner_id, ea_area_id, river_sea, type_id, category_id, parent_area_code, local_authority_name, quick_dial_code FROM xws_area.area;
     SELECT code, name, description FROM xws_area.area;
     SELECT id, name FROM xws_area.type;
   `)
 
-  await writeFile(`../areas/area-category.json`, JSON.stringify(data[0].rows, null, 2))
+
+  await writeFile(`../areas/target-area-category.json`, JSON.stringify(data[0].rows, null, 2))
   await writeFile(`../areas/ea-area.json`, JSON.stringify(data[1].rows, null, 2))
   await writeFile(`../areas/ea-owner.json`, JSON.stringify(data[2].rows, null, 2))
   await writeFile(`../areas/target-area.json`, JSON.stringify(data[3].rows))
-  await writeFile(`../areas/area-type.json`, JSON.stringify(data[4].rows, null, 2))
+  await writeFile(`../areas/target-area-view.json`, JSON.stringify(data[4].rows))
+  await writeFile(`../areas/target-area-type.json`, JSON.stringify(data[5].rows, null, 2))
   await writeFile(`../alerts/alert-type.json`, JSON.stringify(alertTypes, null, 2))
   return client.end()
 }

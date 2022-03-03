@@ -20,12 +20,12 @@ exports.handler = async (event) => {
           pk,
           sk: item.NewImage.sk.S,
           id: item.NewImage.id.S,
-          type: item.NewImage.type.S,
+          type_id: item.NewImage.type_id.S,
           updated: item.NewImage.updated.N
         }
 
         const id = alert.id
-        const [, areaId, , code] = alert.sk.split('#')
+        const [, ownerId, , code] = alert.sk.split('#')
 
         // Get the alert data
         const alertDataItem = await getAlertData(id)
@@ -34,7 +34,7 @@ exports.handler = async (event) => {
         const alertData = alertDataItem.Item
         console.log('alertData', alertData)
 
-        alert.areaId = areaId
+        alert.ea_owner_id = ownerId
         alert.code = code
         alert.headline = alertData.headline
         alert.body = alertData.body
