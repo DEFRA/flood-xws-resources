@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const { promisify } = require('util')
 const { Client } = require('pg')
 const writeFile = promisify(fs.writeFile)
@@ -17,14 +18,14 @@ async function writeStaticFiles () {
     SELECT id, name FROM xws_area.type;
   `)
 
+  await writeFile(path.join(__dirname, '../areas/target-area-category.json'), JSON.stringify(data[0].rows, null, 2))
+  await writeFile(path.join(__dirname, '../areas/ea-area.json'), JSON.stringify(data[1].rows, null, 2))
+  await writeFile(path.join(__dirname, '../areas/ea-owner.json'), JSON.stringify(data[2].rows, null, 2))
+  await writeFile(path.join(__dirname, '../areas/target-area.json'), JSON.stringify(data[3].rows))
+  await writeFile(path.join(__dirname, '../areas/target-area-view.json'), JSON.stringify(data[4].rows))
+  await writeFile(path.join(__dirname, '../areas/target-area-type.json'), JSON.stringify(data[5].rows, null, 2))
+  await writeFile(path.join(__dirname, '../alerts/alert-type.json'), JSON.stringify(alertTypes, null, 2))
 
-  await writeFile(`../areas/target-area-category.json`, JSON.stringify(data[0].rows, null, 2))
-  await writeFile(`../areas/ea-area.json`, JSON.stringify(data[1].rows, null, 2))
-  await writeFile(`../areas/ea-owner.json`, JSON.stringify(data[2].rows, null, 2))
-  await writeFile(`../areas/target-area.json`, JSON.stringify(data[3].rows))
-  await writeFile(`../areas/target-area-view.json`, JSON.stringify(data[4].rows))
-  await writeFile(`../areas/target-area-type.json`, JSON.stringify(data[5].rows, null, 2))
-  await writeFile(`../alerts/alert-type.json`, JSON.stringify(alertTypes, null, 2))
   return client.end()
 }
 
@@ -34,7 +35,7 @@ async function writeStaticFiles () {
 //   const writableStream = fs.createWriteStream('../static/target-areas.json')
 //   const query = new QueryStream('select code, name, description from xws_area.area')
 //   const stream = client.query(query)
-  
+
 //   // Release the client when the stream is finished
 //   stream.on('end', () => client.end())
 
@@ -46,4 +47,4 @@ async function run () {
   writeStaticFiles()
 }
 
-run ()
+run()

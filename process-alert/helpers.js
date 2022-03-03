@@ -179,7 +179,7 @@ async function saveFeed () {
     ContentType: 'text/json',
     ACL: 'public-read'
   }).promise()
- 
+
   return { rssResult, atomResult, jsonResult }
 }
 
