@@ -1,7 +1,6 @@
 const AWS = require('aws-sdk')
 const { Feed } = require('feed')
 const { Alert } = require('flood-xws-common/caplib')
-const { alertTypesMap, regionsMap, areasMap } = require('flood-xws-common/data')
 const { publisher, service } = require('flood-xws-common/constants')
 const s3 = new AWS.S3()
 const sns = new AWS.SNS()
@@ -72,6 +71,19 @@ function addStylesheet (href, xml) {
   return xml.substring(0, insertIdx) + instruction + xml.substring(insertIdx)
 }
 
+function getDescription (alert) {
+  switch (alert.type_id) {
+    case 'fa':
+      return `Flood alert in force for ${alert.code}`
+    case 'fw':
+      return `Flood warning in force for ${alert.code}`
+    case 'sfw':
+      return `Severe flood warning in force for ${alert.code}`
+    default:
+      return `Flood no longer in force for ${alert.code}`
+  }
+}
+
 function getRssFeed (alerts) {
   const feed = new Feed({
     id: 'https://www.gov.uk',
@@ -93,11 +105,13 @@ function getRssFeed (alerts) {
   })
 
   alerts.forEach(alert => {
+    const description = getDescription(alert)
+
     const item = {
       id: alert.sk,
       title: alert.headline,
       link: `items/${alert.sk}.xml`,
-      description: `Flood in force for ${alert.code}`,
+      description: description,
       content: alert.body,
       date: new Date(alert.updated),
       image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/assets/alert-types/${alert.type_id}.gif`
@@ -139,7 +153,7 @@ async function saveFeed () {
     Bucket: bucketName,
     Key: 'alerts/alerts.rss',
     Body: rss,
-    ContentType: 'application/rss+xml',
+    ContentType: 'text/xml',
     ACL: 'public-read'
   }).promise()
 
@@ -147,16 +161,13 @@ async function saveFeed () {
     Bucket: bucketName,
     Key: 'alerts/alerts.atom',
     Body: atom,
-    ContentType: 'application/atom+xml',
+    ContentType: 'text/xml',
     ACL: 'public-read'
   }).promise()
 
   const mapper = alert => {
     const { sk: id, code, type_id, headline, body: message, ea_owner_id, ea_area_id, updated } = alert
     const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/target-areas/${code}.json`
-    // const alertType = alertTypesMap.get(type)
-    // const area = areasMap.get(areaId)
-    // const region = regionsMap.get(area.regionId)
 
     return { id, code, type_id, headline, message, ea_owner_id, ea_area_id, updated, polygon }
   }
