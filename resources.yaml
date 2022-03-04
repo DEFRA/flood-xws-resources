@@ -12,6 +12,17 @@ Resources:
         IndexDocument: alerts.xml
         ErrorDocument: error.html
       BucketName: !Sub ${AWS::StackName}-files
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - "*"
+            AllowedMethods:
+              - HEAD
+              - GET
+            AllowedOrigins:
+              - "*"
+            ExposeHeaders:
+              - ETag
 
   AlertPublishedTopic:
     Type: AWS::SNS::Topic
