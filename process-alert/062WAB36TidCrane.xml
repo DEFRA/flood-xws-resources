@@ -1,0 +1,47 @@
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>515d88700a00110a27a73f2393a44adcE</identifier>
+  <sender>www.gov.uk/environment-agency</sender>
+  <sent>2022-03-03T20:02:43-00:00</sent>
+  <status>Actual</status>
+  <msgType>Cancel</msgType>
+  <source>Flood warning service</source>
+  <scope>Public</scope>
+  <references>www.gov.uk/environment-agency,4fa862380a00110a27a73f231f337396E,2022-03-03T12:07:03+00:00</references>
+  <info>
+    <language>en-GB</language>
+    <category>Met</category>
+    <event>062 Remove Flood Alert EA</event>
+    <responseType>AllClear</responseType>
+    <urgency>Immediate</urgency>
+    <severity>Minor</severity>
+    <certainty>Likely</certainty>
+    <expires>2022-03-04T20:02:43-00:00</expires>
+    <senderName>Environment Agency</senderName>
+    <description>This warning is no longer in force. The high tide at Richmond has now passed, and fluvial levels on the River Crane have now fallen below levels of concern.  No further flooding to gardens and low lying land is expected, however there may be standing water seen for several days. </description>
+    <instruction># To check the latest information for your area
+
+- Visit [GOV.UK](https://check-for-flooding.service.gov.uk) to see the current flood warnings, view river and sea levels or check the 5-day flood risk forecast: https://check-for-flooding.service.gov.uk
+- Follow [@EnvAgency](https://twitter.com/EnvAgency) and [#floodaware](https://twitter.com/hashtag/floodaware) on Twitter.
+- For access to flood warning information offline call Floodline on 0345 988 1188 using quickdial code: 214000.
+
+# What you should consider doing now
+
+- Flood water may still be around for several days. Take care as there may be hidden dangers in the flood water like sharp objects, raised manhole covers and pollution.
+- Only return to evacuated buildings if it is safe to do so.
+- If you have been flooded, ring your buildings and contents insurance company as soon as possible. In almost all cases they will send a loss adjuster to look at your property. They will confirm what repairs and replacements are needed and covered by your policy.
+- For more advice on what to do after a flood visit the GOV.UK website or call Floodline on 0345 988 1188.
+
+For media enquiries please contact our media teams: https://www.gov.uk/government/organisations/environment-agency/about/media-enquiries
+                </instruction>
+    <web>https://check-for-flooding.service.gov.uk</web>
+    <contact>0345 988 1188</contact>
+    <area>
+      <areaDesc>Tidal River Crane</areaDesc>
+      <polygon>51.46280,-0.32449 51.46269,-0.32456 51.46267,-0.32443 51.46260,-0.32444 51.46248,-0.32448 51.46245,-0.32447 51.46239,-0.32465 51.46237,-0.32460 51.46225,-0.32469 51.46226,-0.32478 51.46232,-0.32478 51.46224,-0.32495 51.46213,-0.32514 51.46205,-0.32523 51.46169,-0.32535 51.46142,-0.32563 51.46125,-0.32564 51.46086,-0.32548 51.46082,-0.32565 51.46072,-0.32580 51.46052,-0.32568 51.46043,-0.32565 51.46042,-0.32574 51.46030,-0.32564 51.46010,-0.32663 51.46024,-0.32773 51.46037,-0.32773 51.46041,-0.32767 51.46071,-0.32780 51.46109,-0.32772 51.46129,-0.32749 51.46152,-0.32743 51.46159,-0.32738 51.46182,-0.32736 51.46181,-0.32729 51.46188,-0.32727 51.46212,-0.32702 51.46262,-0.32688 51.46268,-0.32676 51.46280,-0.32678 51.46280,-0.32670 51.46292,-0.32668 51.46294,-0.32673 51.46303,-0.32672 51.46304,-0.32664 51.46316,-0.32652 51.46316,-0.32659 51.46337,-0.32648 51.46368,-0.32630 51.46394,-0.32610 51.46390,-0.32596 51.46396,-0.32593 51.46398,-0.32607 51.46404,-0.32607 51.46420,-0.32589 51.46417,-0.32579 51.46427,-0.32570 51.46440,-0.32571 51.46439,-0.32564 51.46452,-0.32556 51.46452,-0.32559 51.46465,-0.32558 51.46465,-0.32547 51.46477,-0.32531 51.46483,-0.32515 51.46493,-0.32510 51.46493,-0.32493 51.46507,-0.32488 51.46508,-0.32494 51.46514,-0.32495 51.46514,-0.32486 51.46524,-0.32481 51.46538,-0.32442 51.46555,-0.32444 51.46555,-0.32486 51.46573,-0.32485 51.46575,-0.32435 51.46579,-0.32428 51.46584,-0.32430 51.46598,-0.32430 51.46616,-0.32373 51.46626,-0.32388 51.46625,-0.32318 51.46579,-0.32320 51.46579,-0.32285 51.46587,-0.32250 51.46590,-0.32191 51.46523,-0.32171 51.46525,-0.32264 51.46519,-0.32318 51.46492,-0.32320 51.46490,-0.32251 51.46443,-0.32253 51.46445,-0.32323 51.46354,-0.32329 51.46345,-0.32322 51.46330,-0.32343 51.46328,-0.32335 51.46311,-0.32341 51.46314,-0.32361 51.46308,-0.32367 51.46304,-0.32344 51.46297,-0.32349 51.46305,-0.32405 51.46280,-0.32449</polygon>
+      <geocode>
+        <valueName>TargetAreaCode</valueName>
+        <value>062WAB36TidCrane</value>
+      </geocode>
+    </area>
+  </info>
+</alert>
