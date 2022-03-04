@@ -21,7 +21,7 @@ Resources:
               - GET
             AllowedOrigins:
               - "*"
-            ExposeHeaders:
+            ExposedHeaders:
               - ETag
 
   AlertPublishedTopic:
@@ -67,6 +67,7 @@ Resources:
       Environment:
         Variables:
           S3_BUCKET_NAME: !Ref FilesBucket
+          S3_BUCKET_DOMAIN_NAME: !GetAtt FilesBucket.RegionalDomainName
           DYNAMODB_TABLE_NAME: !Ref AlertsDB
           ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
     DependsOn:

@@ -6,6 +6,7 @@ const s3 = new AWS.S3()
 const sns = new AWS.SNS()
 const ddb = new AWS.DynamoDB.DocumentClient()
 const bucketName = process.env.S3_BUCKET_NAME
+const bucketDomainName = process.env.S3_BUCKET_DOMAIN_NAME
 const tableName = process.env.DYNAMODB_TABLE_NAME
 const topicArn = process.env.ALERT_PUBLISHED_TOPIC_ARN
 
@@ -114,7 +115,7 @@ function getRssFeed (alerts) {
       description: description,
       content: alert.body,
       date: new Date(alert.updated),
-      image: `https://${bucketName}.s3.eu-west-2.amazonaws.com/alerts/assets/alert-types/${alert.type_id}.gif`
+      image: `https://${bucketDomainName}/alerts/assets/alert-types/${alert.type_id}.gif`
     }
 
     feed.addItem(item)
@@ -170,7 +171,7 @@ async function saveFeed () {
       sk: id, code, type_id: typeId, headline, body: message,
       ea_owner_id: eaOwnerId, ea_area_id: eaAreaId, updated
     } = alert
-    const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/areas/target-areas/${code}.json`
+    const polygon = `https://${bucketDomainName}/areas/target-areas/${code}.json`
 
     return {
       id,
