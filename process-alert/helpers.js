@@ -166,10 +166,23 @@ async function saveFeed () {
   }).promise()
 
   const mapper = alert => {
-    const { sk: id, code, type_id, headline, body: message, ea_owner_id, ea_area_id, updated } = alert
-    const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/target-areas/${code}.json`
+    const {
+      sk: id, code, type_id: typeId, headline, body: message,
+      ea_owner_id: eaOwnerId, ea_area_id: eaAreaId, updated
+    } = alert
+    const polygon = `https://${bucketName}.s3.eu-west-2.amazonaws.com/areas/target-areas/${code}.json`
 
-    return { id, code, type_id, headline, message, ea_owner_id, ea_area_id, updated, polygon }
+    return {
+      id,
+      code,
+      type_id: typeId,
+      headline,
+      message,
+      ea_owner_id: eaOwnerId,
+      ea_area_id: eaAreaId,
+      updated,
+      polygon
+    }
   }
 
   const jsonResult = await s3.putObject({
