@@ -389,7 +389,7 @@ paths:
       summary: A target area
       operationId: target-area
       description: |
-        A geojson representation of a target area
+        A RFC 7946 GeoJSON representation of a target area
       parameters:
         - in: path
           name: code
