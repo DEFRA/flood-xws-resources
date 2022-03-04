@@ -111,7 +111,7 @@ function getRssFeed (alerts) {
     const item = {
       id: alert.sk,
       title: alert.headline,
-      link: `items/${alert.sk}.xml`,
+      link: `https://${bucketDomainName}/alerts/items/${alert.sk}.xml`,
       description: description,
       content: alert.body,
       date: new Date(alert.updated),
@@ -171,7 +171,6 @@ async function saveFeed () {
       sk: id, code, type_id: typeId, headline, body: message,
       ea_owner_id: eaOwnerId, ea_area_id: eaAreaId, updated
     } = alert
-    const polygon = `https://${bucketDomainName}/areas/target-areas/${code}.json`
 
     return {
       id,
@@ -181,8 +180,7 @@ async function saveFeed () {
       message,
       ea_owner_id: eaOwnerId,
       ea_area_id: eaAreaId,
-      updated,
-      polygon
+      updated
     }
   }
 
