@@ -124,7 +124,7 @@ function getRssFeed (alerts) {
   return feed
 }
 
-async function getRss () {
+async function getAlerts () {
   // TODO: Page and order
   const params = {
     KeyConditionExpression: 'pk = :pk',
@@ -138,6 +138,12 @@ async function getRss () {
   const result = await ddb.query(params).promise()
   const alerts = result.Items
 
+  return alerts
+}
+
+async function getRss () {
+  const alerts = await getAlerts()
+
   // Get rss feed
   const feed = getRssFeed(alerts)
 
@@ -147,24 +153,8 @@ async function getRss () {
   return { alerts, rss, atom }
 }
 
-async function saveFeed () {
-  const { alerts, rss, atom } = await getRss()
-
-  const rssResult = await s3.putObject({
-    Bucket: bucketName,
-    Key: 'alerts/alerts.rss',
-    Body: rss,
-    ContentType: 'text/xml',
-    ACL: 'public-read'
-  }).promise()
-
-  const atomResult = await s3.putObject({
-    Bucket: bucketName,
-    Key: 'alerts/alerts.atom',
-    Body: atom,
-    ContentType: 'text/xml',
-    ACL: 'public-read'
-  }).promise()
+async function updateAlerts () {
+  const alerts = await getAlerts()
 
   const mapper = alert => {
     const {
@@ -184,7 +174,7 @@ async function saveFeed () {
     }
   }
 
-  const jsonResult = await s3.putObject({
+  const result = await s3.putObject({
     Bucket: bucketName,
     Key: 'alerts/alerts.json',
     Body: JSON.stringify(alerts.map(mapper), null, 2),
@@ -192,7 +182,7 @@ async function saveFeed () {
     ACL: 'public-read'
   }).promise()
 
-  return { rssResult, atomResult, jsonResult }
+  return result
 }
 
 async function getAlertData (id) {
@@ -219,16 +209,18 @@ async function saveAlert (alert) {
   return s3.putObject(params).promise()
 }
 
-async function publishAlert (id, code) {
+async function publishAlert (id, code, eaOwnerId) {
   const message = { id, code }
 
   return sns.publish({
     Message: JSON.stringify(message),
     MessageAttributes: {
-      code: { DataType: 'String', StringValue: code }
+      id: { DataType: 'String', StringValue: id },
+      code: { DataType: 'String', StringValue: code },
+      ea_owner_id: { DataType: 'String', StringValue: eaOwnerId }
     },
     TopicArn: topicArn
   }).promise()
 }
 
-module.exports = { saveAlert, saveFeed, getAlertData, publishAlert }
+module.exports = { saveAlert, updateAlerts, getAlertData, publishAlert }
