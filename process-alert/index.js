@@ -1,4 +1,4 @@
-const { saveAlert, saveFeed, getAlertData, publishAlert } = require('./helpers')
+const { updateAlerts, publishAlert } = require('./helpers')
 
 exports.handler = async (event) => {
   console.log('Event', event)
@@ -13,42 +13,20 @@ exports.handler = async (event) => {
     if (item.StreamViewType === 'NEW_IMAGE') {
       const pk = item.NewImage.pk.S
 
-      if (pk === 'A') {
-        // An alert was inserted
+      if (pk === 'AA') {
+        // An alert (archive) was inserted
         console.log('An alert was inserted', item.NewImage)
-        const alert = {
-          pk,
-          sk: item.NewImage.sk.S,
-          id: item.NewImage.id.S,
-          type_id: item.NewImage.type_id.S,
-          updated: item.NewImage.updated.N
-        }
 
-        const id = alert.id
-        const [, ownerId, , code] = alert.sk.split('#')
+        const id = item.NewImage.id.S
+        const code = item.NewImage.code.S
+        const eaOwnerId = item.NewImage.ea_owner_id.S
 
-        // Get the alert data
-        const alertDataItem = await getAlertData(id)
-        console.log('alertDataItem', alertDataItem)
-
-        const alertData = alertDataItem.Item
-        console.log('alertData', alertData)
-
-        alert.ea_owner_id = ownerId
-        alert.code = code
-        alert.headline = alertData.headline
-        alert.body = alertData.body
-
-        // Write the alert capxml file
-        const saveResult = await saveAlert(alert)
-        console.log('saveResult', saveResult)
-
-        // Update the feeds
-        const feedResult = await saveFeed()
-        console.log('feedResult', feedResult)
+        // Update the alerts
+        const alertsResult = await updateAlerts()
+        console.log('alertsResult', alertsResult)
 
         // Publish
-        const publishResult = await publishAlert(id, code)
+        const publishResult = await publishAlert(id, code, eaOwnerId)
         console.log('publishResult', publishResult)
       }
     }
