@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
-- url: https://xws-alert-sandpit-files.s3.eu-west-2.amazonaws.com
-  description: SANDPIT
+- url: https://xws-alert-sandbox-files.s3.eu-west-2.amazonaws.com
+  description: SANDBOX
 - url: https://xws-alert-dstone-files.s3.eu-west-2.amazonaws.com
   description: DSTONE
 info:
@@ -117,17 +117,17 @@ paths:
                     name: Flood warning
                   - id: sfw
                     name: Severe flood warning
-  /areas/area-category.json:
+  /areas/target-area-category.json:
     get:
       tags:
         - areas
-      summary: The area categories
-      operationId: area-category
+      summary: The target area categories
+      operationId: target-area-category
       description: |
-        An array of objects each representing a category of an area
+        An array of objects each representing a category of a target area
       responses:
         '200':
-          description: The array of possible area categories
+          description: The array of possible target area categories
           content:
             application/json:
               schema:
@@ -144,17 +144,17 @@ paths:
                     name: Flood alert area
                   - id: fwa
                     name: Flood warning area
-  /areas/area-type.json:
+  /areas/target-area-type.json:
     get:
       tags:
         - areas
-      summary: The area types
-      operationId: area-type
+      summary: The target area types
+      operationId: target-area-type
       description: |
-        An array of objects each representing a type of an area
+        An array of objects each representing a type of a target area
       responses:
         '200':
-          description: The array of possible area types
+          description: The array of possible target area types
           content:
             application/json:
               schema:
@@ -450,11 +450,13 @@ components:
   schemas:
     Alerts:
       type: array
+      title: Alerts
       items:
         $ref: '#/components/schemas/Alert'
 
     Alert:
       type: object
+      title: Alert
       additionalProperties: false
       properties:
         id:
@@ -462,70 +464,24 @@ components:
           format: uuid
         code:
           type: string
-        type:
-          $ref: '#/components/schemas/Type'
+        type_id:
+          type: string
         headline:
           type: string
         message:
           type: string
-        area:
-          $ref: '#/components/schemas/Area'
-        region:
-          $ref: '#/components/schemas/Region'
+        ea_owner_id:
+          type: string
+        ea_area_id:
+          type: string
         updated:
           type: integer
-        polygon:
-          type: string
-          format: uri
       required:
-        - area
         - code
         - headline
         - id
         - message
-        - polygon
-        - region
+        - ea_owner_id
+        - ea_area_id
         - type
         - updated
-      title: Alert
-    Area:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-          format: integer
-        name:
-          type: string
-        regionId:
-          type: string
-          format: integer
-      required:
-        - id
-        - name
-        - regionId
-      title: Area
-    Region:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-        - id
-        - name
-      title: Region
-    Type:
-      type: object
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-      required:
-        - id
-        - name
-      title: Type
