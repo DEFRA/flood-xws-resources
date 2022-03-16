@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk')
 const { Feed } = require('feed')
+const date = require('flood-xws-common/date')
 const { Alert } = require('flood-xws-common/caplib')
 const { publisher, service } = require('flood-xws-common/constants')
 const s3 = new AWS.S3()
@@ -18,41 +19,34 @@ const topicArn = process.env.ALERT_PUBLISHED_TOPIC_ARN
  * @param {object} alert - the alert model
  */
 function buildCapAlert (alert) {
-  // Todo: Create valid capxml
-  // Extract from this file for testing
-  // https://cap-validator.appspot.com/validate
-
-  const sender = publisher.url
-  const source = service.description
-  const language = 'en-GB'
-  const identifier = alert.id
   const code = alert.code
-  const event = code + ' 062 Remove Flood Alert EA' // Todo
+  const dateFormat = 'YYYY-MM-DDTHH:mm:ssZ'
 
   const capAlert = new Alert()
-  capAlert.identifier = identifier
-  capAlert.sender = sender
-  capAlert.sent = new Date().toString()
-  capAlert.msgType = 'Alert' // alert.cap_msg_type_name
-  capAlert.source = source
+  capAlert.identifier = alert.id
+  capAlert.sender = publisher.url
+  capAlert.sent = date(alert.updated).format(dateFormat)
+  capAlert.status = alert.cap_status
+  capAlert.msgType = alert.cap_msg_type
+  capAlert.source = service.description
+  capAlert.scope = alert.cap_scope
 
-  // Todo: support multiple infos for Welsh?
   const capInfo = capAlert.addInfo()
-  capInfo.language = language
+  capInfo.language = 'en-GB'
   capInfo.headline = alert.headline
   capInfo.description = alert.body
-  capInfo.event = event
+  capInfo.event = getDescription(alert)
+  capInfo.addEventCode('type_id', alert.type_id)
 
-  capInfo.addCategory('Geo')
-  capInfo.addCategory('Met')
-  capInfo.addCategory('Env')
+  alert.cap_category.forEach(c => capInfo.addCategory(c))
+  alert.cap_response_type.forEach(rt => capInfo.addResponseType(rt))
 
-  capInfo.urgency = 'Expected' // alert.cap_urgency_name // Todo
-  capInfo.severity = 'Minor' // alert.cap_severity_name // Todo
-  capInfo.certainty = 'Likely' // alert.cap_certainty_name // Todo
+  capInfo.urgency = alert.cap_urgency
+  capInfo.severity = alert.cap_severity
+  capInfo.certainty = alert.cap_certainty
 
-  // const capArea = capInfo.addArea(areaId)
-  // capArea.addGeocode('TargetAreaCode', code)
+  const capArea = capInfo.addArea(code)
+  capArea.addGeocode('TargetAreaCode', code)
 
   // Todo: Add polygon
   // capArea.addPolygon(...)
@@ -232,3 +226,25 @@ async function publishAlert (id, code) {
 }
 
 module.exports = { saveAlert, saveFeed, getAlertData, publishAlert }
+
+// async function run () {
+//   const alert = (await ddb.get({
+//     Key: {
+//       pk: 'A',
+//       sk: 'O#011#TA#011WACN6'
+//     },
+//     TableName: tableName
+//   }).promise()).Item
+
+//   const alertData = (await getAlertData(alert.id)).Item
+
+//   Object.assign(alert, alertData)
+
+//   console.log(alert)
+
+//   const cap = buildCapAlert(alert)
+
+//   console.log(cap)
+// }
+
+// run()
