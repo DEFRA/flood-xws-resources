@@ -1,3 +1,4 @@
+const AWS = require('aws-sdk')
 const { saveAlert, saveFeed, getAlertData, publishAlert } = require('./helpers')
 
 exports.handler = async (event) => {
@@ -16,13 +17,16 @@ exports.handler = async (event) => {
       if (pk === 'A') {
         // An alert was inserted
         console.log('An alert was inserted', item.NewImage)
-        const alert = {
-          pk,
-          sk: item.NewImage.sk.S,
-          id: item.NewImage.id.S,
-          type_id: item.NewImage.type_id.S,
-          updated: item.NewImage.updated.N
-        }
+        const alert = AWS.DynamoDB.Converter.unmarshall(item.NewImage)
+        console.log('An alert was unmarshalled', alert)
+
+        // {
+        //   pk,
+        //   sk: item.NewImage.sk.S,
+        //   id: item.NewImage.id.S,
+        //   type_id: item.NewImage.type_id.S,
+        //   updated: item.NewImage.updated.N
+        // }
 
         const id = alert.id
         const [, ownerId, , code] = alert.sk.split('#')
@@ -38,6 +42,15 @@ exports.handler = async (event) => {
         alert.code = code
         alert.headline = alertData.headline
         alert.body = alertData.body
+
+        alert.cap_status = alertData.cap_status
+        alert.cap_msg_type = alertData.cap_msg_type
+        alert.cap_scope = alertData.cap_scope
+        alert.cap_category = alertData.cap_category
+        alert.cap_response_type = alertData.cap_response_type
+        alert.cap_urgency = alertData.cap_urgency
+        alert.cap_severity = alertData.cap_severity
+        alert.cap_certainty = alertData.cap_certainty
 
         // Write the alert capxml file
         const saveResult = await saveAlert(alert)

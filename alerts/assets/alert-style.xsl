@@ -12,28 +12,9 @@
       <meta name="country" content="United Kingdom"/>
       <meta name="revisit" content="1 days"/>
       <style>
-        html,body {
-          height:100%;
-        }
-        .map {
-          height:400px;
-          width:100%;
-        }
-        h1 {
-          font-size:120%;
-          font-weight:bold;
-          font-family:Verdana, Geneva, sans-serif;
-        }
-        table, td {
-          font-size:100%;
-          font-weight:normal;
-          font-family:Verdana, Geneva, sans-serif;
-        }
-        p {
-          font-size:100%;
-          font-weight:normal;
-          font-family:Verdana, Geneva, sans-serif;
-        }
+        body { font-family: monospace; }
+        a, a:visited, a:hover, a:active { color: #1d70b8; }
+        .map { height:400px; width:100%; }
       </style>
       <!-- This XSL uses an OpenLayers map, described at https://openlayers.org/ -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css" />
@@ -42,6 +23,7 @@
       <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
       <!-- The line below fetches the main source for Open Layers. It is used at the CAP area processing. -->
       <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+      <script src="../assets/map.js"></script>
     </head>
     <body>
 <!-- To customize the Web page, insert here the HTML code for a page header  -->
@@ -50,7 +32,7 @@
           <xsl:value-of select="*[local-name()='info'][1]/*[local-name()='headline']" />
         </h1>
         <div id="map" class="map"></div>
-        <script src="https://cap-sources.s3.amazonaws.com/style-lib/drawShapes.js"></script>
+        <!-- <script src="https://cap-sources.s3.amazonaws.com/style-lib/drawShapes.js"></script> -->
         <!-- CAP Elements -->
         <table border="0">
           <th></th>
@@ -362,7 +344,7 @@
                   <td width="15%"></td>
                   <td width="15%"></td>
                   <td width="15%">Description:</td>
-                  <td width="55%">
+                  <td width="55%" id="code">
                     <xsl:value-of select="." />
                   </td>
                 </tr>
@@ -427,6 +409,10 @@
           </xsl:for-each>
         </table>
         <!-- To customize the Web page, insert here the HTML code for a page footer  -->
+        <script>
+          // TODO: Use CAP coords, not the GeoJSON files
+          window.XWS.map('map', document.getElementById('code').textContent.trim())
+        </script>
      </body>
     </html>
   </xsl:template>

@@ -228,6 +228,8 @@ async function publishAlert (id, code) {
 module.exports = { saveAlert, saveFeed, getAlertData, publishAlert }
 
 // async function run () {
+//   console.log(date(1647440863597).format('YYYY-MM-DDTHH:mm:ssZ'))
+//   return
 //   const alert = (await ddb.get({
 //     Key: {
 //       pk: 'A',
