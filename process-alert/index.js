@@ -1,4 +1,5 @@
-const { saveAlert, saveFeed, getAlertData, publishAlert } = require('./helpers')
+const { removeKeys } = require('flood-xws-common/helpers')
+const { saveAlert, saveFeeds, getAlertData, publishAlert } = require('./helpers')
 
 exports.handler = async (event) => {
   console.log('Event', event)
@@ -20,8 +21,6 @@ exports.handler = async (event) => {
 
         // Get the alert data
         const alertDataItem = await getAlertData(id)
-        console.log('alertDataItem', alertDataItem)
-
         const keysToRemove = ['pk', 'sk', 'user_id']
         const alert = removeKeys(alertDataItem.Item, keysToRemove)
         console.log('alert', alert)
@@ -31,25 +30,13 @@ exports.handler = async (event) => {
         console.log('saveResult', saveResult)
 
         // Update the feeds
-        const feedResult = await saveFeed()
+        const feedResult = await saveFeeds()
         console.log('feedResult', feedResult)
 
-        // Publish
+        // Publish ALERT_PUBLISHED event
         const publishResult = await publishAlert(id, alert.code)
         console.log('publishResult', publishResult)
       }
     }
   }
-}
-
-function removeKeys (obj, keys) {
-  const ret = {}
-
-  for (const key in obj) {
-    if (!keys.includes(key)) {
-      ret[key] = obj[key]
-    }
-  }
-
-  return ret
 }

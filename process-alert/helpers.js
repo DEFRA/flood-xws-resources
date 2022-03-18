@@ -141,7 +141,7 @@ async function getRss () {
   return { alerts, rss, atom }
 }
 
-async function saveFeed () {
+async function saveFeeds () {
   const { alerts, rss, atom } = await getRss()
 
   const rssResult = await s3.putObject({
@@ -225,28 +225,4 @@ async function publishAlert (id, code) {
   }).promise()
 }
 
-module.exports = { saveAlert, saveFeed, getAlertData, publishAlert }
-
-// async function run () {
-//   console.log(date(1647440863597).format('YYYY-MM-DDTHH:mm:ssZ'))
-//   return
-//   const alert = (await ddb.get({
-//     Key: {
-//       pk: 'A',
-//       sk: 'O#011#TA#011WACN6'
-//     },
-//     TableName: tableName
-//   }).promise()).Item
-
-//   const alertData = (await getAlertData(alert.id)).Item
-
-//   Object.assign(alert, alertData)
-
-//   console.log(alert)
-
-//   const cap = buildCapAlert(alert)
-
-//   console.log(cap)
-// }
-
-// run()
+module.exports = { saveAlert, saveFeeds, getAlertData, publishAlert }
