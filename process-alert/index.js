@@ -1,4 +1,3 @@
-const AWS = require('aws-sdk')
 const { saveAlert, saveFeed, getAlertData, publishAlert } = require('./helpers')
 
 exports.handler = async (event) => {
@@ -17,40 +16,15 @@ exports.handler = async (event) => {
       if (pk === 'A') {
         // An alert was inserted
         console.log('An alert was inserted', item.NewImage)
-        const alert = AWS.DynamoDB.Converter.unmarshall(item.NewImage)
-        console.log('An alert was unmarshalled', alert)
-
-        // {
-        //   pk,
-        //   sk: item.NewImage.sk.S,
-        //   id: item.NewImage.id.S,
-        //   type_id: item.NewImage.type_id.S,
-        //   updated: item.NewImage.updated.N
-        // }
-
-        const id = alert.id
-        const [, ownerId, , code] = alert.sk.split('#')
+        const id = item.NewImage.id.S
 
         // Get the alert data
         const alertDataItem = await getAlertData(id)
         console.log('alertDataItem', alertDataItem)
 
-        const alertData = alertDataItem.Item
-        console.log('alertData', alertData)
-
-        alert.ea_owner_id = ownerId
-        alert.code = code
-        alert.headline = alertData.headline
-        alert.body = alertData.body
-
-        alert.cap_status = alertData.cap_status
-        alert.cap_msg_type = alertData.cap_msg_type
-        alert.cap_scope = alertData.cap_scope
-        alert.cap_category = alertData.cap_category
-        alert.cap_response_type = alertData.cap_response_type
-        alert.cap_urgency = alertData.cap_urgency
-        alert.cap_severity = alertData.cap_severity
-        alert.cap_certainty = alertData.cap_certainty
+        const keysToRemove = ['pk', 'sk', 'user_id']
+        const alert = removeKeys(alertDataItem.Item, keysToRemove)
+        console.log('alert', alert)
 
         // Write the alert capxml file
         const saveResult = await saveAlert(alert)
@@ -61,9 +35,21 @@ exports.handler = async (event) => {
         console.log('feedResult', feedResult)
 
         // Publish
-        const publishResult = await publishAlert(id, code)
+        const publishResult = await publishAlert(id, alert.code)
         console.log('publishResult', publishResult)
       }
     }
   }
+}
+
+function removeKeys (obj, keys) {
+  const ret = {}
+
+  for (const key in obj) {
+    if (!keys.includes(key)) {
+      ret[key] = obj[key]
+    }
+  }
+
+  return ret
 }
