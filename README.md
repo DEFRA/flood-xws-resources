@@ -12,17 +12,19 @@ or
 
 `$ ENV=test make deploy`
 
-### Sync static files to S3
-`$ make syncFiles`
+### Sync static alert files to S3
+`$ make syncAlerts`
 
 ### Sync target areas to S3
-`$ make syncTargetAreas`
+`$ make syncAreas`
 
 ### Upload the process alert lambda
 `$ make uploadProcessAlertLambda`
 
 ### Upload the send messages lambda
 `$ make uploadSendMessagesLambda`
+
+Note: Currently need to manually configure the send-messages lambda ENVARS for Gov UK Notify
 
 ### Delete the stack
 `$ make delete`
@@ -32,7 +34,7 @@ or
 
 S3 Bucket static file-based public API
 
-## S3 Static hosted website
+### S3 Static hosted website
 
 Setting up a [static website in S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) using a custom domain that is registered with Route 53.
 
@@ -47,7 +49,7 @@ https://pp.xws.com
 https://xws.com
 
 
-## Bucket file structure
+### Bucket file structure
 
 * alerts
   * alerts.rss (The RSS feed)

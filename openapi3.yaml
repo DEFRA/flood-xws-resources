@@ -2,14 +2,14 @@ openapi: 3.0.0
 servers:
 - url: https://xws-alert-sandbox-files.s3.eu-west-2.amazonaws.com
   description: SANDBOX
-- url: https://xws-alert-dstone-files.s3.eu-west-2.amazonaws.com
-  description: DSTONE
+- url: https://xws-dev-files.s3.eu-west-2.amazonaws.com
+  description: DEV
 info:
   description: A collection of URL endpoints for obtaining flood data, including live flood alerts and warnings, geospatial target area data and other static reference data.
   version: "1.0.0"
   title: Get flood warnings public API
   contact:
-    email: you@your-company.com
+    email: ddts@defra.com
   license:
     name: OGL-UK-3.0
     url: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
