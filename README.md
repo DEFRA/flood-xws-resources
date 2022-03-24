@@ -1,4 +1,4 @@
-## CF flood-xws-alert-resources
+## flood-xws-resources
 
 Default $ENV is "dev"
 
@@ -21,15 +21,16 @@ or
 ### Upload the process alert lambda
 `$ make uploadProcessAlertLambda`
 
+### Upload the send messages lambda
+`$ make uploadSendMessagesLambda`
+
 ### Delete the stack
 `$ make delete`
 
 
+## flood-xws-data-hub
 
-
-## flood-xws-alert-hosting
-
-S3 Bucket static files for the XWS Alert Subsystem
+S3 Bucket static file-based public API
 
 ## S3 Static hosted website
 
@@ -49,15 +50,22 @@ https://xws.com
 ## Bucket file structure
 
 * alerts
-  * alerts.xml (The RSS feed)
-  * alerts.json (The RSS json feed)
+  * alerts.rss (The RSS feed)
+  * alerts.atom (The RSS atom feed)
+  * alerts.json (The json feed)
   * items (All alert files go in here)
-    * [alert-guid].xml
+    * {guid}.xml
   * assets (The files for alert feed styling found in this repo go here)
     * alert-style.xsl
     * draw-shapes.js
     * favicon.ico
     * rss-style.xsl
     * xws.png
-* target-areas
-  * TBD
+* areas
+  * ea-area.json
+  * ea-owner.json
+  * target-area-category.json
+  * target-area-type.json
+  * target-area-view.json
+  * target-area.json
+  * target-areas/{code}.json
