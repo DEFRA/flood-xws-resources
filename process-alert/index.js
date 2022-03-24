@@ -34,7 +34,7 @@ exports.handler = async (event) => {
         console.log('feedResult', feedResult)
 
         // Publish ALERT_PUBLISHED event
-        const publishResult = await publishAlert(id, alert.code)
+        const publishResult = await publishAlert(alert)
         console.log('publishResult', publishResult)
       }
     }

@@ -13,6 +13,9 @@ syncAreas:
 uploadProcessAlertLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-alert-$(ENV)-process-alert --zip-file "fileb://./process-alert/function.zip"
 
+uploadSendMessagesLambda:
+	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-alert-$(ENV)-send-messages --zip-file "fileb://./send-messages/function.zip"
+
 delete:
 	aws cloudformation delete-stack --stack-name xws-alert-$(ENV) --profile $(AWS_PROFILE)
 

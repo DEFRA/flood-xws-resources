@@ -8,7 +8,7 @@ const sns = new AWS.SNS()
 const ddb = new AWS.DynamoDB.DocumentClient()
 const bucketName = process.env.S3_BUCKET_NAME
 const bucketDomainName = process.env.S3_BUCKET_DOMAIN_NAME
-const tableName = process.env.DYNAMODB_TABLE_NAME
+const tableName = process.env.ALERT_TABLE_NAME
 const topicArn = process.env.ALERT_PUBLISHED_TOPIC_ARN
 
 /**
@@ -213,12 +213,14 @@ async function saveAlert (alert) {
   return s3.putObject(params).promise()
 }
 
-async function publishAlert (id, code) {
-  const message = { id, code }
+async function publishAlert (alert) {
+  const { id, code, type_id: typeId } = alert
 
   return sns.publish({
-    Message: JSON.stringify(message),
+    Message: JSON.stringify(alert),
     MessageAttributes: {
+      id: { DataType: 'String', StringValue: id },
+      type_id: { DataType: 'String', StringValue: typeId },
       code: { DataType: 'String', StringValue: code }
     },
     TopicArn: topicArn

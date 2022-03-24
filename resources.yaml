@@ -30,10 +30,10 @@ Resources:
       TopicName: !Sub ${AWS::StackName}-alert-published
       DisplayName: Alert published
 
-  AlertsDB:
+  AlertDB:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub ${AWS::StackName}-db
+      TableName: !Sub ${AWS::StackName}-alert-db
       AttributeDefinitions:
         - AttributeName: pk
           AttributeType: S
@@ -49,6 +49,40 @@ Resources:
         WriteCapacityUnits: 5
       StreamSpecification:
         StreamViewType: NEW_IMAGE
+
+  SubscriptionDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${AWS::StackName}-subscription-db
+      AttributeDefinitions:
+        - AttributeName: code
+          AttributeType: S
+        - AttributeName: endpoint
+          AttributeType: S
+        - AttributeName: user_id
+          AttributeType: S
+        - AttributeName: channel
+          AttributeType: S
+      KeySchema:
+        - AttributeName: code
+          KeyType: HASH
+        - AttributeName: endpoint
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      GlobalSecondaryIndexes:
+        - IndexName: user-index
+          KeySchema:
+            - AttributeName: user_id
+              KeyType: HASH
+            - AttributeName: channel
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 5
 
   ProcessAlert:
     Type: AWS::Lambda::Function
@@ -68,11 +102,11 @@ Resources:
         Variables:
           S3_BUCKET_NAME: !Ref FilesBucket
           S3_BUCKET_DOMAIN_NAME: !GetAtt FilesBucket.RegionalDomainName
-          DYNAMODB_TABLE_NAME: !Ref AlertsDB
+          ALERT_TABLE_NAME: !Ref AlertDB
           ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
     DependsOn:
       - FilesBucket
-      - AlertsDB
+      - AlertDB
       - ProcessAlertLambdaExecutionRole
 
   ProcessAlertLambdaExecutionRole:
@@ -96,7 +130,7 @@ Resources:
                 Effect: Allow
               - Action:
                   - dynamodb:*
-                Resource: !GetAtt AlertsDB.Arn
+                Resource: !GetAtt AlertDB.Arn
                 Effect: Allow
               - Action:
                   - s3:*
@@ -111,7 +145,7 @@ Resources:
                   - dynamodb:GetRecords
                   - dynamodb:GetShardIterator
                   - dynamodb:ListStreams
-                Resource: !GetAtt AlertsDB.StreamArn
+                Resource: !GetAtt AlertDB.StreamArn
                 Effect: Allow
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -123,12 +157,71 @@ Resources:
               Service:
                 - lambda.amazonaws.com
 
-  AlertsDBTrigger:
+  SendMessages:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-send-messages
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt SendMessagesLambdaExecutionRole.Arn
+      Timeout: 300
+      Environment:
+        Variables:
+          SUBSCRIPTION_TABLE_NAME: !Ref SubscriptionDB
+          NOTIFY_API_KEY: <ENTER>
+          NOTIFY_EMAIL_TEMPLATE_ID: <ENTER>
+          NOTIFY_SMS_TEMPLATE_ID: <ENTER>
+    DependsOn:
+      - SendMessagesLambdaExecutionRole
+
+  SendMessagesLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt SubscriptionDB.Arn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+  SendMessagesInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref SendMessages
+      Principal: sns.amazonaws.com
+
+  AlertDBTrigger:
     Type: AWS::Lambda::EventSourceMapping
     Properties:
       BatchSize: 1
       Enabled: True
-      EventSourceArn: !GetAtt AlertsDB.StreamArn
+      EventSourceArn: !GetAtt AlertDB.StreamArn
       FunctionName: !GetAtt ProcessAlert.Arn
       StartingPosition: LATEST
 
@@ -137,6 +230,13 @@ Resources:
     Properties:
       Endpoint: david.stone@defra.net
       Protocol: email
+      TopicArn: !Ref AlertPublishedTopic
+
+  SendMessagesSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: !GetAtt SendMessages.Arn
+      Protocol: lambda
       TopicArn: !Ref AlertPublishedTopic
 
   # Create the 'messages' SQS DL queue
