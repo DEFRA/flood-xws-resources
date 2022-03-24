@@ -477,11 +477,11 @@ components:
         updated:
           type: integer
       required:
-        - code
-        - headline
         - id
+        - code
+        - type_id
+        - headline
         - message
         - ea_owner_id
         - ea_area_id
-        - type
         - updated
