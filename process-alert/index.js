@@ -11,32 +11,30 @@ exports.handler = async (event) => {
   if (record.eventName === 'INSERT') {
     const item = record.dynamodb
 
-    if (item.StreamViewType === 'NEW_IMAGE') {
-      const pk = item.NewImage.pk.S
+    const pk = item.NewImage.pk.S
 
-      if (pk === 'A') {
-        // An alert was inserted
-        console.log('An alert was inserted', item.NewImage)
-        const id = item.NewImage.id.S
+    if (pk === 'A') {
+      // An alert was inserted
+      console.log('An alert was inserted', item.NewImage)
+      const id = item.NewImage.id.S
 
-        // Get the alert data
-        const alertDataItem = await getAlertData(id)
-        const keysToRemove = ['pk', 'sk', 'user_id']
-        const alert = removeKeys(alertDataItem.Item, keysToRemove)
-        console.log('alert', alert)
+      // Get the alert data
+      const alertDataItem = await getAlertData(id)
+      const keysToRemove = ['pk', 'sk', 'user_id']
+      const alert = removeKeys(alertDataItem.Item, keysToRemove)
+      console.log('alert', alert)
 
-        // Write the alert capxml file
-        const saveResult = await saveAlert(alert)
-        console.log('saveResult', saveResult)
+      // Write the alert capxml file
+      const saveResult = await saveAlert(alert)
+      console.log('saveResult', saveResult)
 
-        // Update the feeds
-        const feedResult = await saveFeeds()
-        console.log('feedResult', feedResult)
+      // Update the feeds
+      const feedResult = await saveFeeds()
+      console.log('feedResult', feedResult)
 
-        // Publish ALERT_PUBLISHED event
-        const publishResult = await publishAlert(alert)
-        console.log('publishResult', publishResult)
-      }
+      // Publish ALERT_PUBLISHED event
+      const publishResult = await publishAlert(alert)
+      console.log('publishResult', publishResult)
     }
   }
 }

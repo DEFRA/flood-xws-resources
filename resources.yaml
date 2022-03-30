@@ -23,6 +23,21 @@ Resources:
               - "*"
             ExposedHeaders:
               - ETag
+  
+  ContactQueueDL:
+    Type: AWS::SQS::Queue
+    Properties:
+      FifoQueue: true
+      QueueName: !Sub ${AWS::StackName}-contact-queue-dl.fifo
+
+  ContactQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      FifoQueue: true
+      QueueName: !Sub ${AWS::StackName}-contact-queue.fifo
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt ContactQueueDL.Arn
+        maxReceiveCount: 1
 
   AlertPublishedTopic:
     Type: AWS::SNS::Topic
@@ -49,6 +64,26 @@ Resources:
         WriteCapacityUnits: 5
       StreamSpecification:
         StreamViewType: NEW_IMAGE
+
+  ContactDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${AWS::StackName}-contact-db
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
 
   SubscriptionDB:
     Type: AWS::DynamoDB::Table
@@ -109,6 +144,56 @@ Resources:
       - AlertDB
       - ProcessAlertLambdaExecutionRole
 
+  ProcessContact:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-process-contact
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt ProcessContactLambdaExecutionRole.Arn
+      Timeout: 20
+      Environment:
+        Variables:
+          CONTACT_TABLE_NAME: !Ref ContactDB
+          CONTACT_QUEUE_URL: !Ref ContactQueue
+          CONTACT_QUEUE_NAME: !GetAtt ContactQueue.QueueName
+          CONTACT_QUEUE_ARN: !GetAtt ContactQueue.Arn
+    DependsOn:
+      - ContactDB
+      - ContactQueue
+      - ProcessContactLambdaExecutionRole
+
+  ProcessSubscription:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-process-subscription
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt ProcessSubscriptionLambdaExecutionRole.Arn
+      Timeout: 20
+      Environment:
+        Variables:
+          CONTACT_TABLE_NAME: !Ref ContactDB
+          SUBSCRIPTION_TABLE_NAME: !Ref SubscriptionDB
+          AREA_API_URL: <ENTER>
+    DependsOn:
+      - ContactDB
+      - SubscriptionDB
+      - ContactQueue
+      - ProcessSubscriptionLambdaExecutionRole
+
   ProcessAlertLambdaExecutionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -146,6 +231,90 @@ Resources:
                   - dynamodb:GetShardIterator
                   - dynamodb:ListStreams
                 Resource: !GetAtt AlertDB.StreamArn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+  ProcessContactLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt ContactDB.Arn
+                Effect: Allow
+              - Action:
+                - sqs:SendMessage
+                Resource: !GetAtt ContactQueue.Arn
+                Effect: Allow
+              - Action:
+                  - dynamodb:DescribeStream
+                  - dynamodb:GetRecords
+                  - dynamodb:GetShardIterator
+                  - dynamodb:ListStreams
+                Resource: !GetAtt ContactDB.StreamArn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+  ProcessSubscriptionLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt ContactDB.Arn
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource:
+                  - !GetAtt SubscriptionDB.Arn
+                  - !Sub 
+                    - '${Arn}/index/*'
+                    - Arn: !GetAtt SubscriptionDB.Arn
+                Effect: Allow
+              - Action:
+                  - sqs:ReceiveMessage
+                  - sqs:DeleteMessage
+                  - sqs:GetQueueAttributes
+                  - sqs:ChangeMessageVisibility
+                Resource: !GetAtt ContactQueue.Arn
                 Effect: Allow
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -225,6 +394,15 @@ Resources:
       FunctionName: !GetAtt ProcessAlert.Arn
       StartingPosition: LATEST
 
+  ContactDBTrigger:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 1
+      Enabled: True
+      EventSourceArn: !GetAtt ContactDB.StreamArn
+      FunctionName: !GetAtt ProcessContact.Arn
+      StartingPosition: LATEST
+
   Subscription:
     Type: AWS::SNS::Subscription
     Properties:
@@ -238,6 +416,14 @@ Resources:
       Endpoint: !GetAtt SendMessages.Arn
       Protocol: lambda
       TopicArn: !Ref AlertPublishedTopic
+  
+  ContactSubscriptionEventSourceMapping:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 1
+      Enabled: true
+      EventSourceArn: !GetAtt ContactQueue.Arn
+      FunctionName: !GetAtt ProcessSubscription.Arn
 
   # Create the 'messages' SQS DL queue
   # MessagesDLQueue:
