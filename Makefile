@@ -19,6 +19,9 @@ uploadProcessContactLambda:
 uploadProcessSubscriptionLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-process-subscription --zip-file "fileb://./process-subscription/function.zip"
 
+uploadQueueMessagesLambda:
+	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-queue-messages --zip-file "fileb://./queue-messages/function.zip"
+
 uploadSendMessagesLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-send-messages --zip-file "fileb://./send-messages/function.zip"
 

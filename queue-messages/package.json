@@ -1,0 +1,17 @@
+{
+  "name": "queue-messages",
+  "version": "0.0.1",
+  "description": "Queue messages",
+  "main": "index.js",
+  "scripts": {
+    "package": "zip -r -q function.zip ."
+  },
+  "author": "DEFRA",
+  "license": "ISC",
+  "dependencies": {
+    "notifications-node-client": "5.1.1"
+  },
+  "devDependencies": {
+    "standard": "16.0.4"
+  }
+}

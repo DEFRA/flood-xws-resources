@@ -24,11 +24,11 @@ Resources:
             ExposedHeaders:
               - ETag
   
-  ContactQueueDL:
+  ContactQueueDLQ:
     Type: AWS::SQS::Queue
     Properties:
       FifoQueue: true
-      QueueName: !Sub ${AWS::StackName}-contact-queue-dl.fifo
+      QueueName: !Sub ${AWS::StackName}-contact-queue-dlq.fifo
 
   ContactQueue:
     Type: AWS::SQS::Queue
@@ -36,8 +36,21 @@ Resources:
       FifoQueue: true
       QueueName: !Sub ${AWS::StackName}-contact-queue.fifo
       RedrivePolicy:
-        deadLetterTargetArn: !GetAtt ContactQueueDL.Arn
-        maxReceiveCount: 1
+        deadLetterTargetArn: !GetAtt ContactQueueDLQ.Arn
+        maxReceiveCount: 3
+  
+  MessageQueueDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub ${AWS::StackName}-message-queue-dlq
+
+  MessageQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub ${AWS::StackName}-message-queue
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt MessageQueueDLQ.Arn
+        maxReceiveCount: 3
 
   AlertPublishedTopic:
     Type: AWS::SNS::Topic
@@ -326,6 +339,60 @@ Resources:
             Principal:
               Service:
                 - lambda.amazonaws.com
+  
+  QueueMessages:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-queue-messages
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt QueueMessagesLambdaExecutionRole.Arn
+      Timeout: 300
+      Environment:
+        Variables:
+          SUBSCRIPTION_TABLE_NAME: !Ref SubscriptionDB
+          MESSAGE_QUEUE_URL: !Ref MessageQueue
+    DependsOn:
+      - QueueMessagesLambdaExecutionRole
+
+  QueueMessagesLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt SubscriptionDB.Arn
+                Effect: Allow
+              - Action:
+                  - sqs:SendMessage
+                Resource: !GetAtt MessageQueue.Arn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
 
   SendMessages:
     Type: AWS::Lambda::Function
@@ -340,10 +407,9 @@ Resources:
               return 'ok'
             }
       Role: !GetAtt SendMessagesLambdaExecutionRole.Arn
-      Timeout: 300
+      Timeout: 20
       Environment:
         Variables:
-          SUBSCRIPTION_TABLE_NAME: !Ref SubscriptionDB
           NOTIFY_API_KEY: <ENTER>
           NOTIFY_EMAIL_TEMPLATE_ID: <ENTER>
           NOTIFY_SMS_TEMPLATE_ID: <ENTER>
@@ -366,8 +432,11 @@ Resources:
                   - arn:aws:logs:*:*:*
                 Effect: Allow
               - Action:
-                  - dynamodb:*
-                Resource: !GetAtt SubscriptionDB.Arn
+                  - sqs:ReceiveMessage
+                  - sqs:DeleteMessage
+                  - sqs:GetQueueAttributes
+                  - sqs:ChangeMessageVisibility
+                Resource: !GetAtt MessageQueue.Arn
                 Effect: Allow
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -379,11 +448,11 @@ Resources:
               Service:
                 - lambda.amazonaws.com
 
-  SendMessagesInvokePermission:
+  QueueMessagesInvokePermission:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
-      FunctionName: !Ref SendMessages
+      FunctionName: !Ref QueueMessages
       Principal: sns.amazonaws.com
 
   AlertDBTrigger:
@@ -431,10 +500,10 @@ Resources:
         action:
           - confirmed
 
-  SendMessagesSubscription:
+  QueueMessagesSubscription:
     Type: AWS::SNS::Subscription
     Properties:
-      Endpoint: !GetAtt SendMessages.Arn
+      Endpoint: !GetAtt QueueMessages.Arn
       Protocol: lambda
       TopicArn: !Ref AlertPublishedTopic
 
@@ -445,6 +514,14 @@ Resources:
       Enabled: true
       EventSourceArn: !GetAtt ContactQueue.Arn
       FunctionName: !GetAtt ProcessSubscription.Arn
+
+  SendMessagesEventSourceMapping:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 1
+      Enabled: true
+      EventSourceArn: !GetAtt MessageQueue.Arn
+      FunctionName: !GetAtt SendMessages.Arn
 
   # Create the 'messages' SQS DL queue
   # MessagesDLQueue:

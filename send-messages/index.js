@@ -1,11 +1,10 @@
-const AWS = require('aws-sdk')
 const { NotifyClient } = require('notifications-node-client')
-const ddb = new AWS.DynamoDB.DocumentClient()
-const tableName = process.env.SUBSCRIPTION_TABLE_NAME
-const apiKey = process.env.NOTIFY_API_KEY
-const emailTemplateId = process.env.NOTIFY_EMAIL_TEMPLATE_ID
-const smsTemplateId = process.env.NOTIFY_SMS_TEMPLATE_ID
-const client = new NotifyClient(apiKey)
+const {
+  NOTIFY_API_KEY,
+  NOTIFY_EMAIL_TEMPLATE_ID,
+  NOTIFY_SMS_TEMPLATE_ID
+} = process.env
+const client = new NotifyClient(NOTIFY_API_KEY)
 
 exports.handler = async function (event, context) {
   console.log('Event', JSON.stringify(event))
@@ -13,41 +12,22 @@ exports.handler = async function (event, context) {
   // Extract message (batch = 1)
   const record = event.Records[0]
 
-  // Get the alert TA code
-  const alert = JSON.parse(record.Sns.Message)
-  console.log('Alert', alert)
-  const { code, headline, body } = alert
+  const message = JSON.parse(record.body)
+  console.log('Message', message)
+  const { endpoint, channel, alert } = message
+  const { headline, body } = alert
 
-  // Get the subscribers
-  // TODO: paginate
-  const result = await ddb.query({
-    KeyConditionExpression: 'code = :code',
-    ExpressionAttributeValues: {
-      ':code': code
-    },
-    TableName: tableName
-  }).promise()
-
-  const subscribers = result.Items
-  console.log('Subscribers', subscribers)
-
-  for (let i = 0; i < subscribers.length; i++) {
-    const subscriber = subscribers[i]
-    const channel = subscriber.channel
-    const endpoint = subscriber.endpoint
-
-    if (channel === 'email') {
-      await sendEmail(endpoint, { headline, body })
-    } else if (channel === 'sms') {
-      await sendSMS(endpoint, { body })
-    }
+  if (channel === 'email') {
+    await sendEmail(endpoint, { headline, body })
+  } else if (channel === 'sms') {
+    await sendSMS(endpoint, { body })
   }
 }
 
 const sendEmail = function (email, personalisation) {
-  return client.sendEmail(emailTemplateId, email, { personalisation })
+  return client.sendEmail(NOTIFY_EMAIL_TEMPLATE_ID, email, { personalisation })
 }
 
 const sendSMS = function (phoneNumber, personalisation) {
-  return client.sendSms(smsTemplateId, phoneNumber, { personalisation })
+  return client.sendSms(NOTIFY_SMS_TEMPLATE_ID, phoneNumber, { personalisation })
 }
