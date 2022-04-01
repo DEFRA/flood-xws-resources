@@ -11,6 +11,7 @@ exports.handler = async function (event, context) {
   const record = event.Records[0]
   const message = JSON.parse(record.body)
   await saveSubscriptions(message.pk)
+
   return 'ok'
 }
 

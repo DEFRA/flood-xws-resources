@@ -1,0 +1,11 @@
+{
+  "name": "process-contact",
+  "version": "0.0.1",
+  "description": "Serverless function processing an updated contact into subscriptions",
+  "main": "index.js",
+  "scripts": {
+    "package": "zip -r -q function.zip ."
+  },
+  "author": "",
+  "license": "ISC"
+}

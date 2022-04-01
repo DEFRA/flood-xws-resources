@@ -45,6 +45,14 @@ Resources:
       TopicName: !Sub ${AWS::StackName}-alert-published
       DisplayName: Alert published
 
+  ContactUpdatedTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub ${AWS::StackName}-contact-updated.fifo
+      FifoTopic: true
+      ContentBasedDeduplication: true
+      DisplayName: Contact updated topic
+
   AlertDB:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -160,13 +168,10 @@ Resources:
       Timeout: 20
       Environment:
         Variables:
-          CONTACT_TABLE_NAME: !Ref ContactDB
-          CONTACT_QUEUE_URL: !Ref ContactQueue
-          CONTACT_QUEUE_NAME: !GetAtt ContactQueue.QueueName
-          CONTACT_QUEUE_ARN: !GetAtt ContactQueue.Arn
+          CONTACT_UPDATED_TOPIC_ARN: !Ref ContactUpdatedTopic
     DependsOn:
       - ContactDB
-      - ContactQueue
+      - ContactUpdatedTopic
       - ProcessContactLambdaExecutionRole
 
   ProcessSubscription:
@@ -258,12 +263,8 @@ Resources:
                   - arn:aws:logs:*:*:*
                 Effect: Allow
               - Action:
-                  - dynamodb:*
-                Resource: !GetAtt ContactDB.Arn
-                Effect: Allow
-              - Action:
-                - sqs:SendMessage
-                Resource: !GetAtt ContactQueue.Arn
+                  - sns:Publish
+                Resource: !Ref ContactUpdatedTopic
                 Effect: Allow
               - Action:
                   - dynamodb:DescribeStream
@@ -403,12 +404,32 @@ Resources:
       FunctionName: !GetAtt ProcessContact.Arn
       StartingPosition: LATEST
 
-  Subscription:
+  ContactQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                # - events.amazonaws.com
+                # - sqs.amazonaws.com
+                - sns.amazonaws.com
+            Action: sqs:SendMessage
+            Resource: !GetAtt ContactQueue.Arn
+      Queues:
+        - !Ref ContactQueue
+
+  ContactConfirmedSubscription:
     Type: AWS::SNS::Subscription
     Properties:
-      Endpoint: david.stone@defra.net
-      Protocol: email
-      TopicArn: !Ref AlertPublishedTopic
+      Endpoint: !GetAtt ContactQueue.Arn
+      Protocol: sqs
+      TopicArn: !Ref ContactUpdatedTopic
+      RawMessageDelivery: true
+      FilterPolicy:
+        action:
+          - confirmed
 
   SendMessagesSubscription:
     Type: AWS::SNS::Subscription
@@ -416,7 +437,7 @@ Resources:
       Endpoint: !GetAtt SendMessages.Arn
       Protocol: lambda
       TopicArn: !Ref AlertPublishedTopic
-  
+
   ContactSubscriptionEventSourceMapping:
     Type: AWS::Lambda::EventSourceMapping
     Properties:
