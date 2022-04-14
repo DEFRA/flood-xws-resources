@@ -43,6 +43,4 @@ exports.handler = async function (event, context) {
 
     console.log('Update published', result)
   }
-
-  return 'ok'
 }
