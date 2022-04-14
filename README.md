@@ -18,13 +18,25 @@ or
 ### Sync target areas to S3
 `$ make syncAreas`
 
+## Lambdas
+Before running the following commands, ensure each sub-package has built it's `function.zip` by running `npm run package` in each sub-directory.
+
 ### Upload the process alert lambda
 `$ make uploadProcessAlertLambda`
+
+### Upload the process contact lambda
+`$ make uploadProcessContactLambda`
+
+### Upload the process subscription lambda
+`$ make uploadProcessSubscriptionLambda`
+
+### Upload the queue messages lambda
+`$ make uploadQueueMessagesLambda`
 
 ### Upload the send messages lambda
 `$ make uploadSendMessagesLambda`
 
-Note: Currently need to manually configure the send-messages lambda ENVARS for Gov UK Notify
+Note: Currently need to manually configure some `send-messages` and `process-subscription` lambda ENVARS
 
 ### Delete the stack
 `$ make delete`
