@@ -46,5 +46,3 @@ exports.handler = async function (event, context) {
 
   return 'ok'
 }
-
-AWS.DynamoDB.Converter.unmarshall(undefined)
