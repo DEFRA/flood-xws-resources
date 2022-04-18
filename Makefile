@@ -13,6 +13,9 @@ syncAreas:
 uploadProcessAlertLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-process-alert --zip-file "fileb://./process-alert/function.zip"
 
+uploadPublishAlertLambda:
+	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-publish-alert --zip-file "fileb://./publish-alert/function.zip"
+
 uploadProcessContactLambda:
 	aws lambda update-function-code --profile $(AWS_PROFILE) --function-name xws-$(ENV)-process-contact --zip-file "fileb://./process-contact/function.zip"
 

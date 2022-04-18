@@ -52,6 +52,29 @@ Resources:
         deadLetterTargetArn: !GetAtt MessageQueueDLQ.Arn
         maxReceiveCount: 3
 
+  AlertIssuedQueueDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      FifoQueue: true
+      QueueName: !Sub ${AWS::StackName}-alert-issued-queue-dlq.fifo
+
+  AlertIssuedQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      FifoQueue: true
+      QueueName: !Sub ${AWS::StackName}-alert-issued-queue.fifo
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt AlertIssuedQueueDLQ.Arn
+        maxReceiveCount: 3
+  
+  AlertUpdatedTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub ${AWS::StackName}-alert-updated.fifo
+      FifoTopic: true
+      ContentBasedDeduplication: true
+      DisplayName: Alert updated topic
+
   AlertPublishedTopic:
     Type: AWS::SNS::Topic
     Properties:
@@ -84,7 +107,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
       StreamSpecification:
-        StreamViewType: NEW_IMAGE
+        StreamViewType: NEW_AND_OLD_IMAGES
 
   ContactDB:
     Type: AWS::DynamoDB::Table
@@ -156,14 +179,36 @@ Resources:
       Timeout: 20
       Environment:
         Variables:
+          ALERT_TABLE_NAME: !Ref AlertDB
+          ALERT_UPDATED_TOPIC_ARN: !Ref AlertUpdatedTopic
+    DependsOn:
+      - AlertDB
+      - ProcessAlertLambdaExecutionRole
+
+  PublishAlert:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-publish-alert
+      Handler: index.handler
+      Runtime: nodejs14.x
+      Code:
+        ZipFile: |
+            exports.handler = function (event, context) {
+              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
+              return 'ok'
+            }
+      Role: !GetAtt PublishAlertLambdaExecutionRole.Arn
+      Timeout: 20
+      Environment:
+        Variables:
           S3_BUCKET_NAME: !Ref FilesBucket
           S3_BUCKET_DOMAIN_NAME: !GetAtt FilesBucket.RegionalDomainName
           ALERT_TABLE_NAME: !Ref AlertDB
           ALERT_PUBLISHED_TOPIC_ARN: !Ref AlertPublishedTopic
     DependsOn:
-      - FilesBucket
       - AlertDB
-      - ProcessAlertLambdaExecutionRole
+      - AlertIssuedQueue
+      - PublishAlertLambdaExecutionRole
 
   ProcessContact:
     Type: AWS::Lambda::Function
@@ -229,6 +274,46 @@ Resources:
                 Effect: Allow
               - Action:
                   - sns:*
+                Resource: !Ref AlertUpdatedTopic
+                Effect: Allow
+              - Action:
+                  - dynamodb:*
+                Resource: !GetAtt AlertDB.Arn
+                Effect: Allow
+              - Action:
+                  - dynamodb:DescribeStream
+                  - dynamodb:GetRecords
+                  - dynamodb:GetShardIterator
+                  - dynamodb:ListStreams
+                Resource: !GetAtt AlertDB.StreamArn
+                Effect: Allow
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+  PublishAlertLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - arn:aws:logs:*:*:*
+                Effect: Allow
+              - Action:
+                  - sns:*
                 Resource: !Ref AlertPublishedTopic
                 Effect: Allow
               - Action:
@@ -244,11 +329,11 @@ Resources:
                 Resource: !Join ['', [!GetAtt FilesBucket.Arn, '/*']]
                 Effect: Allow
               - Action:
-                  - dynamodb:DescribeStream
-                  - dynamodb:GetRecords
-                  - dynamodb:GetShardIterator
-                  - dynamodb:ListStreams
-                Resource: !GetAtt AlertDB.StreamArn
+                  - sqs:ReceiveMessage
+                  - sqs:DeleteMessage
+                  - sqs:GetQueueAttributes
+                  - sqs:ChangeMessageVisibility
+                Resource: !GetAtt AlertIssuedQueue.Arn
                 Effect: Allow
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -522,6 +607,39 @@ Resources:
       Enabled: true
       EventSourceArn: !GetAtt MessageQueue.Arn
       FunctionName: !GetAtt SendMessages.Arn
+
+  AlertIssuedSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: !GetAtt AlertIssuedQueue.Arn
+      Protocol: sqs
+      TopicArn: !Ref AlertUpdatedTopic
+      RawMessageDelivery: true
+      FilterPolicy:
+        action:
+          - issued
+
+  AlertIssuedEventSourceMapping:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      BatchSize: 1
+      Enabled: true
+      EventSourceArn: !GetAtt AlertIssuedQueue.Arn
+      FunctionName: !GetAtt PublishAlert.Arn
+
+  AlertIssuedQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - sns.amazonaws.com
+            Action: sqs:SendMessage
+            Resource: !GetAtt AlertIssuedQueue.Arn
+      Queues:
+        - !Ref AlertIssuedQueue
 
   # Create the 'messages' SQS DL queue
   # MessagesDLQueue:
